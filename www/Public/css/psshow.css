@@ -1,0 +1,43 @@
+
+#bjtlft
+{
+    height: 600px;
+    width: 440px;
+    background: url('../../images/beijinl.jpg');
+    float: left;
+}
+
+#touxiang
+{
+    height: 200px;
+    width: 220px;
+   border: 1px solid red;
+    float: left;
+    margin-left: 3px;
+}
+
+#centre
+{
+    height: 400px;
+    width: 210px;
+    float: left;
+    margin-left: 3px;
+    margin-top: 200px;
+
+}
+
+#centre.lft
+{
+    margin-left: 3px;
+}
+
+#bjtrgt
+{
+    height: 600px;
+    width: 440px;
+    background: url('../../images/beijinr.jpg');
+    float: right;
+}
+
+
+
