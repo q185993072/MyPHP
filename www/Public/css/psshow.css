@@ -1,43 +1,99 @@
-
+li
+{
+    list-style-type: none;
+}
 #bjtlft
 {
-    height: 600px;
-    width: 440px;
-    background: url('../../images/beijinl.jpg');
+    height: 620px;
+    width: 39%;
+    background: url('../images/beijinl.jpg') no-repeat;
     float: left;
-}
-
-#touxiang
-{
-    height: 200px;
-    width: 220px;
-   border: 1px solid red;
-    float: left;
-    margin-left: 3px;
+    margin-left: 20px;
 }
 
 #centre
 {
-    height: 400px;
-    width: 210px;
+    height: 600px;
+    width: 20%;
     float: left;
-    margin-left: 3px;
-    margin-top: 200px;
-
+    margin-left: 2px;
 }
 
-#centre.lft
+#touxiang
 {
-    margin-left: 3px;
+
+    background: url('../images/shili.png') no-repeat;
+    height: 250px;
+    width: 100%;
+    margin-left: 1px;
+    background-size: 100%;
 }
+
+#daohang
+{
+    margin-top: 40px;
+    height: 400px;
+    width: 100%;
+    background: url('../images/taijie.jpg') no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+
+#daohang ul
+{
+
+    position: absolute;
+    top: 140px;
+    left: 100px;
+    
+}
+
+#daohang #zhuye
+{
+    margin-left: 6px;
+
+}
+
+#daohang #liuyan
+{
+    margin-left: 20px;
+    margin-top: 7px;
+}
+
+#daohang #rizhi
+{
+    margin-left: 28px;
+    margin-top: 7px;
+}
+
+#daohang #say
+{
+    margin-left: 30px;
+    margin-top: 6px;
+}
+
+#daohang #tuxiang
+{
+    margin-left: 18px;
+    margin-top: 7px;
+}
+
+#daohang #more
+{
+    margin-left: 1px;
+    margin-top: 9px;
+}
+
+
 
 #bjtrgt
 {
-    height: 600px;
-    width: 440px;
-    background: url('../../images/beijinr.jpg');
+    height: 620px;
+    width: 36%;
+    background: url('../images/beijinr.jpg');
     float: right;
-}
+    margin-right: 18px;
+ }
 
 
 
