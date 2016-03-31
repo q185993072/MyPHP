@@ -82,11 +82,22 @@
             </div>
             <div class="right_login">
                 HI!您好<br/>
-                <button type="button">会员登录</button>
-                <button type="button">马上注册</button>
+                <button type="button" class="login">会员登录</button>
+                <button type="button" class="register">马上注册</button>
             </div>
             <div class="photo">
                 <img src="/Public/images/photo.png" />
+            </div>
+        </div>
+        <!--登录页面-->
+        <div class="login_list">
+            <p>快速登录</p>
+            <div class="login_list_1">
+                <form method="post" action="/home/index/login_save">
+                    <p><label>用户名: </label><input type="text" name="username" placeholder="请填写用户名"/></p>
+                    <p><label>密码: </label><input type="password" name="password" placeholder="请正确填写密码"/></p>
+                    <input type="submit" value="登录" class="submit"/>
+                </form>
             </div>
         </div>
 
@@ -115,6 +126,7 @@
     <!--右边结束-->
 </div>
 <!--主要内容结束-->
+
     <!--广告开始-->
  <div class="advert3">
 
