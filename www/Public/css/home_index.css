@@ -1,0 +1,244 @@
+.advert1,.advert2{
+    width:1000px;
+    height:80px;
+    margin:0 auto;
+}
+.advert1{
+    background:url(../images/guanggao1.gif) no-repeat;
+    background-size:1000px 100%;
+}
+.advert2{
+    background:url(../images/guanggao2.gif) no-repeat;
+    background-size:1000px 100%;
+}
+#major{
+    width:1000px;
+    height:600px;
+    margin:5px auto;
+}
+#major .left{
+    float:left;
+    width:260px;
+    height:630px;
+    background-color:white;
+}
+#major .left .left_1{
+    width:260px;
+    height:300px;
+    background:url(../images/left.gif) no-repeat;
+    background-size: 260px 100%;
+}
+#major .left .left_2{
+    width:260px;
+    height:280px;
+    margin-top:20px;
+}
+hr{
+    border:1px solid #DFDFDF;
+}
+#major .left .left_2 span{
+    display: inline-block;
+    height:30px;
+    font-weight: bold;
+}
+#major .left .left_2 .left_2_1{
+    margin-top:10px;
+}
+#major .left .left_2 .left_2_1 li{
+    font-size: 14px;
+}
+#major .left .left_2 .left_2_1 li+li{
+    line-height: 30px;
+}
+.bt{
+   color:red;
+    margin-right:3px;
+}
+#major .mid{
+    float:left;
+    width:460px;
+    height:630px;
+    margin:0 0 0 10px;
+    background-color:white;
+}
+#major .mid .mid_1{
+    width:430px;
+    height:190px;
+    margin:8px auto;
+
+}
+#major .mid span{
+    width:50px;
+    height:23px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    background-color:#FF6600;
+    border-radius: 2px;
+}
+#major .mid p{
+    font-size: 15px;
+    margin-top:5px;
+}
+#major .mid ul{
+    margin-top:10px;
+}
+#major .mid ul li{
+    line-height: 26px;
+}
+#major .mid  h3{
+    display: inline-block;
+    margin-left:15px;
+    font-size: 18px;
+    color:#FF6600;
+}
+#major .mid .mid_2,#major .mid .mid_3{
+    width:430px;
+    height:150px;
+    margin:0 auto;
+}
+#major .mid .mid_2 h3{
+    color:#F6C401;
+}
+#major .mid .mid_2 span{
+    background-color:#F6C401;
+}
+#major .mid .mid_3 h3{
+    color:#01B9F7;
+}
+#major .mid .mid_3 span{
+    background-color:#01B9F7;
+}
+#major .mid .mid_4{
+    background:url(../images/line.png) 0 8px no-repeat;
+}
+#major .mid .mid_4 p{
+    display: inline-block;
+    margin:0 0 0 30px;
+    color:#EC6202;
+    font-size: 20px;
+    background:white;
+}
+#major .mid .mid_4 ul{
+    margin:10px 0 0 15px;
+}
+#major .mid .mid_4 .bt{
+    margin-right:20px;
+}
+#major .mid .mid_4 span{
+    background-color:white;
+}
+#major .right{
+    float:left;
+    width:260px;
+    height:630px;
+    margin-left:6px;
+}
+#major .right .weather{
+    width:260px;
+    height:120px;
+    background-color:white;
+}
+#major .right .weather .weather_list{
+    width:230px;
+    margin:0 auto;
+}
+#major .right .weather .right_login{
+    float:left;
+    width:165px;
+    margin:20px 0 0 10px;
+}
+
+#major .right .weather button{
+    width:80px;
+    height:40px;
+    border-radius: 3px;
+    background-color:#2DB7DC;
+    border:0;
+    cursor: pointer;
+}
+
+/*µÇÂ¼¿ªÊ¼*/
+ .login_list{
+    position: absolute;
+    top:300px;
+    left:600px;
+    width:300px;
+    height:200px;
+    text-align: center;
+    background-color:white;
+    z-index: 1;
+    border:1px solid #ccc;
+     display: none;
+}
+.login_list form{
+    margin:15px 0 0 0;
+}
+
+.login_list .login_list_1{
+    width:230px;
+    height:120px;
+    text-align: right;
+    margin:0 0 0 15px;
+}
+.login_list .login_list_1 input{
+    width:160px;
+    height:30px;
+    margin-top:5px;
+}
+.login_list .login_list_1 .submit{
+    width:70px;
+    height:30px;
+    margin:10px 0 0 0;
+    border-radius: 3px;
+    border:1px solid #ccc;
+}
+/*µÇÂ¼½áÊø*/
+
+#major .right .weather .photo{
+    float:left;
+    width:70px;
+    height:80px;
+    margin:10px 0 0 10px;
+}
+#major .right .weather .photo img{
+    width:70px;
+    height:70px;
+}
+
+#major .right .message{
+    width:260px;
+    height:230px;
+    margin:20px 0 0 0;
+}
+#major .right .message h3{
+    color:#FAC00F;
+    margin:0 0 0 10px;
+}
+#major .right .message span{
+    color:#2DB7DC;
+}
+#major .right .message li{
+    float:left;
+    width:50px;
+    height:50px;
+    margin:10px 0 0 10px;
+    line-height: 50px;
+    text-align: center;
+    border:1px solid #ccc;
+}
+#major .right .right_1{
+    width:260px;
+    height:260px;
+    background:url(../images/right.jpg) no-repeat;
+    background-size: 260px 100%;
+}
+
+.advert3{
+    background:url(../images/guanggao2.gif) 50% 50% no-repeat;
+    width:1000px;
+    height:70px;
+    margin:auto;
+    margin-top:40px;
+    background-size:1000px 100%;
+}

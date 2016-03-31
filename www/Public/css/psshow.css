@@ -1,0 +1,227 @@
+li {
+    list-style-type: none;
+}
+/*左边的背景图 */
+#bjtlft {
+    height: 620px;
+    width: 39%;
+    background: url('../images/beijinl.jpg') no-repeat;
+    float: left;
+    margin-left: 20px;
+}
+/*帖子内容外面的div */
+.tiezinrw
+{
+    margin: 30px 0 0 20px;
+    height: 550px;
+    width: 400px;
+    border: 1px solid red;
+}
+/*帖子回复*/
+.tiezihf
+{
+    margin: 30px 0 0 20px;
+    height: 550px;
+    width: 400px;
+    border: 1px solid red;
+}
+/*帖子日期*/
+#tiezirq
+{
+    margin: 30px 0 0 20px;
+    height: 50px;
+    width: 350px;
+
+}
+/*帖子内容*/
+#tiezinr
+{
+    margin: 20px 30px 0 0;
+    height: 300px;
+    width: 230px;
+
+    float: right;
+}
+/*帖子头像*/
+#tiezitx
+{
+
+    margin: 20px 0 0 20px;
+    height: 100px;
+    width: 100px;
+    background: url("../images/plyh.jpeg");
+    float: left;
+    background-size: 100%;
+}
+/*帖子赞*/
+#itezizan
+{
+    margin: 330px 0 0 140px;
+    height: 50px;
+    width: 250px;
+    border: 1px solid red;
+}
+
+/*赞*/
+#zan
+{
+    margin: 350px 0 0 25px;
+}
+
+/*评论*/
+#pinglun
+{
+    margin: 350px 0 0 25px;
+    background-size: 100%;
+}
+
+/*转发*/
+#zhuanfa
+{
+    margin: 350px 0 0 25px;
+}
+
+/*收藏*/
+#shoucang
+{
+    margin: 350px 0 0 25px;
+}
+
+/*个人资料外面div*/
+.ziliao {
+    margin-top: 100px;
+    margin-left: 100px;
+}
+/*个人资料里面的li*/
+.ziliao .lft li {
+    height: 50px;
+}
+/*中间部分*/
+#centre {
+    height: 600px;
+    width: 20%;
+    float: left;
+    margin-left: 2px;
+}
+/*中间头像*/
+#touxiang {
+
+    background: url('../images/shili.png') no-repeat;
+    height: 250px;
+    width: 100%;
+    margin-left: 1px;
+    background-size: 100%;
+}
+/*中间导航*/
+#daohang {
+    margin-top: 40px;
+    height: 400px;
+    width: 100%;
+    background: url('../images/taijie.jpg') no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+/*导航的ul*/
+#daohang ul {
+
+    position: absolute;
+    top: 140px;
+    left: 100px;
+
+}
+/*导航的主题*/
+#daohang #zhuti {
+    margin-left: 6px;
+
+}
+/*导航的留言*/
+#daohang #liuyan {
+    margin-left: 20px;
+    margin-top: 7px;
+}
+/*导航的帖子*/
+#daohang #tiezi {
+    margin-left: 28px;
+    margin-top: 7px;
+}
+/*导航的回复*/
+#daohang #say {
+    margin-left: 30px;
+    margin-top: 6px;
+}
+/*导航的相册*/
+#daohang #tuxiang {
+    margin-left: 18px;
+    margin-top: 7px;
+}
+/*导航的个人资料*/
+#daohang #grzl {
+    margin-top: 9px;
+}
+/*右边背景图*/
+#bjtrgt {
+    height: 620px;
+    width: 36%;
+    background: url('../images/beijinr.jpg');
+    float: right;
+    margin-right: 18px;
+}
+/*热门回复*/
+#hothf {
+    margin-left: 60px;
+}
+/*热门回复外面的div*/
+#hfwai {
+    height: 460px;
+    width: 300px;
+}
+/*热门回复的评论者地 头像*/
+.pltx {
+    border: 1px solid skyblue;
+    height: 70px;
+    width: 80px;
+    float: left;
+    margin-top: 2px;
+    background: url("../images/plyh.jpeg");
+    background-size: 100%;
+}
+/*热门回复的评论者地 内容*/
+.plnr {
+    border: 1px solid deepskyblue;
+    height: 70px;
+    width: 218px;
+    float: right;
+    margin-top: 2px;
+}
+/*热门回复的评论者地 时间*/
+.plnr .shijian {
+    display: block;
+    margin: 30px 0 0 140px;
+
+}
+/*用户帖子右边的回复*/
+.yhtzhftx
+{
+    border: 1px solid skyblue;
+    height: 70px;
+    width: 80px;
+    float: left;
+    margin:  20px 0 0 30px;
+    background: url("../images/plyh.jpeg");
+    background-size: 100%;
+}
+/*用户帖子右边回复内容*/
+.yhtzhfnr
+{
+    border: 1px solid deepskyblue;
+    height: 70px;
+    width: 258px;
+    float: right;
+    margin:  20px 20px 0  0;
+}
+/*用户帖子又变回复时间*/
+.yhtzhfsj
+{
+    display: block;
+    margin: 30px 0 0 180px;
+}

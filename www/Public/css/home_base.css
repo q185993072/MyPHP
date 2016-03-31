@@ -1,0 +1,237 @@
+a{
+    text-decoration: none;
+}
+body{
+    background-color:#F1F1F1;
+}
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style-type: none;
+}
+.yellow{
+  background-color:#FE9900;
+}
+#top{
+    width:100%;
+    height:30px;
+    background-color: #F5F5F5;
+}
+#top .collection{
+    width:1000px;
+    line-height: 30px;
+    margin:0 auto;
+}
+#top .collection span+span{
+    margin-left:15px;
+}
+#top .collection a{
+    color:black;
+    font-size: 12px;
+}
+#top .collection a:hover{
+    color:deepskyblue;
+}
+#top .login{
+    float:right;
+}
+
+#search{
+    width:1000px;
+    height:100px;
+    margin:0 auto;
+
+    position: relative;
+}
+#search .logo{
+    float:left;
+    width:200px;
+    height:80px;
+    margin-top:12px;
+    background:url(../images/logo.png) no-repeat;
+    background-size: 250px 60px;
+}
+#search .search_list{
+    float:left;
+    width:310px;
+    height:30px;
+    margin:30px 0 0 110px;
+    border:3px solid #FE9900;
+}
+#search .search_list input {
+    float:left;
+    width:260px;
+    height:30px;
+    border:0;
+}
+#search .search_list .btn{
+    width:50px;
+    background-color:#FE9900;
+    cursor: pointer;
+}
+#phone{
+    position: absolute;
+    top:28px;
+    left:830px;
+    width:170px;
+    height:50px;
+    background:url(../images/phone.png) no-repeat;
+    background-size: 38px 38px;
+}
+#phone h6,h4{
+    margin:2px 0 0 45px;
+}
+#phone h4{
+    color:#0EC694;
+}
+#nav{
+    width:1000px;
+    height:40px;
+    background-color: #2CA5DA;
+    margin:0 auto;
+    line-height: 40px;
+}
+#nav li{
+    float:left;
+    padding:0 30px 0 30px;
+    text-align: center;
+}
+#nav span{
+    float:right;
+    width:120px;
+    text-align:center;
+    background:#FE9900;
+    cursor:pointer;
+}
+#nav1{
+    width:1000px;
+    height:80px;
+    margin:0 auto;
+    background-color:white;
+}
+#nav1 .home{
+    float:left;
+    width:170px;
+    height:70px;
+    background:url(../images/home.png) no-repeat;
+    margin:5px 0 0 5px;
+}
+#nav1 .home span{
+    font-size: 10px;
+    line-height: 120px;
+    float:left;
+}
+#nav1 .home ul{
+    margin-left:55px;
+    height:60px;
+    width:120px;
+}
+#nav1 .home li{
+    font-size: 10px;
+    float:left;
+    margin-top:15px;
+    padding:0 5px 0 5px;
+}
+#nav1 .shop{
+    background:url(../images/mic.png) no-repeat;
+    margin-left:30px;
+}
+#nav1 .food{
+    background:url(../images/cute.png) no-repeat;
+    margin-left:30px;
+}
+#nav1 .feel{
+    background:url(../images/hat.png) no-repeat;
+    margin-left:30px;
+}
+#nav1 .house{
+    background:url(../images/key.png) no-repeat;
+    margin-left:30px;
+}
+#footer{
+    width:1000px;
+    height:140px;
+    margin:10px auto;
+    border-top:1px solid #ccc;
+}
+#footer .user,#footer .lianxi,#footer .hezuo{
+    width:100px;
+    height:180px;
+    float:left;
+    margin:10px 0 0 10px;
+}
+#footer p{
+    font-weight: bold;
+}
+#footer .user li,#footer .lianxi li,#footer .hezuo li{
+    font-size: 15px;
+    margin-top:10px;
+}
+#footer>p{
+    display: inline-block;
+    height:80px;
+    margin:20px 0 0 20px;
+    float:left;
+    border:1px solid #ccc;
+}
+#footer .xiazai{
+    width:260px;
+    height:150px;
+    float:left;
+    margin:10px 0 0 50px;
+}
+.xiazai li{
+    float:left;
+    margin:0 0 0 20px;
+}
+.xiazai ul{
+    margin:20px 0 0 0;
+}
+.xiazai .huose,.xiazai .zixun,.xiazai .shequ{
+    background:url(../images/footer_link_bg.png) no-repeat;
+    display:block;
+    width:30px;
+    height:30px;
+    margin:0 0 0 17px;
+}
+.xiazai .zixun{
+    background:url(../images/footer_link_bg.png) 0 -34px no-repeat;
+}
+.xiazai .shequ{
+    background:url(../images/footer_link_bg.png) 0 -68px no-repeat;
+}
+#footer span{
+    display: inline-block;
+    margin:10px 0 0 0;
+}
+#footer .guanzhu{
+    width:200px;
+    height:150px;
+    float:left;
+    margin:10px 0 0 60px;
+}
+.guanzhu .chat,.guanzhu .weibo{
+    background:url(../images/footer_link_bg.png) 0 -137px no-repeat;
+    display:block;
+    width:30px;
+    height:30px;
+}
+.guanzhu .weibo{
+    background:url(../images/footer_link_bg.png) 0 -103px no-repeat;
+    margin:0 0 0 18px;
+}
+
+.guanzhu li{
+    float:left;
+    margin:20px 0 0 20px;
+}
+#footer .banquan,#footer .beian{
+    width:1000px;
+    height:30px;
+    text-align: center;
+    float:left;
+    color:#ccc;
+    font-size: 12px;
+}
