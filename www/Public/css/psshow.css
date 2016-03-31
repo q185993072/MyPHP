@@ -15,7 +15,6 @@ li {
     margin: 30px 0 0 20px;
     height: 550px;
     width: 400px;
-    border: 1px solid red;
 }
 /*帖子回复*/
 .tiezihf
@@ -23,7 +22,6 @@ li {
     margin: 30px 0 0 20px;
     height: 550px;
     width: 400px;
-    border: 1px solid red;
 }
 /*帖子日期*/
 #tiezirq
