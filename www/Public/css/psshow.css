@@ -53,13 +53,38 @@ li {
     float: left;
     background-size: 100%;
 }
-
+/*帖子赞*/
 #itezizan
 {
-    margin: 350px 0 0 20px;
+    margin: 330px 0 0 140px;
     height: 50px;
-    width: 350px;
+    width: 250px;
     border: 1px solid red;
+}
+
+/*赞*/
+#zan
+{
+    margin: 350px 0 0 25px;
+}
+
+/*评论*/
+#pinglun
+{
+    margin: 350px 0 0 25px;
+    background-size: 100%;
+}
+
+/*转发*/
+#zhuanfa
+{
+    margin: 350px 0 0 25px;
+}
+
+/*收藏*/
+#shoucang
+{
+    margin: 350px 0 0 25px;
 }
 
 /*个人资料外面div*/

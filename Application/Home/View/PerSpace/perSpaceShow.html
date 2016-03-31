@@ -39,7 +39,18 @@
             展开全文
         </div>
         <div id="itezizan">
-
+            <span id="zan">
+                show
+            </span>
+            <span id="pinglun">
+                say
+            </span>
+             <span id="zhuanfa">
+                say
+            </span>
+            <span id="shoucang">
+                say
+            </span>
         </div>
     </div>
 </div>
@@ -59,7 +70,6 @@
         </ul>
     </div>
 </div>
-
 
 <div id="bjtrgt">
     <div id="hothf" style="display: none">
