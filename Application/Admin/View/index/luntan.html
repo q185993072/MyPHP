@@ -1,79 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>论坛</title>
-    <link href="/Public/luntan.css" rel="stylesheet" type="text/css">
-</head>
-<body style="background-color: #ececec">
-<div id="hd">
-    <div class="hd_dl " style="float: left;width: 300px">
-        <h2>
-            <a title="某某论坛" href="#">
-                <img src="/Public/img/lufei.png"
-                     style="height: 120px;margin-top: -20px;margin-right:30px  ">
-            </a>
-        </h2>
+<div id="bd" class="border">
+    <div style="float: left;width: 705px;height: 230px; " class="bd_border">
+        <div id="boxID" style="width: 300px;;height: 180px;margin-left: 22px;margin-top: 18px;float: left "
+             class="bd_border">
+            <div class="loading">
+                <img src="/Public/myfocus/mf-pattern/img/loading.gif" alt="标题">
+            </div>
+            <div class="pic">
+                <ul >
+                    <li><a href="#"><img src="/Public/img/lufei.png" alt="标题1"/></a></li>
+                    <li><a href="#"><img src="/Public/img/lufei.png" alt="标题"/></a></li>
+                    <li><a href="#"><img src="/Public/img/lufei.png" alt="标题"/></a></li>
+                    <li><a href="#"><img src="/Public/img/lufei.png" alt="标题"/></a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="float: left;width: 370px;height: 190px;margin-top: 22px" >
+            <div style="width: 368px;height: 30px">
+             <ul class="tabs">
+                 <li class="lid">最新帖子</li>
+                 <li class="lid">最新回复</li>
+                 <li class="lid">热门帖子</li>
+                 <li class="lid">活跃会员</li>
+             </ul>
+            </div>
+            <div class="bd_border"style="width: 350px;margin-top: -10px;margin-left: auto;margin-right: auto"></div>
+
+        </div>
     </div>
+    <div style="float: left;width: 276px;height: 230px; margin-left: 15px" class="bd_border">
+        <div style="width: 276px;height: 49px">
+            <img src="/Public/img/day.png"style="width: 276px;height: 49px">
 
-
-
-    <div class="hd_dl " style="float: right;width: 350px">
-        <form method="post" action="#">
-            <div style="margin-top: 20px;">
-                <div style="width:350px;height: 30px;">
-                    <label style="font-size: small">账号：</label>
-                    <input type="text" name="username"/>
-                    <input type="checkbox" name="remember_login">
-                    <label style="color: #333333;font-size: small">自动登录</label>
-                    &nbsp;
-                    <a href="#" style="color: #232323;text-decoration:none;font-size: small;">找回密码</a>
-                </div>
-
-                <div style="width: 350px;height: 30px;">
-                    <label style="font-size: small">密码：</label>
-                    <input type="text" name="username"/>
-                    &nbsp;&nbsp;&nbsp;
-                    <input type="submit" name="login" value="登录">
-                    &nbsp;&nbsp;&nbsp;
-                    <a href="#" style="color: red;text-decoration:none;font-size: small;font-weight: 200">注册</a>
-                </div>
-            </div>
-        </form>
-    </div>
-
-
-    <div class="hd_dl" style="float: right;width: 150px">
-        <div style="margin-top: 23px;">
-            <div style="width:150px;height: 30px">
-                <a href="#"><img src="/Public/img/QQ.png"></a>
-            </div>
-            <div style="width:150px;height: 30px;">
-                <label style="font-size: small;color: #999999"> &nbsp; 只需一步，快速开始</label>
-
-            </div>
         </div>
 
     </div>
 
-    <div  class="border nav" style="height: 40px;width: 1000px;float:left;">
-        <div style="">
-
-            <ul >
-                <li class="li"><a href="#" class="li_a">首页</a></li>
-                <li class="li"><a href="#" class="li_a">HTML教程</a></li>
-                <li class="li"><a href="#" class="li_a">CSS基础</a></li> &nbsp;&nbsp;&nbsp;
-                <li class="li"><a href="#" class="li_a">CSS开发工具</a></li> &nbsp;&nbsp;&nbsp;
-                <li class="li"><a href="#" class="li_a">CSS特效</a></li> &nbsp;&nbsp;&nbsp;
-                <li class="li"><a href="#" class="li_a">CSS问题</a></li> &nbsp;&nbsp;&nbsp;
-            </ul>
-
-        </div>
+    <div style="float: left;width: 1000px;height: 90px;margin-top: 20px"class="bd_border">
+        <a href="#"><img src="/Public/img/hengfu2.jpg" style="width: 1000px;height: 90px"></a>
     </div>
-
-
-
 
 </div>
-</body>
-</html>
+<script type="text/javascript">
+    myFocus.set({
+        id: 'boxID',
+        pattern: 'mF_fancy',
+        time: 3,
+        trigger: 'mouseover',
+        delay: 200,
+        txtHeight: 'default'
+    })
+</script>

@@ -1,0 +1,84 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script src="jquery.min.js"></script>
+    <!--jQuery()就是$()-->
+</head>
+<body>
+
+<input type="text" class="txt"/>
+<input type="text" id="txt"/>
+<button type="button" onclick="get_text();">GO</button>
+<div style="height: 30px;width: 30px"></div>
+<div style="height: 30px;width: 30px"></div>
+<div style="height: 30px;width: 30px"></div>
+<div style="height: 30px;width: 30px"></div>
+
+<div id="form">div的内容</div>
+<div id="to"></div>
+
+<div>祖父元素
+    <label>子元素</label>
+    <label>同级元素</label>
+
+    <p>
+        <label>孙元素</label>
+        <span><label>后代元素</label></span>
+    </p>
+    <label>同级元素</label>
+
+    <p>hello</p>
+
+
+</div>
+<div id="hover" style=" border: red 1px solid ; display: none; width: 300px;height: 300px"></div>
+<div id="animate" style=" border: red 1px solid ;position: relative; width: 30px;height: 30px"></div>
+<button type="button" id="toggle">开关</button>
+<script>
+    function get_text() {
+        alert($('.txt').val()); //加载jquery后document.getElementByClassName可以用'.'代替
+        alert($('#txt').val()); //加载jquery后document.getElementById可以用'#'代替
+    }
+    $("div").css('border', '1px solid red');//标签选择器
+
+    $('#to').html($('#form').html());  //id选择器:把id等于form的内容复制到id等于to的块中
+
+    $('p~label').css('color', 'red'); //祖先选择器
+    console.log($('p').children());
+    $('p').append('world');    //在一个元素尾部中追加内容
+    $('p').prepend('yeaaa!');  //在一个元素头部中追加内容
+    $('p').after('after');    //在一个元素平级之后追加内容
+    $('p').before('<p>before</p>');    //在一个元素平级之前追加内容
+
+    $('#hover').hover(function () {
+        this.style.backgroundColor = 'blue'
+    }, function () {
+        this.style.backgroundColor = 'red'
+    });//jquery的匿名函数鼠标浮动事件
+
+    $(function () {
+        $('#toggle').bind('click', function () {
+            $('#hover').slideToggle(3000);   ///开关
+        })
+    })
+
+    $('#toggle').bind('click',function(){//animate动画
+        $('#animate').animate({
+            width:'300px',
+            height:'300px',
+            left:'+=100px'
+        },3000,function(){
+            $('#animate').animate({
+                width:'30px',
+                height:'30px',
+                left:'-=100px',
+            },3000)
+        })
+    })
+
+
+
+
+</script>
+</body>
+</html>

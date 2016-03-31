@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+<form>
+    <div id="input">
+        <label>爱好</label><br/>
+        <input type="text" ><button type="button" onclick="delete_input(this)">删除</button><br/>
+    </div>
+
+    <input type="button" value="添加" id="add_input" onclick="add()">
+
+    <p>hello</p>
+</form>
+<script type="text/javascript">
+
+   function add(){
+        $('#input').after($('#input').clone()); //克隆
+    }
+   function delete_input(el){
+       var btn = $(el);
+       btn.parent().remove();
+   }
+    $('p').wrapInner('<div></div>');   //在p标签中添加一对div标签
+    $(function(){
+        console.log('document.ready');//当页面加载完后在加载这段函数
+
+    })
+</script>
+
+</body>
+</html>

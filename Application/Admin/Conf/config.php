@@ -8,5 +8,7 @@ return array(
         'insert'       =>  ['home/index/insert','form=insert'],//带参数
         'update'       =>  ['home/index/insert','form=update'],
 
+
     ],
+    'LAYOUT_ON'              =>true,
 );

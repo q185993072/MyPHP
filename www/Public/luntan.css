@@ -1,7 +1,24 @@
 
 #hd{
-    border: 1px black solid;
+
     height: 350px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#bd{
+
+    height: 1350px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#wei{
+    border-radius: 3px;
+    border: 1px #CCCCCC solid;
+    height: 250px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -10,10 +27,6 @@
 .hd_dl{
 
     height: 125px;
-    border: 1px red solid;
-
-
-
 }
 .cd{
     margin-left: auto;
@@ -21,6 +34,8 @@
 }
 .border{
     border: 1px red solid;
+    width: 1000px;
+    height: 38px;
 }
 .li{
     float: left;
@@ -32,10 +47,87 @@
 .li_a{
     text-decoration: none;
     color: black;
-    font-weight: bolder
+    font-size: medium;
+
 }
 .nav{
     background-image:url('/Public/img/nv.png');
-    background-size: 100%;
+    background-size: 100% 100%;
 
 }
+.input{
+    border-radius: 5px;
+    height: 33px;
+    width: 346px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1px lightgrey solid;
+}
+#box-shadow4{
+    box-shadow: 0px 1px  1px #999 inset;
+}
+.search{
+    width: 313px ;
+    height: 27px;
+    border: 0px;
+    background-color: #F6F5F6
+}
+.sousuo{
+    width: 67px;
+    height: 32px;
+    margin-top: 12px;
+    border: 1px #C8C8C8 solid;
+    color: #8D6666;
+    cursor: pointer
+}
+.erweima{
+    float: left;
+    width: 185px;
+    height: 185px;
+}
+.jieshao{
+    margin-top: 20px;
+    float: left;
+    width: 120px;
+    height: 150px;
+
+
+}
+.jieshao_li{
+    list-style-type: none;
+    line-height: 20px
+}
+.jieshao_a{
+    font-size: small;
+    color:#666666;
+    text-decoration: none
+}
+a:hover{
+    color: #5D98C5;
+    text-decoration: underline;
+}
+.bd_border{
+    border: 1px #C8C8C8 solid;
+    border-radius: 3px;
+
+    background-color:  #fdfdfd;
+
+}
+.bd_zuixindongtai{
+    color:#666666;
+    text-decoration: none;
+    font-size: 95%;
+
+}
+
+.lid{
+    margin-left: -5px;
+    float: left;
+    list-style-type: none;
+    margin-top: -5px;
+    padding-right: 20px;
+    color:#666666;
+    font-size: 95%;
+
+}
+
