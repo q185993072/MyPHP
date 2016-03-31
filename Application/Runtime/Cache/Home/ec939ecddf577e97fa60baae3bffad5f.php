@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <title>个人空间</title>
     <link href="/Public/css/psshow.css" rel="stylesheet" type="text/css"/>
+    <link href="/Public/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 
 <div id="bjtlft">
 
 </div>
-<div id="touxiang">
-    <div id="centre">
+<div id="centre">
+    <div id="touxiang">
+
+    </div>
+    <div id="daohang">
         <ul>
-            <li><a class="lft" href="">主页</a></li>
-            <li><a class="rgt" href="">日志</a></li>
-            <li><a class="lft" href="">相册</a></li>
-            <li><a class="rgt" href="">留言板</a></li>
-            <li><a class="lft" href="">说说</a></li>
-            <li><a class="rgt" href="">个人档</a></li>
-            <li><a class="lft" href="">时光轴</a></li>
-            <li><a class="rgt" href="">更多</a></li>
+            <li id="zhuye"><a  href="">主页</a></li>
+            <li id="liuyan"><a  href="">留言板</a></li>
+            <li id="rizhi"><a  href="">日志</a></li>
+            <li id="say"><a  href="">说说</a></li>
+            <li id="tuxiang"><a  href="">相册</a></li>
+            <li id="more"><a  href="">更多</a></li>
         </ul>
     </div>
 </div>
