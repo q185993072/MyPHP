@@ -75,6 +75,7 @@ hr{
     font-size: 15px;
     background-color:#FF6600;
     border-radius: 2px;
+    line-height: 23px;
 }
 #major .mid p{
     font-size: 15px;
@@ -156,6 +157,10 @@ hr{
     background-color:#2DB7DC;
     border:0;
     cursor: pointer;
+    float:left;
+}
+#major .right .weather button+button{
+    margin-left:5px;
 }
 
 /*µÇÂ¼¿ªÊ¼*/
@@ -167,12 +172,30 @@ hr{
     height:200px;
     text-align: center;
     background-color:white;
-    z-index: 1;
+    z-index: 2;
     border:1px solid #ccc;
-     display: none;
+    display: none;
+}
+.login_list p span{
+    display: inline-block;
+    background:url(../images/close.png) no-repeat;
+    background-size: 100% 100%;
+    font-size: 20px;
+    width:15px;
+    height:15px;
+    margin:3px 0 0 200px;
+    cursor: pointer;
 }
 .login_list form{
     margin:15px 0 0 0;
+}
+.mask{
+    background: #000;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
 }
 
 .login_list .login_list_1{
