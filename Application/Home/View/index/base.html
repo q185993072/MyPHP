@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title><block name="title"></block></title>
     <link rel="stylesheet" type="text/css" href="/Public/css/home_base.css"/>
-    <link rel="stylesheet" type="text/css" href="/Public/css/<block name='link'></block>.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/css/{$cs}.css"/>
     <script type="text/javascript" src="/Public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/Public/js/home_base.js"></script>
+    <script type="text/javascript" src="/Public/js/{$js}.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 </head>
 <body>
 <div id="top">
@@ -30,8 +31,8 @@
 </div>
 <div id="nav">
     <ul>
-        <li class="yellow"><a href="">首页</a></li>
-        <li><a href="">论坛</a></li>
+        <li class="yellow"><a href="/home/index/index">首页</a></li>
+        <li><a href="/admin/index/luntan" target="_blank">论坛</a></li>
         <li><a href="">分类信息</a></li>
         <li><a href="">新闻资讯</a></li>
         <li><a href="">房产</a></li>

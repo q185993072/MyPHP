@@ -1,0 +1,126 @@
+a{
+    color:black;
+}
+#major{
+    width:1000px;
+    height:450px;
+    margin:10px auto;
+}
+#major .daohang{
+    width:200px;
+    height:450px;
+    float:left;
+    border:1px solid #ccc;
+}
+#major .daohang .quyu,#major .daohang .money,#major .daohang .type{
+    width:175px;
+    height:165px;
+    margin:20px 15px 0 20px;
+    font-size: 15px;
+    border-bottom:1px dashed #ccc;
+}
+#major .daohang span{
+    display: inline-block;
+    float:left;
+    margin:3px 0 0 3px;
+    color:#00A4E7;
+}
+#major .daohang  i{
+    background:url(../images/xuebi.png) -100px -270px no-repeat;
+    display: inline-block;
+    float:left;
+    width:21px;
+    height:17px;
+}
+#major .daohang ul{
+    clear: left;
+}
+#major .daohang  li{
+    float:left;
+    font-size: 14px;
+    margin:10px 15px 0 0;
+}
+#major .daohang .money{
+    height:140px;
+}
+#major .daohang .money i{
+    background:url(../images/xuebi.png) -130px -270px no-repeat;
+    height:18px;
+}
+#major .daohang .type{
+    height:80px;
+}
+#major .major_mid{
+    width:580px;
+    height:450px;
+    float:left;
+    margin-left:10px;
+}
+#major .major_mid p{
+    font-weight:bold;
+    font-size: 22px;
+    text-align:center;
+    margin:10px 0 0 0;
+}
+#major .major_mid ul{
+    display:inline-block;
+    width:480px;
+    margin:15px 0 0 0;
+    padding-left:70px;
+}
+#major .major_mid li{
+    float:left;
+    font-size:15px;
+    margin:0 0 0 20px;
+}
+#major .major_mid .major_mid_1{
+    position: relative;
+    border:1px solid red;
+    width:580px;
+    height:360px;
+    margin:20px 0 0 0;
+    overflow:hidden;
+}
+#major .major_mid .major_mid_1 img{
+    width:580px;
+    height:360px;
+}
+#major .major_mid .major_mid_1 ul{
+    width:2900px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin:0;
+    padding:0;
+}
+#major .major_mid .major_mid_1 li{
+    margin:0;
+    float:left;
+    width: 580px;
+}
+#major .major_mid .major_mid_1 ol{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#major .major_mid .major_mid_1 ol li{
+    float: left;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border: 1px solid #fc0;
+    background: #000;
+    color: #fff;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+#major .major_mid .major_mid_1 ol li.current{
+    background: #fff;
+    color: #000;
+}
+
+
+
