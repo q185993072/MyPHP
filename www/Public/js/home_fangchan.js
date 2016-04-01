@@ -65,7 +65,7 @@ $(function(){
      timeId = setInterval(slider,1500);
      });*/
 
-    $('.wrap').hover(function(){
+    $('.major_mid_1').hover(function(){
         clearInterval(timeId);
     },function(){
         timeId = setInterval(slider,2500);

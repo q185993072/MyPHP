@@ -49,6 +49,7 @@ a{
 }
 #major .daohang .type{
     height:80px;
+    border:0;
 }
 #major .major_mid{
     width:580px;
@@ -121,6 +122,12 @@ a{
     background: #fff;
     color: #000;
 }
-
+#major .major_right{
+    width:195px;
+    height:450px;
+    float:left;
+    margin:0 0 0 10px;
+    border:1px solid #ccc;
+}
 
 
