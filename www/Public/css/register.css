@@ -34,7 +34,7 @@
     margin-left: auto;
     margin-right: auto;
     height: 600px;
-    width: 750px;
+    width: 850px;
 }
 
 #body #log
@@ -44,6 +44,7 @@
     height: 100px;
     width: 750px;
     background: url('../images/logo.png') no-repeat;
+    background-size: 250px 80px;
 }
 
 #body #zhuce
@@ -63,10 +64,25 @@
     background-color: lightblue;
 }
 
+#body #zhuce .zhuce_lft_c
+{
+    float: left;
+    width: 50%;
+    height: 50px;
+}
+
 .zhuce_header_zi
 {
     line-height: 50px;
     margin: 0 0 0 80px;
+}
+
+.zhuce_rgt_c
+{
+    float: left;
+    width: 50%;
+    height: 50px;
+    background-color: lightblue;
 }
 
 #body #zhuce .zhuce_rgt
@@ -78,6 +94,7 @@
 
 #body #zhuce .form
 {
+    float: left;
     width: 80%;
     height: 400px;
     margin: 50px 0 0 50px;
@@ -137,4 +154,12 @@
     float: left;
 
     font-size: 20px;
+}
+
+#cuowutishi
+{
+    float:left;
+    height: 50px;
+    width: 50px;
+    border: 1px solid red;
 }

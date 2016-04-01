@@ -5,14 +5,15 @@
     <title></title>
     <link href="/Public/css/register.css" rel="stylesheet" type="text/css"/>
     <link href="/Public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="/Public/js/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="header">
     <div class="headerlft">
-        已经注册？<a href="">请登陆</a>
+     已经注册？<a href="/home/index/index">请登陆</a>
     </div>
     <div class="headerrgt">
-        <a href="">毅宝首页</a>
+        <a href="/home/index/index">毅宝首页</a>
         <a href="">手机毅宝</a>
         <a href="">简版首页</a>
         <a href="">帮助中心</a>
@@ -21,44 +22,65 @@
 <div id="body">
     <div id="log">
     </div>
+
     <div id="zhuce">
-        <div class="zhuce_lft">
-            <span class="zhuce_header_zi">用户注册</span>
-        </div>
+
+        <if condition="$su EQ 0">
+            <div class="zhuce_lft">
+                <span class="zhuce_header_zi">用户注册</span>
+            </div>
         <div class="zhuce_rgt">
             <span class="zhuce_header_zi">注册完成</span>
         </div>
-        <div class="form"style="display: none" >
-            <form method="post" action="">
+
+            <else/>
+
+            <div class="zhuce_lft_c">
+                <span class="zhuce_header_zi">用户注册</span>
+            </div>
+            <div class="zhuce_rgt_c">
+                <span class="zhuce_header_zi">注册完成</span>
+            </div>
+
+            </if>
+
+ <if condition="$su EQ 0">
+        <div class="form">
+            <form method="post" action="/home/register/insert">
                 <div class="lb">
                     <label>用户名</label>
                 </div>
                 <div class="ipt">
-                    <input type="text" name="username"/>
+                    <input type="text" name="name" id="username"/>
+                    <span id="name" style="display: block"></span>
                 </div>
                 <div class="lb">
                     <label>密码</label>
                 </div>
                 <div class="ipt">
-                    <input type="password" name="password"/>
+                    <input type="password" name="password" id="password"/>
+                    <span id="pass" style="display: block"></span>
                 </div>
                 <div class="lb">
                     <label>确认密码</label>
                 </div>
                 <div class="ipt">
-                    <input type="password" name="repassword"/>
+                    <input type="password" name="repassword" id="repassword"/>
+                    <span id="repass" style="display: block"></span>
                 </div>
                 <div class="lb">
                     <label>邮箱验证</label>
                 </div>
                 <div class="ipt">
-                    <input type="text" name="email"/>
+                    <input type="text" name="email" id="email"/>
+                    <span id="em" style="display: block"></span>
                 </div>
                 <div class="lb">
                     <label>验证码</label>
                 </div>
                 <div class="ipt">
-                    <input type="text" name="yzm"/>
+                    <input type="text" name="yzm" id="yzm"/>
+                    <span id="yzms" style="display: block"></span>
                 </div>
                 <div class="ipt">
                     <img src="/home/register/yanZhenMa">
@@ -70,15 +92,72 @@
                 </div>
             </form>
         </div>
-        <div id="zhucewanchen" >
+     <else/>
+        <div id="zhucewanchen">
             <h3>恭喜您：注册成功</h3>
-                <a  class="cg_lft" href="">跳回首页</a>
+                <a  class="cg_lft" href="/home/index/index">跳回首页</a>
                 <a class="cg_rgt" href="">进入个人中心</a>
         </div>
+ </if>
     </div>
 </div>
 <div id="footer">
-
 </div>
+
+<script type="text/javascript">
+    $(function() {
+        $('#username').bind('blur', function() {
+            $.post("/home/register/registerCheck", {name: $('#username').val()} , function(el) {
+                if (el == "success") {
+                    $('#username~#name').html('');
+                } else {
+                    $('#username~#name').html(el);
+                }
+            })
+        });
+
+        $('#password').bind('blur', function() {
+            $.post("/home/register/registerCheck", {password: $('#password').val()} , function(el) {
+                if (el == "success") {
+                    $('#password~#pass').html('');
+                } else {
+                    $('#password~#pass').html(el);
+                }
+            })
+        });
+
+        $('#repassword').bind('blur', function() {
+            $.post("/home/register/registerCheck", {repassword: $('#repassword').val()} , function(el) {
+                if (el == "success") {
+                    $('#repassword~#repass').html('');
+                } else {
+                    $('#repassword~#repass').html(el);
+                }
+            })
+        });
+
+        $('#email').bind('blur', function() {
+            $.post("/home/register/registerCheck", {email: $('#email').val()} , function(el) {
+                if (el == "success") {
+                    $('#email~#em').html('');
+                } else {
+                    $('#email~#em').html(el);
+                }
+            })
+        });
+
+        $('#yzm').bind('blur', function() {
+            $.post("/home/register/registerCheck", {yzm: $('#yzm').val()} , function(el) {
+                if (el == "success") {
+                    $('#yzm~#yzms').html('');
+                } else {
+                    $('#yzm~#yzms').html(el);
+                }
+            })
+        });
+
+
+    })
+</script>
 </body>
 </html>
