@@ -17,6 +17,7 @@ class RegisterController extends Controller
     {
         $this->su= I('su', 0);
         $this->display();
+        $this->arr= '2016-12-12 12:12:12';
     }
 
     public function yanZhenMa()

@@ -27,6 +27,7 @@ class UserModel extends Model
         ['password','MD5',Model::MODEL_INSERT,'function'],
         //['repassword','MD5',Model::MODEL_INSERT,'function'],
         ['created_at','getCrDate',Model::MODEL_INSERT,'callback'],
+        ['ip','getIp',Model::MODEL_INSERT,'callback']
     ]; // 自动完成定义
 
     public function getLength($username)
@@ -49,5 +50,10 @@ class UserModel extends Model
     public function getCrDate()
     {
         return date('Y-m-d H:i:s');
+    }
+
+    public function getIp()
+    {
+        return $_SERVER['REMOTE_ADDR'];
     }
 }
