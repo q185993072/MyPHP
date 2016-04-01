@@ -46,6 +46,12 @@ function validate () {
 
 $(function(){
     $('form').submit(function(event){
+        var alogin=$('.admin_login .login').val();
+        var aregister=$('.admin_login .register').val();
+        if(alogin==''){
+            alert('请输入用户名');
+            return false;
+        }
         return validate();
     });
 
@@ -56,4 +62,5 @@ $(function(){
     });
     //验证码
     createCode();
+
 });

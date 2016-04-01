@@ -1,10 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8"/>
+    <title>论坛后台</title>
+    <link rel="stylesheet" type="text/css" href="/Public/css/admin_index.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.min.css"/>
 </head>
 <body>
+    <div id="top">
+        <span>论坛后台管理系统</span>
+        <div class="top_right">
+            <div class="house">
+                <a href="/admin/index/luntan"><i></i><span>站点主页</span></a>
+            </div>
 
+            <div class="loginout">
+                <a href="/admin/admin/login"><i></i><span>安全退出</span></a>
+            </div>
+        </div>
+    </div>
+    <div id="left">
+        <span>起始页</span>
+        <div class="left_fu">
+            <span><i></i>父版块信息</span>
+            <div class="left_fu_list">
+                <span>父版块列表</span>
+                <span>增加父版块</span>
+                <span>修改父版块</span>
+                <span>删除父版块</span>
+            </div>
+        </div>
+        <div class="left_fu">
+            <span><i></i>子版块块信息</span>
+            <div class="left_fu_list">
+                <span>子版块列表</span>
+                <span>增加子版块</span>
+                <span>修改子版块</span>
+                <span>删除子版块</span>
+            </div>
+        </div>
+        <div class="left_fu">
+            <span><i></i>用户信息</span>
+            <div class="left_fu_list">
+                <span>用户列表</span>
+                <span>增加用户</span>
+                <span>修改用户</span>
+                <span>删除用户</span>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <span>详细信息页</span>
+        <table class="table table-border">
+            <tr>
+                <th>用户名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>地址</th>
+                <th>IP</th>
+                <th>创建时间</th>
+                <th>修改时间</th>
+                <th>email</th>
+                <th>操作</th>
+            </tr>
+            <foreach name="user" item="arr">
+                <tr>
+                    <td>{$arr.name}</td>
+                    <td>{$arr.age}</td>
+                    <td>{$arr.gender}</td>
+                    <td>{$arr.address}</td>
+                    <td>{$arr.ip}</td>
+                    <td>{$arr.created_at}</td>
+                    <td>{$arr.updated_at}</td>
+                    <td>{$arr.email}</td>
+                    <td><a href="">删除</a><a href="">修改</a></td>
+                </tr>
+            </foreach>
+        </table>
+
+
+
+
+    </div>
 </body>
 </html>

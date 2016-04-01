@@ -11,6 +11,7 @@ return array(
     // 0 (普通模式); 1 (PATHINFO 模式); 2 (REWRITE  模式); 3 (兼容模式)  默认为PATHINFO 模式
     'URL_PATHINFO_DEPR'      => '/', // PATHINFO模式下，各参数之间的分割符号
     'URL_ROUTER_ON' => true,
+    'SHOW_PAGE_TRACE'=>true,
     'URL_ROUTE_RULES' => [
 
     ],

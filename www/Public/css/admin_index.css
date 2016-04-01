@@ -1,0 +1,125 @@
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration:none;
+}
+li{
+    list-style-type:none;
+    float:left;
+}
+#top{
+    width:100%;
+    height:60px;
+    background-color:#19A97B;
+}
+#top span{
+    color:white;
+    font-size: 20px;
+    line-height: 60px;
+    margin-left:50px;
+}
+#top .top_right{
+    width:200px;
+    height:60px;
+    float:right;
+}
+#top .top_right .house{
+    float:left;
+}
+#top .top_right .house i{
+    background:url(../images/house.png) no-repeat;
+    background-size: 30px 30px;
+    display: block;
+    width:30px;
+    height:30px;
+    margin:3px 0 0 15px;
+    float:left;
+}
+#top .top_right .house span{
+    display: block;
+    width:60px;
+    height:30px;
+    line-height: 30px;
+    font-size:15px;
+    margin:0;
+    clear: left;
+}
+#top .top_right .loginout{
+    width:50px;
+    height:35px;
+    float:left;
+    margin:0 0 0 30px;
+}
+#top .top_right .loginout i{
+    background:url(../images/person.png) no-repeat;
+    background-size: 30px 30px;
+    display: block;
+    width:30px;
+    height:30px;
+    margin:3px 0 0 15px;
+}
+#top .top_right .loginout span{
+    display: block;
+    width:60px;
+    height:30px;
+    line-height: 30px;
+    font-size:15px;
+    margin:0;
+    clear: left;
+}
+#left{
+    width:16%;
+    height:700px;
+    float:left;
+    border:1px solid #ccc;
+}
+#left span{
+    display: inline-block;
+    width:100%;
+    height:40px;
+    background-color:#EFEFEF;
+    line-height: 40px;
+    text-align:center;
+    cursor:pointer;
+    border-bottom:1px solid #CCC;
+}
+#left .left_fu{
+    width:100%;
+    height:200px;
+    margin-top:5px;
+    border-bottom:1px solid #E2E2E2;
+}
+#left .left_fu span{
+    border-bottom:1px solid #E2E2E2;
+    text-align:left;
+    background-color:white;
+    font-weight:bold;
+}
+#left .left_fu i{
+    float:left;
+    height:20px;
+    margin:7px 10px 0 0;
+    border:3px solid #19A97B;
+}
+#left .left_fu .left_fu_list span{
+    font-weight: normal;
+    padding:0 0 0 14px;
+    width:93%;
+}
+#right{
+    width:82%;
+    height:700px;
+    float:right;
+}
+#right span{
+    display: inline-block;
+    width:100%;
+    height:40px;
+    background-color:#EFEFEF;
+    line-height: 40px;
+    text-align:center;
+    cursor:pointer;
+    border-bottom:1px solid #CCC;
+}
