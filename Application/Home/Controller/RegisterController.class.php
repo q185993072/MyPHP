@@ -8,5 +8,19 @@
 namespace Home\Controller;
 
 use Think\Controller;
+use Think\Verify;
 
-class Register
+class RegisterController extends Controller
+{
+    public function register()
+    {
+        $this->display();
+    }
+
+    public function yanZhenMa()
+    {
+        $Verify = new Verify();
+        $Verify->entry();
+    }
+
+}

@@ -9,6 +9,7 @@ namespace Home\Controller;
 
 use Think\Controller;
 
+
 class PerSpaceController extends Controller
 {
     public function perSpaceShow()
