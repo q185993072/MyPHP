@@ -15,6 +15,10 @@ class IndexController extends Controller
     {
         $this->display();
     }
+    public function ziluntan()
+    {
+        $this->display();
+    }
     public  function yasuoimg()
     {
         $obj = new \Think\Image();
