@@ -51,6 +51,9 @@ $(function(){
         if(alogin==''){
             alert('请输入用户名');
             return false;
+        }else if(aregister==''){
+            alert('请输入密码');
+            return false;
         }
         return validate();
     });

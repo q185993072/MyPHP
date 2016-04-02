@@ -89,7 +89,7 @@ li{
     width:100%;
     height:40px;
     background-color:#EFEFEF;
-    line-height: 40px;
+    line-height: 35px;
     text-align:center;
     cursor:pointer;
     border-bottom:1px solid #CCC;
@@ -112,15 +112,43 @@ li{
     margin:7px 10px 0 0;
     border:3px solid #19A97B;
 }
-#left .left_fu .left_fu_list span{
-    font-weight: normal;
+#left .left_fu .left_fu_list span,#left .left_fu .left_zi_list span,#left .left_fu .left_person_list span{
+    font-weight:normal;
     padding:0 0 0 14px;
-    width:93%;
+    width:100%;
+    line-height: 40px;
 }
 #right{
     width:82%;
     height:700px;
     float:right;
+}
+#right .right_list{
+    display: none;
+}
+#right .right_list1 form{
+    margin:20px 0 0 0;
+}
+#right .right_list1 form label{
+    font-size: 22px;
+}
+#right .right_list1 input[name='father_list']{
+    width:200px;
+    height:36px;
+}
+#right .right_list1 input[name='submit']{
+    width:80px;
+    height:36px;
+    font-size: 16px;
+    border:1px solid #ccc;
+    border-radius:3px;
+    display: block;
+    margin:30px 0 0 0;
+}
+#right .right_list1 select{
+    width:200px;
+    height:40px;
+    margin:0 0 30px 0;
 }
 #right span{
     display: inline-block;

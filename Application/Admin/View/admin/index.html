@@ -4,6 +4,8 @@
     <title>论坛后台</title>
     <link rel="stylesheet" type="text/css" href="/Public/css/admin_index.css"/>
     <link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/Public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/js/admin_index.js"></script>
 </head>
 <body>
     <div id="top">
@@ -20,7 +22,7 @@
         </div>
     </div>
     <div id="left">
-        <span>起始页</span>
+        <span>信息列表</span>
         <div class="left_fu">
             <span><i></i>父版块信息</span>
             <div class="left_fu_list">
@@ -29,58 +31,176 @@
                 <span>修改父版块</span>
                 <span>删除父版块</span>
             </div>
-        </div>
-        <div class="left_fu">
+
+
             <span><i></i>子版块块信息</span>
-            <div class="left_fu_list">
+            <div class="left_zi_list">
                 <span>子版块列表</span>
                 <span>增加子版块</span>
                 <span>修改子版块</span>
                 <span>删除子版块</span>
             </div>
-        </div>
-        <div class="left_fu">
+
             <span><i></i>用户信息</span>
-            <div class="left_fu_list">
+            <div class="left_person_list">
                 <span>用户列表</span>
-                <span>增加用户</span>
                 <span>修改用户</span>
                 <span>删除用户</span>
             </div>
+
         </div>
     </div>
     <div id="right">
         <span>详细信息页</span>
-        <table class="table table-border">
-            <tr>
-                <th>用户名</th>
-                <th>年龄</th>
-                <th>性别</th>
-                <th>地址</th>
-                <th>IP</th>
-                <th>创建时间</th>
-                <th>修改时间</th>
-                <th>email</th>
-                <th>操作</th>
-            </tr>
-            <foreach name="user" item="arr">
+        <div class="right_list">
+            <span>详细信息页</span>
+            <table class="table table-border">
                 <tr>
-                    <td>{$arr.name}</td>
-                    <td>{$arr.age}</td>
-                    <td>{$arr.gender}</td>
-                    <td>{$arr.address}</td>
-                    <td>{$arr.ip}</td>
-                    <td>{$arr.created_at}</td>
-                    <td>{$arr.updated_at}</td>
-                    <td>{$arr.email}</td>
-                    <td><a href="">删除</a><a href="">修改</a></td>
+                    <th>id</th>
+                    <th>父版块名</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>IP地址</th>
                 </tr>
-            </foreach>
-        </table>
-
-
-
-
+                <foreach name="user" item="arr">
+                    <tr>
+                        <td>1</td>
+                        <td>NBA</td>
+                        <td>谢东</td>
+                        <td>2016-11-23</td>
+                        <td>127.0.0.1</td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+           <form method="post" action="">
+               <label>父版块名：</label><input type="text" name="father_list"/>
+               <input type="submit"  name="submit" value="增加"/>
+           </form>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <form method="post" action="">
+                <label>父版块名：</label><input type="text" name="father_list"/>
+                <input type="submit"  name="submit" value="修改"/>
+            </form>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <table class="table table-border">
+                <tr>
+                    <th>id</th>
+                    <th>父版块名</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="user" item="arr">
+                    <tr>
+                        <td>1</td>
+                        <td>NBA</td>
+                        <td>谢东</td>
+                        <td>2016-11-23</td>
+                        <td><a href="">删除</a></td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+        <div class="right_list">
+            <span>详细信息页</span>
+            <table class="table table-border">
+                <tr>
+                    <th>id</th>
+                    <th>子版块名</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>IP地址</th>
+                </tr>
+                <foreach name="user" item="arr">
+                    <tr>
+                        <td>1</td>
+                        <td>NBA</td>
+                        <td>谢东</td>
+                        <td>2016-11-23</td>
+                        <td>127.0.0.1</td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <form method="post" action="">
+                <label>所属父版块：</label><select name="father_list">
+                                                <option>-------请选择父版块------</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select><br/>
+                <label>子版块名称：</label><input type="text" name="father_list"/><br/>
+                <input type="submit"  name="submit" value="增加"/>
+            </form>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <form method="post" action="">
+                <label>所属父版块：</label><select name="father_list">
+                <option>-------请选择父版块------</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select><br/>
+                <label>子版块名称：</label><input type="text" name="father_list"/><br/>
+                <input type="submit"  name="submit" value="修改"/>
+            </form>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <table class="table table-border">
+                <tr>
+                    <th>id</th>
+                    <th>子版块名</th>
+                    <th>创建人</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                <foreach name="user" item="arr">
+                    <tr>
+                        <td>1</td>
+                        <td>NBA</td>
+                        <td>谢东</td>
+                        <td>2016-11-23</td>
+                        <td><a href="">删除</a></td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
+        <div class="right_list right_list1">
+            <span>详细信息页</span>
+            <table class="table table-border">
+                <tr>
+                    <th>id</th>
+                    <th>用户名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>邮箱</th>
+                    <th>级别</th>
+                    <th>注册时间</th>
+                </tr>
+                <foreach name="user" item="arr">
+                    <tr>
+                        <td>1</td>
+                        <td>NBA</td>
+                        <td>NBA</td>
+                        <td>NBA</td>
+                        <td>185993072@qq.com    </td>
+                        <td>超管</td>
+                        <td>2016-11-23</td>
+                    </tr>
+                </foreach>
+            </table>
+        </div>
     </div>
 </body>
 </html>
