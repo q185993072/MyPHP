@@ -81,7 +81,15 @@
                 <iframe width="280" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe>
             </div>
             <div class="right_login">
-                HI!{$Think.session.name}您好<br/>
+                <div>
+                    <span>HI!{$Think.session.name}<br/></span>
+
+                    <if condition="$Think.session.name NEQ null">
+                        <span><a href="/Home/index/login_out">退出</a></span>
+                    </if>
+
+                    <input type="hidden" value="{$Think.session.name}"/>
+                </div>
                 <button type="button" class="login">会员登录</button>
                 <button type="button" class="register"><a href="/Home/register/register">马上注册</a></button>
             </div>

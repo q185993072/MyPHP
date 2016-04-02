@@ -186,4 +186,15 @@ $(function(){
     }
 
     initMap();//创建和初始化地图
+
+    //register验证
+    $('.right_login .register').click(function(){
+       var avalue=$('.right_login input').val();
+        if(avalue==0){
+            return true;
+        }else{
+            alert('请勿重复注册');
+            return false;
+        }
+    })
 });

@@ -9,7 +9,7 @@ class AdminController extends Controller
     public function index()
     {
         if(!session('name')){
-            $this->error('请登录后访问','/Admin/admin/login');
+            $this->error('你已偏离正常轨道','/Admin/admin/login');
         }
         $table=D('user');
         $data=$table->select();

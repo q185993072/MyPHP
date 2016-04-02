@@ -36,4 +36,10 @@ class IndexController extends Controller
             $this->error('用户名不存在','/home/index/index');
         }
     }
+
+    public function login_out()
+    {
+        session('name',null);
+        $this->redirect('/Home/index/index');
+    }
 }

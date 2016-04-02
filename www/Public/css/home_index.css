@@ -147,9 +147,25 @@ hr{
 #major .right .weather .right_login{
     float:left;
     width:165px;
-    margin:20px 0 0 10px;
+    margin:10px 0 0 10px;
 }
-
+#major .right .weather .right_login a{
+    display: inline-block;
+    color:black;
+    width:80px;
+    height:40px;
+    line-height: 40px;
+}
+#major .right .weather .right_login span{
+    display: inline-block;
+    height:20px;
+    margin:0;
+}
+#major .right .weather .right_login span a{
+    width:37px;
+    height:20px;
+    line-height: 20px;
+}
 #major .right .weather button{
     width:80px;
     height:40px;
@@ -158,6 +174,7 @@ hr{
     border:0;
     cursor: pointer;
     float:left;
+
 }
 #major .right .weather button+button{
     margin-left:5px;
