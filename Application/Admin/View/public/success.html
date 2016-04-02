@@ -1,0 +1,48 @@
+<?php
+    if(C('LAYOUT_ON')) {
+        echo '{__NOLAYOUT__}';
+    }
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>成功了</title>
+    <link rel="stylesheet" type="text/css" href="/Public/css/success.css"/>
+</head>
+<body>
+<div id="mother">
+    <div id="errorBox">
+        <div id="errorText">
+            <h1>   <?php if(isset($message)) {?>
+                <p class="success"><?php echo($message); ?></p>
+                <?php }else{?>
+                <p class="error"><?php echo($error); ?></p>
+                <?php }?>
+            </h1>
+            <p>
+                火星不太安全，我可以免费送你回地球
+            </p>
+        </div>
+        <div class="link" id="home">
+            <p class="detail"></p>
+            <p class="jump">
+                洲际飞船 <a id="href" href="<?php echo($jumpUrl); ?>">起飞</a>中 等待时间： <b id="wait"><?php echo($waitSecond); ?></b>
+            </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    (function(){
+        var wait = document.getElementById('wait'),href = document.getElementById('href').href;
+        var interval = setInterval(function(){
+            var time = --wait.innerHTML;
+            if(time <= 0) {
+                location.href = href;
+                clearInterval(interval);
+            };
+        }, 1000);
+    })();
+</script>
+</body>
+</html>

@@ -16,6 +16,7 @@ return array(
 
     ],
     'TMPL_ACTION_ERROR'=>'public/error',
+    'TMPL_ACTION_SUCCESS'=>'public/success',
 
 
 );
