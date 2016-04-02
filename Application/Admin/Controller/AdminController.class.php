@@ -8,6 +8,9 @@ class AdminController extends Controller
 {
     public function index()
     {
+        if(!session('name')){
+            $this->error('请登录后访问','/Admin/admin/login');
+        }
         $table=D('user');
         $data=$table->select();
         $this->assign('user',$data);
@@ -38,6 +41,7 @@ class AdminController extends Controller
         $data = $table->create();
         $name['name']=$data['name'];
         $password['password']=$data['password'];
+        session('name',$data['name']);
         if($table->where($name)->count()){
             if($table->where($password)->count()){
                 $this->success('登录成功','/admin/admin/index');
@@ -47,5 +51,11 @@ class AdminController extends Controller
         }else{
             $this->error('用户名不正确');
         }
+    }
+
+    public function login_out()
+    {
+        session('name',null);
+        $this->redirect('/Admin/admin/login');
     }
 }

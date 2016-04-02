@@ -81,9 +81,9 @@
                 <iframe width="280" scrolling="no" height="25" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3"></iframe>
             </div>
             <div class="right_login">
-                HI!您好<br/>
+                HI!{$Think.session.name}您好<br/>
                 <button type="button" class="login">会员登录</button>
-                <button type="button" class="register">马上注册</button>
+                <button type="button" class="register"><a href="/Home/register/register">马上注册</a></button>
             </div>
             <div class="photo">
                 <img src="/Public/images/photo.png" />
@@ -94,7 +94,7 @@
             <p>快速登录 <span></span></p>
             <div class="login_list_1">
                 <form method="post" action="/home/index/login_save">
-                    <p><label>用户名: </label><input type="text" name="username" placeholder="请填写用户名"/></p>
+                    <p><label>用户名: </label><input type="text" name="name" placeholder="请填写用户名"/></p>
                     <p><label>密码: </label><input type="password" name="password" placeholder="请正确填写密码"/></p>
                     <input type="submit" value="登录" class="submit"/>
                 </form>

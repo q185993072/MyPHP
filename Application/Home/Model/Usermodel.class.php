@@ -24,7 +24,7 @@ class UserModel extends Model
         ['yzm','checkYzm','验证码输入错误',Model::EXISTS_VALIDATE,'callback',UserModel::MY_MODEL_TIME],
     ]; // 自动验证定义
     protected $_auto     = [
-        ['password','MD5',Model::MODEL_INSERT,'function'],
+        ['password','md5',Model::MODEL_BOTH,'function'],
         //['repassword','MD5',Model::MODEL_INSERT,'function'],
         ['created_at','getCrDate',Model::MODEL_INSERT,'callback'],
         ['ip','getIp',Model::MODEL_INSERT,'callback']

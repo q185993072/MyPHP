@@ -21,9 +21,18 @@ li{
     margin-left:50px;
 }
 #top .top_right{
-    width:200px;
+    width:350px;
     height:60px;
     float:right;
+
+}
+#top .top_right>span{
+    float:left;
+    height:50px;
+    margin:18px 10px 0 0;
+}
+#top .top_right>span i{
+    color:red;
 }
 #top .top_right .house{
     float:left;
