@@ -58,4 +58,23 @@ class AdminController extends Controller
         session('name',null);
         $this->redirect('/Admin/admin/login');
     }
+
+    public function father_save()
+    {
+        $table=D('father');
+        $data=$table->create();
+        $title['title']=$data['title'];
+        if($data){
+            if($table->where($title)->count()){
+                $this->error('版块名重复');
+                return false;
+            }elseif($table->add()){
+                    $this->success('添加成功');
+                    return true;
+                }else{
+                    $this->error('添加失败');
+                    return false;
+                }
+        }
+    }
 }

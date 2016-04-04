@@ -5,16 +5,12 @@ use Think\Model;
 class UserModel extends Model
 {
     protected $_validate=[
-
+        ['name','require','请填写用户名'],
     ];
 
     protected $_auto=[
-        ['name','require','请填写用户名'],
         ['password','md5',3,'function'],
-        ['age','showage',3,'callback']
     ];
 
-    protected function showage($str){
 
-    }
 }

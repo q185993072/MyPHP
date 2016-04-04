@@ -126,15 +126,13 @@ li{
 #right .right_list{
     display: none;
 }
-#right .right_list1 form{
-    margin:20px 0 0 0;
-}
-#right .right_list1 form label{
+#right .right_list1  label{
     font-size: 22px;
 }
-#right .right_list1 input[name='father_list']{
+#right .right_list1 input[name='title']{
     width:200px;
     height:36px;
+    margin:30px 0 0 0;
 }
 #right .right_list1 input[name='submit']{
     width:80px;

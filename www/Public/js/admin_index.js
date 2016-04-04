@@ -17,5 +17,19 @@ $(function(){
    aleft2.click(function(){
       var index=$(this).index()+aleft.size()+aleft1.size();
       aright.eq(index).removeClass('right_list').siblings().addClass('right_list');
+   });
+
+   $("#right .right_list1 input[name='submit']").click(function(){
+      $.ajax({
+         type:'post',
+         url:'/Admin/admin/father_save',
+         success:function(e){
+            var index=$(this).index();
+            if(e==true){
+               aright.eq(index).removeClass('right_list');
+            }
+         }
+      })
    })
+
 });
