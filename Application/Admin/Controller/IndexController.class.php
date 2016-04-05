@@ -13,6 +13,11 @@ class IndexController extends Controller
 
     public function luntan()
     {
+        $table = M('subsection');
+        $results = $table->query("select *,dz_model.title from dz_subsection left join dz_model on dz_model.id = dz_subsection.model_id");
+        //echo $table->getLastSql();
+        //print_r($results);exit;
+        $this->results = $results;
         $this->display();
     }
     public function ziluntan()

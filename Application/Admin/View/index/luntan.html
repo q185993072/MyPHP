@@ -81,11 +81,13 @@
         </div>
     </div>
 
-
+<?php
+foreach($results as $result) {
+?>
     <div style="margin-top: -2px;width: 1000px;height: 864px;float: left" class="bd_border">
         <div class=" nav" style="height: 40px;width: 1000px;float:left;">
             <div style=";margin-top: 9px;margin-left: 7px">
-                <label class="jieshao_a" style="font-weight: bolder;">主版块</label>
+                <label class="jieshao_a" style="font-weight: bolder;"><?=$result['model_title']?></label>
             </div>
         </div>
 
@@ -96,7 +98,7 @@
             </div>
             <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
                 <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
+                    <a href="#" class="lid" style="text-decoration: none;font-weight: bolder"><?=$result['title']?></a><br/>
                     <label class="jieshao_a">子版块介绍</label><br/>
                     <label class="jieshao_a">版主:</label>
 
@@ -299,6 +301,10 @@
                 </div>
             </div>
         </div>
+    <?php
+}
+
+?>
 
     </div>
 
