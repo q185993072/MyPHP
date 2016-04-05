@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>论坛后台</title>
+    <link rel="stylesheet" type="text/css" href="/Public/css/admin_index.css"/>
+    <link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/Public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Public/js/admin_index.js"></script>
+</head>
+<body>
+<div id="top">
+    <span>论坛后台管理系统</span>
+    <div class="top_right">
+        <span>欢迎<i>{$Think.session.name}</i>登录</span>
+        <div class="house">
+            <a href="/admin/index/luntan"><i></i><span>站点主页</span></a>
+        </div>
+
+        <div class="loginout">
+            <a href="/admin/admin/login_out"><i></i><span>安全退出</span></a>
+        </div>
+    </div>
+</div>
+<div id="left">
+    <span>信息列表</span>
+    <div class="left_fu">
+        <span><i></i>父版块信息</span>
+        <div class="left_fu_list">
+            <span><a href="/admin/admin/index">父版块列表</a></span>
+            <span><a href="/admin/admin/add_fu">增加父版块</a></span>
+            <span>修改父版块</span>
+        </div>
+
+
+        <span><i></i>子版块块信息</span>
+        <div class="left_zi_list">
+            <span>子版块列表</span>
+            <span>增加子版块</span>
+            <span>修改子版块</span>
+        </div>
+
+        <span><i></i>用户信息</span>
+        <div class="left_person_list">
+            <span>用户列表</span>
+            <span>修改用户</span>
+        </div>
+
+    </div>
+</div>
+<div id="right">
+    <block name="main"></block>
+</div>
+</body>
+</html>

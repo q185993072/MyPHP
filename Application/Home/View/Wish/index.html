@@ -14,7 +14,7 @@
     <foreach name="user" item="arr">
         <dl class='paper a1'>
             <dt>
-                <span class='username'>{$arr.username}</span>
+                <span class='username'>{$arr.title}</span>
                 <span class='num'>No.{$arr.id}</span>
             </dt>
             <dd class='content'>{$arr.content}</dd>
@@ -33,7 +33,7 @@
     <form action="" name='wish'>
         <p>
             <label for="username">昵称：</label>
-            <input type="text" name='username' id='username'/>
+            <input type="text" name='title' id='username'/>
         </p>
         <p>
             <label for="content">愿望：(您还可以输入&nbsp;<span id='font-num'>50</span>&nbsp;个字)</label>

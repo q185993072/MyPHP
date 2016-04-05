@@ -92,7 +92,7 @@ input[type="text"]:focus{
 #send-form .title {
 	width: 360px;
 	height: 56px;
-	background: url(../images/send-title.png) repeat-x;
+
 }
 #send-form .title span {
 	display: block;

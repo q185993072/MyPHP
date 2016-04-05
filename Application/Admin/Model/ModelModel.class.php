@@ -2,7 +2,7 @@
 namespace Admin\Model;
 use Think\Model;
 
-class FatherModel extends Model
+class ModelModel extends Model
 {
         protected $_auto=[
             ['created_at','date',Model::MODEL_BOTH,'callback'],

@@ -4,6 +4,7 @@
 }
 a{
     text-decoration:none;
+    cursor:pointer;
 }
 li{
     list-style-type:none;
@@ -123,30 +124,23 @@ li{
     height:700px;
     float:right;
 }
-#right .right_list{
-    display: none;
+#right form{
+    margin:20px 0 0 0;
 }
-#right .right_list1  label{
-    font-size: 22px;
+#right label{
+    font-size:18px;
 }
-#right .right_list1 input[name='title']{
-    width:200px;
-    height:36px;
-    margin:30px 0 0 0;
+#right input {
+    width:180px;
+    height:30px;
 }
-#right .right_list1 input[name='submit']{
-    width:80px;
-    height:36px;
-    font-size: 16px;
-    border:1px solid #ccc;
+#right button{
+    width:60px;
+    height:30px;
     border-radius:3px;
     display: block;
-    margin:30px 0 0 0;
-}
-#right .right_list1 select{
-    width:200px;
-    height:40px;
-    margin:0 0 30px 0;
+    margin:20px 0 0 0;
+    border:1px solid #ccc;
 }
 #right span{
     display: inline-block;

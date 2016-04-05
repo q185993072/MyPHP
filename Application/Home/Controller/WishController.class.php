@@ -16,7 +16,7 @@ class WishController extends Controller
     public function save()
     {
         $table=M('wish');
-        $data['username']=$_POST['username'];
+        $data['title']=$_POST['title'];
         $data['content']=$_POST['content'];
         $data['created_at']=date('Y-m-d H:i:s');
        if($table->create($data)){

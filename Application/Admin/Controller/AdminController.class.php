@@ -11,9 +11,15 @@ class AdminController extends Controller
         if(!session('name')){
             $this->error('你已偏离正常轨道','/Admin/admin/login');
         }
-        $table=D('user');
+        $table=D('model');
         $data=$table->select();
         $this->assign('user',$data);
+        layout(false);
+        $this->display();
+    }
+
+    public function add_fu()
+    {
         layout(false);
         $this->display();
     }
@@ -61,20 +67,16 @@ class AdminController extends Controller
 
     public function father_save()
     {
-        $table=D('father');
+        $table=D('model');
         $data=$table->create();
         $title['title']=$data['title'];
-        if($data){
-            if($table->where($title)->count()){
-                $this->error('版块名重复');
-                return false;
+        if($table->where($title)->count()){
+                echo 1;
             }elseif($table->add()){
-                    $this->success('添加成功');
-                    return true;
-                }else{
-                    $this->error('添加失败');
-                    return false;
-                }
+                echo 2;
+            }else{
+                echo 3;
+            }
         }
-    }
+
 }
