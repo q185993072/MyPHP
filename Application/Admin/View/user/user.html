@@ -1,24 +1,26 @@
-<extend name="admin/base"/>
+<extend name="Admin/base"/>
 <block name="main">
     <span>详细信息页</span>
     <div class="right_list">
         <table class="table table-border">
             <tr>
                 <th>id</th>
-                <th>父版块名</th>
+                <th>用户名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>邮箱</th>
                 <th>创建时间</th>
-                <th>修改时间</th>
-                <th>创建人</th>
                 <th>操作</th>
             </tr>
             <foreach name="user" item="arr">
                 <tr>
                     <td>{$arr.id}</td>
-                    <td>{$arr.title}</td>
+                    <td>{$arr.name}</td>
+                    <td>{$arr.age}</td>
+                    <td>{$arr.gender}</td>
+                    <td>{$arr.email}</td>
                     <td>{$arr.created_at}</td>
-                    <td>{$arr.updated_at}</td>
-                    <td>{$arr.u_name}</td>
-                    <td><a href="/admin/admin/change_fu/id/{$arr.id}">修改</a> <a name="delete" href="/admin/admin/father_delete/id/{$arr.id}">删除</a></td>
+                    <td><a href="">修改</a> <a name="delete" href="">删除</a></td>
                 </tr>
             </foreach>
         </table>

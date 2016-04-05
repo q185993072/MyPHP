@@ -23,11 +23,11 @@ class IndexController extends Controller
     {
         $table=D('user');
         $data=$table->create();
-        session('name',$data['name']);
         $name['name']=$data['name'];
         $password['password']=$data['password'];
         if($table->where($name)->count()){
             if($table->where($password)->count()){
+                session('name',$data['name']);
                 $this->success('登录成功','/home/index/index');
             }else{
                 $this->error('密码错误','/home/index/index');

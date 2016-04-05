@@ -70,13 +70,40 @@ class AdminController extends Controller
         $table=D('model');
         $data=$table->create();
         $title['title']=$data['title'];
+        $id['id']=$data['id'];
         if($table->where($title)->count()){
                 echo 1;
-            }elseif($table->add()){
-                echo 2;
-            }else{
-                echo 3;
+            }elseif($id['id']){
+                if($table->where($id)->save()){
+                    echo 4;
+                }else{
+                    echo 5;
+                }
+            }elseif($id['id']==null){
+                if($table->add()){
+                    echo 2;
+                }else{
+                    echo 3;
+                }
             }
         }
 
+    public function father_delete()
+    {
+        $table=M('model');
+        $id=$_GET['id'];
+        if($table->delete($id)){
+            $this->redirect('/admin/admin/index');
+        }
+    }
+
+    public function change_fu()
+    {
+        $table=M('model');
+        $id=$_GET['id'];
+        $fid['id']=$id;
+        $data=$table->where($fid)->find();
+        $this->user=$data;
+        $this->display();
+    }
 }
