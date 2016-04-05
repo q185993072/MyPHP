@@ -127,16 +127,17 @@ li{
 #right form{
     margin:20px 0 0 0;
 }
+<<<<<<< Updated upstream
 #right label{
     font-size:18px;
+
 }
 #right input {
     width:180px;
     height:30px;
 }
+<<<<<<< Updated upstream
 #right button{
-    width:60px;
-    height:30px;
     border-radius:3px;
     display: block;
     margin:20px 0 0 0;

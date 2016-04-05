@@ -11,9 +11,10 @@ class AdminController extends Controller
         if(!session('name')){
             $this->error('你已偏离正常轨道','/Admin/admin/login');
         }
+<<<<<<< Updated upstream
         $table=D('model');
         $data=$table->select();
-        $this->assign('user',$data);
+        $this->assign('title',$data);
         layout(false);
         $this->display();
     }
@@ -70,6 +71,7 @@ class AdminController extends Controller
         $table=D('model');
         $data=$table->create();
         $title['title']=$data['title'];
+<<<<<<< Updated upstream
         $id['id']=$data['id'];
         if($table->where($title)->count()){
                 echo 1;
@@ -105,5 +107,16 @@ class AdminController extends Controller
         $data=$table->where($fid)->find();
         $this->user=$data;
         $this->display();
+    }
+
+    public function  father_delete()
+    {
+        $table=M('father');
+        $id=$_GET['id'];
+        if($table->delete($id)){
+            echo true;
+        }else{
+            echo false;
+        }
     }
 }

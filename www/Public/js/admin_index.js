@@ -2,6 +2,7 @@
  * Created by Administrator on 2016/4/2.
  */
 $(function(){
+<<<<<<< Updated upstream
    var abtn=$("#right .right_fu button");
    var aint=$('#right .right_fu input[name=title]');
    var aid=$('#right .right_fu input[name=id]');
@@ -23,4 +24,24 @@ $(function(){
          }
       })
    });
+
+   var abtn1=$('#right table a[name="delete"]');
+   abtn1.click(function(){
+     var id=$(this).attr('id')
+      $.get('/admin/admin/father_delete',{id:id},function(e){
+            if(e){
+               alert('删除成功');
+               window.location.reload();
+            }else{
+               alert('删除失败');
+            }
+      });
+   })
+
+   var abtn2=$('#right table a[name="change"]');
+   abtn2.click(function(){
+      var id=$(this).attr('class');
+
+   })
+>>>>>>> Stashed changes
 });
