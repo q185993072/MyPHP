@@ -53,7 +53,7 @@
             <div style="float: left;width: 240px;height: 70px;margin-left: 5px;margin-top: 2px ">
                 <div style="margin-top: 10px;margin-left: 10px">
                     <a href="#" class="lid" style="text-decoration: none;font-weight: bolder">论坛公告</a><br/>
-                    <a href="#"  class="xiaohongzi">最新公告内容的一小句....</a><br/>
+                    <a href="#" class="xiaohongzi">最新公告内容的一小句....</a><br/>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
             <div style="float: left;width: 240px;height: 70px;margin-left: 5px;margin-top: 2px ">
                 <div style="margin-top: 10px;margin-left: 10px">
                     <a href="#" class="lid" style="">论坛活动</a><br/>
-                    <a href="#"  class="xiaohongzi">最新活动内容的一小句....</a><br/>
+                    <a href="#" class="xiaohongzi">最新活动内容的一小句....</a><br/>
                 </div>
             </div>
         </div>
@@ -74,241 +74,62 @@
             </div>
             <div style="float: left;width: 240px;height: 70px;margin-left: 5px;margin-top: 2px ">
                 <div style="margin-top: 10px;margin-left: 10px">
-                    <a href="#" class="lid" >论坛报道</a><br/>
+                    <a href="#" class="lid">论坛报道</a><br/>
                     <a href="#" class="xiaohongzi">最新报道内容的一小句....</a><br/>
                 </div>
             </div>
         </div>
     </div>
-
-<?php
-foreach($results as $result) {
+    <?php
+foreach($zhus as $zhu) {
 ?>
-    <div style="margin-top: -2px;width: 1000px;height: 864px;float: left" class="bd_border">
+
+    <div style="margin-top: -2px;width: 1000px;height:auto;float: left" class="bd_border">
         <div class=" nav" style="height: 40px;width: 1000px;float:left;">
             <div style=";margin-top: 9px;margin-left: 7px">
-                <label class="jieshao_a" style="font-weight: bolder;"><?=$result['model_title']?></label>
+                <label class="jieshao_a" style="font-weight: bolder;"><?=$zhu['title']?></label>
             </div>
         </div>
-
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" style="text-decoration: none;font-weight: bolder"><?=$result['title']?></a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi" >版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi"  >版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi" >版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#"  class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi">发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi" >版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi" >版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi">版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
-            <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
-                <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
-            </div>
-            <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
-                <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
-                    <a href="#" class="lid" >子版块</a><br/>
-                    <label class="jieshao_a">子版块介绍</label><br/>
-                    <label class="jieshao_a">版主:</label>
-
-                    <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
-                        <a href="#" class="xiaohongzi" ;>版主姓名</a>
-                    </div>
-                </div>
-            </div>
-            <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
-                <div style="width: 300px;height: 80px;">
-                    <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
-                        <label class="xiaohongzi">帖子数/</label>
-                        <label class="jieshao_a">评论数</label>
-                    </div>
-                    <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
-                        <a href="#"  class="xiaohongzi">此版块置顶帖标题</a><br/>
-                        <label class="jieshao_a">日期时间</label>
-                        <a href="#" class="xiaohongzi" >发布者</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
     <?php
 }
-
 ?>
 
+    <?php
+    foreach($results as $result) {
+    ?>
+    <div style=" float:left;width: 999px;height: 88px ;border-bottom: 1px dashed #CDCDCD;">
+        <div style="float: left;width: 50px;height: 50px;margin-top: 15px;margin-left: 15px">
+            <img src="/Public/img/tubiao.png" style="width: 50px;height: 50px">
+        </div>
+        <div style="float: left;width: 240px;height: 0px;margin-left: 5px;margin-top: 2px ">
+            <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px">
+                <a href="#" class="lid"><?=$result['title']?></a><br/>
+                <label class="jieshao_a">子版块介绍</label><br/>
+                <label class="jieshao_a">版主:</label>
+
+                <div style="height:20px;width: 100px;margin-left: 35px;margin-top: -19px">
+                    <a href="#" class="xiaohongzi" ;>版主姓名</a>
+                </div>
+            </div>
+        </div>
+        <div class="" style="float: right;width: 310px;height: 0px;margin-left: 5px;margin-top: 2px; ">
+            <div style="width: 300px;height: 80px;">
+                <div style="width: 100px;height: 30px;margin-top: 23px;float: left">
+                    <label class="xiaohongzi">帖子数/</label>
+                    <label class="jieshao_a">评论数</label>
+                </div>
+                <div style="width: 180px;height: 60px;margin-top: 15px;;margin-left:18px;float: left">
+                    <a href="#" class="xiaohongzi">此版块置顶帖标题</a><br/>
+                    <label class="jieshao_a">日期时间</label>
+                    <a href="#" class="xiaohongzi">发布者</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-
+    <?php
+}
+?>
 </div>
 <script type="text/javascript">
     myFocus.set({
