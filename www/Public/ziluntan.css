@@ -1,4 +1,53 @@
-#banhaidaohang{
+#bankaidaohang{
     border: 1px #BDD7E3 solid;
     background-color: white;
+}
+.zlt_border {
+    width: 844px;
+    height: 30px;
+    float: left;
+    border: 1px #C8C8C8 solid;
+    background-color: #fdfdfd;
+}
+.hang{
+    height: 40px;
+    width: 830px;
+    border-bottom: 1px #E6E6E6 solid;
+    margin-right: auto;
+    margin-left: auto
+}
+
+.tiezi_border{
+    width: 999px;
+    height: 30px;
+    float: left;
+    border: 1px #C8C8C8 solid;
+    background-color:  #fdfdfd;
+}
+.shutiao{
+    width: 999px;
+    height: 30px;
+    float: left;
+
+    background-color:  #fdfdfd;
+}
+
+.louzhu{
+    font-size: 85%;
+    color:#990033;
+    text-decoration: none;
+    font-weight: bolder;
+}
+.li_shutiao{
+
+    list-style-type: none;
+    margin-top: -5px;
+    padding-left: inherit;
+    color:#666666;
+    font-size: 75%;
+    text-decoration: none;
+    font-weight: normal;
+    line-height: 20px;
+
+
 }

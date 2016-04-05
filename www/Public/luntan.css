@@ -34,7 +34,7 @@
     margin-right: auto;
 }
 .border{
-    border: 1px red solid;
+
     width: 1000px;
     height: 38px;
 }
@@ -130,11 +130,15 @@
     padding-right: 20px;
     color:#666666;
     font-size: 95%;
+    text-decoration: none;
+    font-weight: bolder
 
 }
 
 .xiaohongzi{
     color: #F55F5E;
     font-size: small;
+    text-decoration: none;
 
 }
+
