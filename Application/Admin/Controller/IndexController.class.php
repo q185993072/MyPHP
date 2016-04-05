@@ -26,15 +26,58 @@ class IndexController extends Controller
     {
         $this->display();
     }
+    public function loginCheck()
+    {
+        $table = M('user');
+        $username =trim(I('username'));
+        $password = trim(I('password'));
+        $conditions = [
+            'username' => $username,
+        ];
+        $result = $table->where($conditions)->find();
+        if ($username && $password) {
+           if ($result) {
+               if (MD5($password) == $result['password']) {
+                   $_SESSION['auth'] = true;
+                   $_SESSION['username'] = $username;
+                   $this->success('登陆成功');
+               } else {
+                   $this->error('用户名或密码错误');
+               }
+           } else {
+               $this->error('用户名不存在');
+           }
+        } else {
+            $this->error('请填写用户名或密码');
+        }
+    }
+
     public function gerenzhuye()
     {
+        $name = I('username');
+        $table = M('user');
+        $conditions  = [
+            'name' => $name,
+        ];
+        $user = $table->where($conditions)->find();
 
+        //print_r($user);
+        $this->user = $user;
         $this->display();
     }
     public function tiezi()
     {
         $this->display();
     }
+
+    public function logout()
+    {
+        $_SESSION['auth'] = false;
+        $_SESSION['username'] = null;
+        redirect("/admin/index/luntan");
+    }
+
+
     public  function yasuoimg()
     {
         $obj = new \Think\Image();

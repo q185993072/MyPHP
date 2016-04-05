@@ -14,7 +14,8 @@
 <body style="background-color: #EFEFEF">
 
 <div id="hd" >
-    <div style="display: none" >
+    <if condition="$Think.session.auth EQ 1">
+    <div>
         <div class="hd_dl " style="float: left;width: 300px">
             <h2>
                 <a title="某某论坛" href="#">
@@ -31,7 +32,7 @@
             </div>
             <div class="hd_dl border " style="float: right;width: 500px;height: auto;">
                 <div style="float: right;margin-right: 5px">
-                    &nbsp;<a href="#" class="jieshao_a">退出</a>
+                    &nbsp;<a href="/admin/index/logout" class="jieshao_a">退出</a>
                 </div>
                 <div style="float: right;margin-right: 5px">
                     <img src="/Public/img/notice.gif">
@@ -44,16 +45,12 @@
                 </div>
                 <div style="float: right;margin-right: 5px">
                     <label class="jieshao_a" style="color: #daccda">|</label>
-                    &nbsp;<a href="#" class="jieshao_a">设置</a>&nbsp;
+                    &nbsp;<a href="#" class="jieshao_a">完善个人信息</label></a>&nbsp;
                     <label class="jieshao_a" style="color: #daccda">|</label>
-                </div>
-                <div style="float: right;margin-right: 5px;margin-top: 2px">
-                    <a href="#"><img src="/Public/img/qq_bind_small.gif"></a>
                 </div>
                 <div style="float: right;margin-right: 5px">
                     <img src="/Public/img/user_online.gif">
-                    <a href="#" class="jieshao_a" style="font-weight: bolder">用户名</a>
-                    <label class="jieshao_a" style="color: #daccda">|</label>
+                    <a href="/admin/index/gerenzhuye?username={$Think.session.username}" class="jieshao_a" style="font-weight: bolder">用户名:{$Think.session.username}</a>
                 </div>
             </div>
 
@@ -86,8 +83,7 @@
         </div>
     </div>
 
-
-
+<else />
 
     <div style="display: block">
         <div class="hd_dl " style="float: left;width: 300px">
@@ -99,24 +95,23 @@
             </h2>
         </div>
 
-
         <div class="hd_dl " style="float: right;width: 350px">
-            <form method="post" action="#">
+            <form method="post" action="/admin/index/loginCheck">
                 <div style="margin-top: 20px;">
                     <div style="width:350px;height: 30px;">
                         <label style="font-size: small">账号：</label>
-                        <input type="text" name="username"/>
+                        <input type="text" name="username" required="required"/>
                         <input type="checkbox" name="remember_login">
                         <label style="color: #333333;font-size: small">自动登录</label>
 
-                        <a href="#" style="color: #232323;text-decoration:none;font-size: small;">找回密码</a>
+                        <a href="#" style="color: #232323;text-decoration:none;font-size: small;">自动登录</a>
                     </div>
 
                     <div style="width: 350px;height: 30px;">
                         <label style="font-size: small">密码：</label>
-                        <input type="text" name="username"/>
+                        <input type="password" name="password" required="required"/>
                         &nbsp;&nbsp;&nbsp;
-                        <input type="submit" name="login" value="登录">
+                        <input type="submit" value="登录">
                         &nbsp;&nbsp;&nbsp;
                         <a href="/home/register/register" style="color: red;text-decoration:none;font-size: small;font-weight: 200">注册</a>
                     </div>
@@ -137,9 +132,7 @@
             </div>
         </div>
     </div>
-
-
-
+</if>
 
     <div class=" nav" style="height: 40px;width: 1000px;float:left;">
         <div style="float: right ;width: 100px;height: 30px;margin-top: 5px;margin-right:7px;cursor: pointer  ">
@@ -148,7 +141,7 @@
         <div style="" >
 
             <ul>
-                <li class="li"><a href="#" class="li_a">首页</a></li>
+                <li class="li"><a href="/admin/index/luntan" class="li_a">首页</a></li>
                 <li class="li"><a href="/Home/wish/index" target="_blank" class="li_a">许愿墙</a></li>
                 <li class="li"><a href="#" class="li_a">CSS基础</a></li>
                 <li class="li"><a href="#" class="li_a">CSS开发工具</a></li>
