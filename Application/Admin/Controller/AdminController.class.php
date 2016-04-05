@@ -104,7 +104,7 @@ class AdminController extends Controller
 
     public function  father_delete()
     {
-        $table=M('father');
+        $table=M('model');
         $id=$_GET['id'];
         if($table->delete($id)){
             echo true;
