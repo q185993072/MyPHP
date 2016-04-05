@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/4/2.
  */
 $(function(){
-<<<<<<< Updated upstream
+
    var abtn=$("#right .right_fu button");
    var aint=$('#right .right_fu input[name=title]');
    var aid=$('#right .right_fu input[name=id]');
@@ -36,12 +36,7 @@ $(function(){
                alert('删除失败');
             }
       });
-   })
+   });
 
-   var abtn2=$('#right table a[name="change"]');
-   abtn2.click(function(){
-      var id=$(this).attr('class');
 
-   })
->>>>>>> Stashed changes
 });

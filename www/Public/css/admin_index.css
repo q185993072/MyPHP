@@ -127,7 +127,7 @@ li{
 #right form{
     margin:20px 0 0 0;
 }
-<<<<<<< Updated upstream
+
 #right label{
     font-size:18px;
 
@@ -136,10 +136,12 @@ li{
     width:180px;
     height:30px;
 }
-<<<<<<< Updated upstream
+
 #right button{
     border-radius:3px;
     display: block;
+    width:80px;
+    height:30px;
     margin:20px 0 0 0;
     border:1px solid #ccc;
 }
