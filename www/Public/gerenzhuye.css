@@ -1,0 +1,45 @@
+.home{
+    width: 1000px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.touxiang{
+    float: left;
+    width: 54px;
+    height: 54px;
+    border: 1px solid #cccccc;
+    margin-top: 10px;
+    margin-left:10px
+}
+.jieshao_a{
+    font-size: small;
+    color:#666666;
+    text-decoration: none
+}
+.xinxi{
+    width: 960px;
+    height: 88px ;
+    border-bottom: 1px dashed #CDCDCD;
+    margin-left: auto;
+    margin-right: auto
+}
+.username_div{
+    float: left;
+    width: auto;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 10px
+}
+.username{
+    color: #666666;
+    font-size: larger;
+    font-weight: bolder
+}
+.xiaohongzi{
+    color: #F55F5E;
+    font-size: small;
+    text-decoration: none;
+
+}
