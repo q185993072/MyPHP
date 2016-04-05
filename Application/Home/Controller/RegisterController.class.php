@@ -29,18 +29,26 @@ class RegisterController extends Controller
     public function insert()
     {
         $table = D('User');
-        $table->create();
-        if ($table->add()) {
-            $pass = I('password');
-            $repass = I('repassword');
-            if ($pass == $repass) {
-                $this->redirect('/home/register/register?su=1');
+        echo I('username');
+        if ($table->create()) {
+            if ($table->add()) {
+                $pass = I('password');
+                $repass = I('repassword');
+                $name = I('name');
+                if ($pass == $repass) {
+                    $_SESSION['username'] = $name;
+                    $_SESSION['auth'] = true;
+                    $this->redirect('/home/register/register?su=1');
+                } else {
+                    $this->error("确认密码不正确",'/home/register/register?su=0');
+                }
             } else {
-                $this->error("确认密码不正确",'/home/register/register?su=0');
+                $this->error($table->getError(),'/home/register/register?su=0');
             }
         } else {
             $this->error($table->getError(),'/home/register/register?su=0');
         }
+
     }
 
     public function registerCheck()

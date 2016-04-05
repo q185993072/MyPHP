@@ -22,6 +22,16 @@ class UserModel extends Model
         ['email','email','请输入正确邮箱',Model::VALUE_VALIDATE ,'',UserModel::MY_MODEL_TIME],
         ['yzm','require','请输入验证码',Model::EXISTS_VALIDATE,'',UserModel::MY_MODEL_TIME],
         ['yzm','checkYzm','验证码输入错误',Model::EXISTS_VALIDATE,'callback',UserModel::MY_MODEL_TIME],
+
+
+
+        ['name','require','请输入用户名',Model::EXISTS_VALIDATE ,''],
+        ['name','','用户名已被注册',Model::EXISTS_VALIDATE ,'unique'],
+        ['name','getLength','请输入3至8位的用户名',Model::EXISTS_VALIDATE ,'callback'],
+        ['password','require','请输入密码',Model::EXISTS_VALIDATE,],
+        ["password","6,12","密码须6到12位",0,'length'],
+        ['repassword','require','请确认密码',Model::EXISTS_VALIDATE,],
+        ['email','email','请输入正确邮箱',Model::VALUE_VALIDATE ],
     ]; // 自动验证定义
     protected $_auto     = [
         ['password','md5',Model::MODEL_BOTH,'function'],
