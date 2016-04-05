@@ -90,8 +90,6 @@ class AdminController extends Controller
             }
         }
 
-
-
     public function change_fu()
     {
         $table=M('model');
