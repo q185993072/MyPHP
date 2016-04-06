@@ -77,6 +77,20 @@ class IndexController extends Controller
         redirect("/admin/index/luntan");
     }
 
+    /**
+     * 用户修改完善资料
+     */
+    public function personMsg()
+    {
+        $this->action = I('ac',0);
+        $table = M('User');
+        $id = I('id');
+        $conditions = [
+            'id' => $id,
+        ];
+       $this->result = $table->where($conditions)->find();
+        $this->display();
+    }
 
     public  function yasuoimg()
     {

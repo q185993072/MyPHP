@@ -1,0 +1,31 @@
+
+    <link href="/Public/css/personMsg.css" rel="stylesheet" type="text/css"/>
+<div id="bd">
+    <div id="form">
+        <form method="post" action="">
+            <div class="label"><label>用户名: </label></div>
+            <div class="input"><input type="text" name="name" value="{$result.name}"/></div>
+            <div class="label"><label>性别: </label></div>
+            <div class="input"><select name="gender">
+                <if condition="$result.gender EQ F">
+                    <option value="F" selected="selected">女</option>
+                    <option value="M">男</option>
+                    <else/>
+                    <option value="F">女</option>
+                    <option value="M" selected="selected">男</option>
+                </if>
+            </select></div>
+            <div class="label"><label>出生年份: </label></div>
+            <div class="input">
+
+
+            </div>
+            <div class="label"><label>地址: </label></div>
+            <div class="input"><input type="text" name="address" value="{$result.address}"/></div>
+            <div class="label"><label>邮箱: </label></div>
+            <div class="input"><input type="email" name="email" value="{$result.email}"/></div>
+            <div class="label"><label>手机: </label></div>
+            <div class="input"><input type="text" name="mobile" value="{$result.mobile}"/></div>
+        </form>
+    </div>
+</div>
