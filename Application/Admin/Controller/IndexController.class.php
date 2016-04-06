@@ -106,12 +106,15 @@ class IndexController extends Controller
 
     public function personMsgInsert()
     {
-        echo $action = I();
+        $id = I('id');
         $table = D('User');
         if ($table->create()) {
 
         } else {
-            $this->error($table->getError(),'/admin/index/personMsg');
+            if ($id) {
+                $this->error($table->getError(),"/admin/index/personMsg?ac=1&id=" . $id);
+            }
+            $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
         }
     }
 
