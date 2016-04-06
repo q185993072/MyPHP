@@ -3,7 +3,7 @@
     <div class="home" style="border: 1px solid #cccccc;">
         <div style="height: 107px;width: 1000px;border-bottom: 1px solid #cccccc;background-color: #f8f8f8">
             <div class="touxiang">
-                <a href="#"><img src="/Public/img/user.png" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"></a>
+                <a href="#"><if condition="$user.image NEQ null"><img src="{$user.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/img/user.png" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"></if></a>
             </div>
             <div class="username_div">
                 <label class="username">{$Think.session.username}</label><br/>
@@ -55,7 +55,7 @@
                 <div style="line-height: 40px;width: 400px;float: left">
                     <label class="jieshao_a">性别</label>&nbsp;&nbsp;&nbsp;
                     <if condition="$user.gender NEQ null">
-                        <label class="jieshao_a"><?php echo $user['gender'] == 'F'?'女':'男'?></label>
+                        <label class="jieshao_a"><?php echo $user['email'] == 'F'?'女':'男'?></label>
                         <else/>
                     <label class="jieshao_a">保密</label>
                         </if>

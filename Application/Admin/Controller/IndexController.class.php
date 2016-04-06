@@ -3,6 +3,7 @@ namespace Admin\Controller;
 
 use Admin\Model\UserModel;
 use Think\Controller;
+use Think\Upload;
 
 
 class IndexController extends Controller
@@ -42,6 +43,7 @@ class IndexController extends Controller
                    $_SESSION['auth'] = true;
                    $_SESSION['username'] = $username;
                    $_SESSION['id'] =$table->getFieldByName($username,'id');
+                   $_SESSION['image'] = $table->getFieldByName($username,'image');
                    $this->success('登陆成功');
                } else {
                    $this->error('用户名或密码错误');
@@ -95,7 +97,6 @@ class IndexController extends Controller
         $ri = range(1,31);
         $this->ris = $ri;
 
-        $this->action = I('ac',0);
         $table = M('User');
         $id = I('id');
         $conditions = [
@@ -107,35 +108,36 @@ class IndexController extends Controller
 
     public function personMsgInsert()
     {
+
         $id = I('id');
         $table = D('User');
-        if ($id) {
-            $action = 'save';
-        } else {
-            $action = 'add';
-        }
         $year = I('year');
         $month = I('month');
         $day = I('day');
         $age = $year . "-" . $month . "-" . $day ;
-        if ($table->create()) {
-            $table->age = $age;
-            if ($table->$action()) {
-                $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
-            } else {
-                if ($id) {
-                    $this->error($table->getError(),"/admin/index/personMsg?ac=1&id=" . $id);
+        $upload = new Upload();
+        $upload->mimes = [
+            'image/png',
+            'image/jpeg',
+        ];
+        $upload->maxSize = 2 * 1024 * 1024;
+        $upload->autoSub = true;
+        if ($info = $upload->upload($_FILES)) {
+           echo  $path ="/Uploads/" . $info['image']['savepath'] . $info['image']['savename'];
+            if ($table->create()) {
+                $table->age = $age;
+                $table->image = $path;
+                if ($table->save()) {
+                    $_SESSION['image'] = $table->getFieldById($id,'image');
+                    $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
                 } else {
-                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $_SESSION['id']);
+                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
                 }
+            } else {
+                $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
             }
-
         } else {
-            if ($id) {
-                $this->error($table->getError(),"/admin/index/personMsg?ac=1&id=" . $id);
-            } else{
-                $this->error($table->getError(),"/admin/index/personMsg?id=" . $_SESSION['id']);
-            }
+            $this->error($upload->getError(),"/admin/index/personMsg?id=" . $id);
         }
     }
 

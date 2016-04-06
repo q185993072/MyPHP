@@ -31,6 +31,7 @@ class IndexController extends Controller
                 $_SESSION['auth'] = true;
                 $_SESSION['id'] =$table->getFieldByName($username,'id');
                 session('username',$data['name']);
+                $_SESSION['image'] = $table->getFieldByName($username,'image');
                 $this->success('登录成功','/home/index/index');
             }else{
                 $this->error('密码错误','/home/index/index');

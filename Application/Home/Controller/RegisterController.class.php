@@ -29,7 +29,7 @@ class RegisterController extends Controller
     public function insert()
     {
         $table = D('User');
-        echo I('username');
+        $name = I('username');
         if ($table->create()) {
             if ($table->add()) {
                 $pass = I('password');
@@ -37,7 +37,9 @@ class RegisterController extends Controller
                 $name = I('name');
                 if ($pass == $repass) {
                     $_SESSION['username'] = $name;
+                    $_SESSION['id'] = $table->getFieldByName($name,'id');
                     $_SESSION['auth'] = true;
+                    $_SESSION['image'] = $table->getFieldByName($name,'image');
                     $this->redirect('/home/register/register?su=1');
                 } else {
                     $this->error("确认密码不正确",'/home/register/register?su=0');

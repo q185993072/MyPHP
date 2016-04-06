@@ -13,7 +13,7 @@ class UserModel extends Model
     ];
 
     protected $_auto=[
-        ['password','md5',Model::MODEL_BOTH,'function'],
+        //['password','md5',Model::MODEL_BOTH,'function'],
     ];
 
 }

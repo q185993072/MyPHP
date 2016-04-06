@@ -2,12 +2,8 @@
 
 <div id="bd">
     <div id="form">
-        <form method="post" action="/admin/index/personMsgInsert">
-            <if condition="$action EQ 1">
+        <form method="post" action="/admin/index/personMsgInsert" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="{$result.id}">
-                <else/>
-                <input type="hidden" name="id" value="">
-            </if>
             <div class="label"><label>用户名: </label></div>
             <div class="input"><input type="text" name="name" value="{$result.name}" id="username"/><span id="name"></span></div>
             <div class="label"><label>性别: </label></div>
@@ -58,7 +54,8 @@
             <div class="input"><input type="email" name="email" value="{$result.email}"/></div>
             <div class="label"><label>手机: </label></div>
             <div class="input"><input type="text" name="mobile" value="{$result.mobile}"/></div>
-
+            <div class="label"><label>头像: </label></div>
+            <div class="input"><input type="file" name="image"/></div>
             <div id="sbmt">
                 <input type="submit" value="提交" class="btn"/>
             </div>
