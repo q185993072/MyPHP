@@ -92,6 +92,12 @@ class IndexController extends Controller
        // $img->water('shuiying.png')->save("/Public/img/lufei4.png");//加水印
         $img->text('asdf','./ThinkPHP/Library/Think/Verify/ttfs/5.ttf','30','#999999',Image::IMAGE_THUMB_SOUTHEAST)->save("/Public/img/lufei4.png");
     }
+
+    public function fatie()
+    {
+
+        $this->display();
+    }
 }
 
 
