@@ -1,6 +1,7 @@
 <?php
 namespace Admin\Controller;
 
+use Admin\Model\UserModel;
 use Think\Controller;
 
 
@@ -32,7 +33,7 @@ class IndexController extends Controller
         $username =trim(I('username'));
         $password = trim(I('password'));
         $conditions = [
-            'username' => $username,
+            'name' => $username,
         ];
         $result = $table->where($conditions)->find();
         if ($username && $password) {
@@ -40,6 +41,7 @@ class IndexController extends Controller
                if (MD5($password) == $result['password']) {
                    $_SESSION['auth'] = true;
                    $_SESSION['username'] = $username;
+                   $_SESSION['id'] =$table->getFieldByName($username,'id');
                    $this->success('登陆成功');
                } else {
                    $this->error('用户名或密码错误');
@@ -102,6 +104,28 @@ class IndexController extends Controller
         $this->display();
     }
 
+    public function personMsgInsert()
+    {
+        echo $action = I();
+        $table = D('User');
+        if ($table->create()) {
+
+        } else {
+            $this->error($table->getError(),'/admin/index/personMsg');
+        }
+    }
+
+    public function personMsgCheck()
+    {
+        //echo "s";
+        $table = D('User');
+        if ($table->create("", UserModel::MY_MODEL_TIMES)) {
+            echo 'success';
+        } else {
+            $b = $table->getError();
+            echo $b;
+        }
+    }
     public  function yasuoimg()
     {
         $obj = new \Think\Image();

@@ -1,10 +1,15 @@
- <link href="/Public/css/personMsg.css" rel="stylesheet" type="text/css"/>
+<link href="/Public/css/personMsg.css" rel="stylesheet" type="text/css"/>
 
 <div id="bd">
     <div id="form">
         <form method="post" action="">
+            <if condition="$action EQ 1">
+                <input type="hidden" name="id" value="{$result.id}">
+                <else/>
+                <input type="hidden" name="id" value="">
+            </if>
             <div class="label"><label>用户名: </label></div>
-            <div class="input"><input type="text" name="name" value="{$result.name}"/></div>
+            <div class="input"><input type="text" name="name" value="{$result.name}" id="username"/><span id="name"></span></div>
             <div class="label"><label>性别: </label></div>
             <div class="input"><select name="gender" id="gender">
                 <if condition="$result.gender EQ F">
@@ -60,3 +65,16 @@
         </form>
     </div>
 </div>
+<script type="text/javascript">
+    $(function() {
+        $('#username').bind('change', function() {
+            $.post("/admin/index/personMsgCheck", {name: $('#username').val()} , function(el) {
+                if (el == "success") {
+                    $('#username~#name').html('');
+                } else {
+                    $('#username~#name').html(el);
+                }
+            })
+        });
+    })
+</script>
