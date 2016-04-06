@@ -1,7 +1,7 @@
 <div style="width:1000px;margin:0 auto;">
     <form method="post" action="/admin/index/tie_save" enctype="multipart/form-data">
-        <input type="text" name="title"/>
-        标题：<input type="text" name="title"/>
+        <input type="hidden" name="user_id" value="{$Think.get.uid}"/>
+        <input type="hidden" name="subsection_id" value="{$Think.get.id}"/>
         标题：<input type="text" name="title"/>
     <script id="myeditor" type="text/plain" name="content"></script>
         <input type="submit" value="发布" style="border:1px solid #ccc;width:80px;height:40px;border-radius:3px;"/>

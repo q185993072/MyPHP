@@ -173,7 +173,6 @@ class IndexController extends Controller
     public function tie_save()
     {
         $table=D('note');
-        print_r($table->create());exit;
         if($table->create()){
             $table->add();
         }
