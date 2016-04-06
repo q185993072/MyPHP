@@ -4,10 +4,22 @@
     <div class="right_fu">
         <form method="post" action="/Admin/Admin/change_role">
             <label>用户名：</label>
-            <select name="username">
-               <foreach name="username" item="arr">
-                   <option value="{$arr.id}">{$arr.name}</option>
-               </foreach>
+            <foreach name="username" item="arr1">
+                <input value="{$arr1.username}">
+            </foreach>
+
+            <label>当前角色：</label>
+            <select name="rolename">
+                <foreach name="userrole" item="arr2">
+                    <option value="{$arr2.rolename}">{$arr2.rolename}</option>
+                </foreach>
+            </select>
+
+            <label>新增角色：</label>
+            <select name="rolename">
+                <foreach name="userrole" item="arr2">
+                    <option value="{$arr2.rolename}">{$arr2.rolename}</option>
+                </foreach>
             </select>
 
             <input type="submit" value="修改">

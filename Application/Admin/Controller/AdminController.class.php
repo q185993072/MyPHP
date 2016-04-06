@@ -113,14 +113,31 @@ class AdminController extends Controller
             echo false;
         }
     }
-    public function change_role()
+    public function change_role_prem()
     {
         layout(false);
-        $table = D('User');
-        $this->username = $table->select();
+        $user_id=$_GET['id'];
+        $tableuser = D('user');
+        $this->username = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
+            ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id')
+            ->field('dz_user.name as username')
+            ->where(['dz_user.id' => $user_id])
+            ->select();
+
+        $this->userrole = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
+            ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id ')
+            ->field('dz_role.name as rolename')
+            ->where(['dz_user.id' => $user_id])
+            ->select();
 
 
+        $apple=$this->newrole = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
+            ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id ')
+            ->field('dz_role.name as rolename')
+            ->select();
+        print_r($apple);
 
         $this->display();
     }
+
 }

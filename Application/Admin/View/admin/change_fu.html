@@ -3,10 +3,10 @@
     <block name="main">
         <span>详细信息页</span>
         <div class="right_fu">
-            <form method="post">
+            <form method="post" action="Admin/Admin/change_role">
                 <input type="hidden" name="id" value="{$user['id']}"/>
                  <label>父版块名称：</label><input type="text" name="title" value="{$user['title']}"/>
-                <button type="button">修改</button>
+                <input type="submit" value="修改">
             </form>
         </div>
     </block>
