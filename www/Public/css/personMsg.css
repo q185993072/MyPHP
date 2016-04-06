@@ -1,17 +1,17 @@
 #bd
 {
-    height: 400px;
+    height: 350px;
     width: 400px;
-    border: 1px solid black;
+    border: 1px solid #e0e0e0;
 }
 
 #form
 {
-    width: 300px;
+    width: 320px;
     height: 450px;
     margin: 20px 0 0 45px;
     text-align: center;
-    border: 1px solid #e0e0e0;
+
 }
 
 .label
@@ -27,9 +27,13 @@
 {
 
     float: left;
-    width: 143px;
+    width: 150px;
     height: 24px;
 
+}
+.input input
+{
+    width: auto;
 }
 
 .input #gender
@@ -40,9 +44,4 @@
 #sbmt input
 {
     margin: 10px 0 0 0;
-}
-
-.bnt
-{
-   background-color: deepskyblue;
 }

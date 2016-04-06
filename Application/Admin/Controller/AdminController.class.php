@@ -69,6 +69,7 @@ class AdminController extends Controller
     public function father_save()
     {
         $table=D('model');
+        $this->js='admin_index';
         $data=$table->create();
         $title['title']=$data['title'];
 
