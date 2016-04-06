@@ -55,7 +55,7 @@
                 <div style="line-height: 40px;width: 400px;float: left">
                     <label class="jieshao_a">性别</label>&nbsp;&nbsp;&nbsp;
                     <if condition="$user.gender NEQ null">
-                        <label class="jieshao_a"><?php echo $user['email'] == 'F'?'男':'女'?></label>
+                        <label class="jieshao_a"><?php echo $user['gender'] == 'F'?'女':'男'?></label>
                         <else/>
                     <label class="jieshao_a">保密</label>
                         </if>

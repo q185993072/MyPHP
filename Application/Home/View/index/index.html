@@ -82,13 +82,13 @@
             </div>
             <div class="right_login">
                 <div>
-                    <span>HI!{$Think.session.name}<br/></span>
+                    <span>HI!{$Think.session.username}<br/></span>
 
-                    <if condition="$Think.session.name NEQ null">
+                    <if condition="$Think.session.username NEQ null">
                         <span><a href="/Home/index/login_out">退出</a></span>
                     </if>
 
-                    <input type="hidden" value="{$Think.session.name}"/>
+                    <input type="hidden" value="{$Think.session.username}"/>
                 </div>
                 <button type="button" class="login">会员登录</button>
                 <a href="/Home/register/register"><button type="button" class="register">马上注册</button></a>

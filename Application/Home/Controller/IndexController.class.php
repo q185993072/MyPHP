@@ -24,10 +24,13 @@ class IndexController extends Controller
         $table=D('user');
         $data=$table->create();
         $name['name']=$data['name'];
+        $username = I('name');
         $password['password']=$data['password'];
         if($table->where($name)->count()){
             if($table->where($password)->count()){
-                session('name',$data['name']);
+                $_SESSION['auth'] = true;
+                $_SESSION['id'] =$table->getFieldByName($username,'id');
+                session('username',$data['name']);
                 $this->success('登录成功','/home/index/index');
             }else{
                 $this->error('密码错误','/home/index/index');
@@ -39,7 +42,7 @@ class IndexController extends Controller
 
     public function login_out()
     {
-        session('name',null);
+        session('username',null);
         $this->redirect('/Home/index/index');
     }
 }

@@ -76,6 +76,7 @@ class IndexController extends Controller
     {
         $_SESSION['auth'] = false;
         $_SESSION['username'] = null;
+        $_SESSION['id'] = null;
         redirect("/admin/index/luntan");
     }
 
@@ -108,13 +109,33 @@ class IndexController extends Controller
     {
         $id = I('id');
         $table = D('User');
+        if ($id) {
+            $action = 'save';
+        } else {
+            $action = 'add';
+        }
+        $year = I('year');
+        $month = I('month');
+        $day = I('day');
+        $age = $year . "-" . $month . "-" . $day ;
         if ($table->create()) {
+            $table->age = $age;
+            if ($table->$action()) {
+                $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
+            } else {
+                if ($id) {
+                    $this->error($table->getError(),"/admin/index/personMsg?ac=1&id=" . $id);
+                } else {
+                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $_SESSION['id']);
+                }
+            }
 
         } else {
             if ($id) {
                 $this->error($table->getError(),"/admin/index/personMsg?ac=1&id=" . $id);
+            } else{
+                $this->error($table->getError(),"/admin/index/personMsg?id=" . $_SESSION['id']);
             }
-            $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
         }
     }
 
