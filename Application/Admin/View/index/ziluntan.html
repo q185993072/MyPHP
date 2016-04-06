@@ -1,16 +1,28 @@
 <link href="/Public/ziluntan.css" rel="stylesheet" type="text/css">
 <div id="bd"  style="height: 1450px">
-    <div id="bankaidaohang" style="float: left;width: 135px;height: 300px">
-        <div style="width: 134px;height: 43px;background-color: #F5F9FB; border: 1px #BDD7E3 solid;">
-            <div style="width: 70px;height: 30px;margin-top: 10px;margin-left: 10px">
-                <label style="font-size: 95%;font-weight: bolder;color: #666666">版块导航</label>
+    <div id="bankaidaohang" style="float: left;width: 135px;height: auto;">
+        <div style="width: 134px;height: 43px;background-color: #F5F9FB;">
+            <div style="width: 70px;height: 30px;margin-left: 10px">
+                <label style="font-size: 95%;font-weight: bolder;color: #666666;line-height: 40px">版块导航</label>
             </div>
         </div>
-        <div style="width: 134px;height: 33px;background-color: #F5F9FB; border: 1px #BDD7E3 solid;margin-top: -1px">
-            <div style="width: 70px;height: 30px;margin-top: 10px;margin-left: 10px">
-                <label style="font-size: 95%;font-weight: bolder;color: #666666">版块导航</label>
-            </div>
-        </div>
+
+
+       <div>
+           <div class="zbkdh">
+               <div style="width: 70px;height: 30px;margin-top: 5px;margin-left: 15px">
+                   <a href="#" class="jieshao_a">板块1</a>
+               </div>
+           </div>
+           <div class="bkdh xianshi" style="height: auto;width: 135px;float: left;">
+               <div style="margin-left: 10px;margin-top: 5px">
+                   <a href="#" class="jieshao_a">子版块1</a><br/>
+                   <a href="#" class="jieshao_a">子版块2</a><br/>
+                   <a href="#" class="jieshao_a">子版块3</a><br/>
+               </div>
+           </div>
+       </div>
+
     </div>
 
 
@@ -268,6 +280,12 @@
             ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
     ]
     });
+
+    $('.zbkdh').click(function(){
+        $('.bkdh').toggleClass('xianshi')
+    })
+
+
 
 </script>
 
