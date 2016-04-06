@@ -76,8 +76,9 @@ class IndexController extends Controller
     }
     public function tiezi()
     {
-        $table=M('note');
-        $data=$table->join('LEFT JOIN dz_user ON dz_user.id=dz_note.user_id')->select();
+        $table=M('user');
+        $id=I('id');
+        $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->select();
         foreach($data as &$value){
             $value['content']=html_entity_decode($value['content']);
         }
