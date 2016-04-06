@@ -12,8 +12,4 @@ class UserModel extends Model
         ['mobile','number','请填写数字',Model::EXISTS_VALIDATE]
     ];
 
-    protected $_auto=[
-        //['password','md5',Model::MODEL_BOTH,'function'],
-    ];
-
 }

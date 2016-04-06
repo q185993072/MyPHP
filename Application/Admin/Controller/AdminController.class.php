@@ -47,10 +47,12 @@ class AdminController extends Controller
         $table = D('user');
         $data = $table->create();
         $name['name']=$data['name'];
-        $password['password']=$data['password'];
+        //$password['password']=$data['password'];
+        $passwd = I('password');
+        $pw = $table->getFieldByName($name['name'],'password');
         session('name',$data['name']);
         if($table->where($name)->count()){
-            if($table->where($password)->count()){
+            if(MD5($passwd) == $pw){
                 $this->success('登录成功','/admin/admin/index');
             }else{
                 $this->error('密码错误');
