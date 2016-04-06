@@ -6,10 +6,10 @@ class UserModel extends Model
 {
     const MY_MODEL_TIMES = 4;
     protected $_validate=[
-        ['name','','ÓÃ»§ÃûÒÑ±»×¢²á',Model::EXISTS_VALIDATE ,'unique',UserModel::MY_MODEL_TIMES],
-        ['email','email','ÇëÊäÈëÕıÈ·ÓÊÏä',Model::VALUE_VALIDATE ],
-        ["mobile","11","ÊÖ»úºÅ±ØĞëÊÇ11Î»",0,'length'],
-        ['mobile','number','ÇëÌîĞ´Êı×Ö',Model::EXISTS_VALIDATE]
+        ['name','','ç”¨æˆ·åå·²è¢«æ³¨å†Œ',Model::EXISTS_VALIDATE ,'unique',UserModel::MY_MODEL_TIMES],
+        ['email','email','è¯·è¾“å…¥æ­£ç¡®é‚®ç®±'],
+        ["mobile","11","æ‰‹æœºå·å¿…é¡»æ˜¯11ä½",0,'length'],
+        ['mobile','number','è¯·å¡«å†™æ•°å­—',Model::EXISTS_VALIDATE]
     ];
 
 }
