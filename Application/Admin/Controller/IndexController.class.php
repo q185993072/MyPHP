@@ -74,16 +74,22 @@ class IndexController extends Controller
         $this->user = $user;
         $this->display();
     }
+
     public function tiezi()
     {
-        $table=M('user');
-        $id=I('id');
-        $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->select();
-        foreach($data as &$value){
-            $value['content']=html_entity_decode($value['content']);
-        }
-        $this->user=$data;
-        $this->display();
+            $table=M('user');
+            $uid=session('id');
+            if($id=I('id')){
+                $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
+            }else{
+                $data=$table->join("LEFT JOIN")->where("id=$uid")->select();
+             }
+
+            foreach($data as &$value){
+                $value['content']=html_entity_decode($value['content']);
+            }
+            $this->user=$data;
+            $this->display();
     }
 
     public function logout()
