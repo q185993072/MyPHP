@@ -105,7 +105,7 @@ foreach($zhus as $zhu) {
         </div>
         <div style="float: left;width: 240px;height: 0;margin-left: 5px;margin-top: 2px;">
             <div style="margin-top: 10px;margin-left: 10px;width: 200px;height: 100px;">
-                <a href="/Admin/index/ziluntan/id/<?=$result['id']?>" class="lid"><?=$result['title']?></a><br/>
+                <a href="/Admin/index/ziluntan/id/<?=$result['id']?>/uid={$Think.session.id}" class="lid"><?=$result['title']?></a><br/>
                 <label class="jieshao_a">子版块介绍</label><br/>
                 <label class="jieshao_a">版主:</label>
 

@@ -196,6 +196,7 @@
 
                     </div>
                 </div>
+            <foreach name="user" item="arr">
                 <div id="zhutitie" style="margin-right: auto;margin-left: auto">
                     <div class="hang">
                         <div style="height: 40px;width: 830px;border-top: 1px #E6E6E6 solid;">
@@ -203,21 +204,21 @@
                                 <img src="/Public/img/zhuti.gif">
                             </div>
                             <div style="float: left;margin-top: 10px;margin-left: 4px">
-                                <a href="#" class="xiaohongzi" style="color:#007cd5;">[各类主题]</a>
+                                <a href="" class="xiaohongzi" style="color:#007cd5;">[各类主题]</a>
                             </div>
                             <div style="float: left;margin-top: 10px;margin-left: 8px;width: 300px">
-                                <a href="#" class="jieshao_a" style="font-size: 85%"> 文章标题</a>
+                                <a href="/admin/index/tiezi/id/{$arr.id}" class="jieshao_a" style="font-size: 85%"> {$arr.title}</a>
                             </div>
-                            <div style="float: left;margin-left:145px ;width: 100px">
-                                <a href="#" class="jieshao_a" style="font-size: 75% ;">作者名</a><br/>
-                                <label class="jieshao_a" style="font-size: 70%">2016-4-1</label>
+                            <div style="float: left;margin-left:95px ;width: 150px">
+                                <a href="" class="jieshao_a" style="font-size: 75% ;">{$arr.name}</a><br/>
+                                <label class="jieshao_a" style="font-size: 70%">{$arr.created_at}</label>
                             </div>
-                            <div style="float: left;margin-left:12px;width: 65px;margin-top: 8px">
+                            <div style="float: left;margin-left:5px;width: 65px;margin-top: 8px">
                                 <label class="xiaohongzi" style="font-size: 75%">12</label>
                                 <label class="jieshao_a" style="font-size: 75%">/</label>
                                 <label class="jieshao_a" style="font-size: 75%">115</label>
                             </div>
-                            <div style="float: left;margin-left:12px;">
+                            <div style="float: left;margin-left:12px;width:100px;">
                                 <a href="#" class="jieshao_a" style="font-size: 75%">作者名</a><br>
                                 <a href="#" class="jieshao_a" style="font-size: 70%">2016-4-1 10:34</a>
                             </div>
@@ -225,8 +226,10 @@
                         </div>
                     </div>
                 </div>
+            </foreach>
             </div>
         </div>
+
         <div >
             <div class="zlt_border" style="height: 30px;background-color: #F2F2F2;margin-left: -1px;margin-top: 20px;border: 1px #C2D5E3 solid ">
                 <div style="margin-right: auto;margin-left: auto;margin-top: 5px;cursor: pointer">

@@ -1,11 +1,11 @@
 <link href="/Public/ziluntan.css" rel="stylesheet" type="text/css">
 <div id="bd" style="height:auto">
-    <div style="float: left;height: 63px;width: 1000px" >
+    <div style="float: left;height: 63px;width: 1000px">
         <div style="width: 84px;height: auto;float: left;margin-top:10px">
-            <a href=""><img src="/Public/img/fatie.png"></a>
+            <a href="/Admin/index/fatie/id/{$Think.get.id}/uid/{$Think.session.id}"><img src="/Public/img/fatie.png"></a>
         </div>
         <div style="float: right;margin-right: 20px;margin-top: 15px;">
-            <div  style="height: 28px;width: 84px;cursor: pointer"class="tiezi_border">
+            <div style="height: 28px;width: 84px;cursor: pointer" class="tiezi_border">
                 <div style="margin-left: 16px;margin-top: 3px">
                     <a href="" class="jieshao_a" style="font-size: small;color: black">返回列表</a>
                 </div>
@@ -13,8 +13,9 @@
         </div>
     </div>
 
-    <div >
+    <div>
         <div style="height:auto;width: 999px" class="tiezi_border">
+            <foreach name="user" item="arr">
             <div style="height: auto;width: 1000px">
                 <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
                      class="tiezi_border">
@@ -26,22 +27,23 @@
                         <label class="xiaohongzi">67</label>
                     </div>
                 </div>
-                <div style="height: 55px;width: 840px ;float: left;border-bottom: 4px #f8f8f8 solid ">
-                    <div style="width: 750px;height: 40px;margin-top: 3px;margin-left: 5px;float: left  ">
-                        <div style="margin-left: 10px;margin-top: 5px">
-                            <label style="font-size: large;font-weight: bolder;color: #666666">【主题】此帖标题。。。。</label>
+                    <div style="height: 55px;width: 840px ;float: left;border-bottom: 4px #f8f8f8 solid ">
+                        <div style="width: 750px;height: 40px;margin-top: 3px;margin-left: 5px;float: left  ">
+                            <div style="margin-left: 10px;margin-top: 5px">
+                                <label style="font-size: large;font-weight: bolder;color: #666666">【主题】{$arr.title}</label>
+                            </div>
+                        </div>
+                        <div style="float: left;width: 70px;margin-top: 15px">
+                            <a href="#" class="xiaohongzi" style="color: #666666">[复制链接]</a>
                         </div>
                     </div>
-                    <div style="float: left;width: 70px;margin-top: 15px">
-                        <a href="#" class="xiaohongzi" style="color: #666666">[复制链接]</a>
-                    </div>
-                </div>
             </div>
+
             <div style="height:auto;width: 1000px">
                 <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px" class="shutiao">
                     <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
                         <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 130px;height: 23px">
-                            <a href="#" class="louzhu">楼主</a>
+                            <a href="#" class="louzhu">{$arr.name}</a>
                         </div>
                     </div>
                     <div style="width: 154px;height: 180px">
@@ -96,199 +98,47 @@
                             <tbody>
                             <tr>
                                 <td class="jieshao_a" style="font-size: 14px">
-                                    <br>
-                                    摘要：小学生作文能力的培养写作能力是语文素养的综合体现。然而目前大多数学生的写作能力和水平不容乐观，一提到作文就头疼，苦于作文，烦于写作，写作兴趣更无从谈起。长此下去，不仅影响学生作文能力的提高，而且不利于学生语文综合素养的培养。小学生作文能力的培养因此，搞好作文教学是每个语文教师必须思考的问题。下面是笔者对作文教学的几点看法。
-                                    <br>
-                                    一小学生写作能力培养的方法
-                                    <br>
-                                    （一） 情趣引导，焕发写作灵感
-                                    <br>
-                                    兴趣是入门的向导。每个人从事各小学生作文能力的培养种各样的活动，都是由一定的活动动机、兴趣爱好引起的。激发兴趣和爱好是培养作文能力的关键。因此作文教学离不开良好的情趣参与，否则，收不到良好的教学效果。
-                                    <br>
-                                    创设情境，激发写作兴趣情动于衷而成于言小学生作文能力的培养。教师要充分发挥“情感”在作文教学中的作用，通过如临其境、如见其人的情感体验，缩短学生与作文中人物的心理距离，使学生设身处地得去体会、去感受、去写作。所以，教师在教学中要通过各种途小学生作文能力的培养径，在习作指导中创设丰富多彩的情境（如利用电教媒体、小品表演、游戏等），利用语文教学的情感因素，激发学生共鸣，并创造条件，营造情感倾吐氛围，激活学生的思维，让学生畅所欲言，小学生作文能力的培养从而消除学生对作文的恐惧厌烦心理，真正地喜欢作文，这也为学生自由表达，真实写作打开通道。
-                                    <br>
-                                    注重感受，激发写作热情笔为心声小学生作文能力的培养，敢想、敢说是敢写的前提。教师要善于激发和保护好学生的这种热情、冲动和愿望。放手让学生说真话、实话。心里怎么想就怎么说，怎么说就怎么写。例如：笔者发现部分学生有写日记的习惯，而且都小学生作文能力的培养写真心话。笔者就试着让他们写“生活日记”“观察日记”等，并在全班朗读，教师适当的给予鼓励和表扬，使学生明白了作文就是在记录自己的真实生活，也使学生感受到写作文很简单，从而产生强烈的小学生作文能力的培养情趣。
-                                    <br>
-                                    (二) 积累素材，拓展知识空间
-                                    <br>
-                                    指导学生作文，要从内容入手。写小学生作文能力的培养作文困难的学生虽然兴趣被激活了，但往往还是“无话可说”，“无事可写”。因此，教师有必要帮助学生全方位、多角度地、广泛地搜集素材。
-                                    <br>
-                                    重视生活实践作文离不开生活。教师要引导学生从生活中来，到生活中去。学生自己看到、听到、想到的内容丰富了，作文的素材也就多了起来。教小学生作文能力的培养师可以经常安排学生在生活中观察事物，展开想象，鼓励学生积极参与生活实践，切实体验生活方方面面的酸甜苦辣，这样才能把学生思维的引线打开，使学生举一反三，去想生活中的事，从而积累生活素材小学生作文能力的培养，为写作开启鲜活的永不枯竭的源泉。
-                                    <br>
-                                    广开阅读门路读书破万卷，下笔如有神。增加阅读量也是积累素材的重要方法。作文所需要的遣词造句，布局谋篇在很大程度上依赖于阅读。读书能积小学生作文能力的培养累累语言，提高语文素养，学生才能准确生动地表情达意。因此，在作文教学中，要引导学生注意语言积累，要赋予语言生活气息，要能把语言还原于生活，发表一定的见解。在课外阅读中，对自己喜欢的语言，要能大体理解它的意思，摘抄下来；同时教师还要抓住教学时机，布置名篇阅读。新课程实施以来，新选入小学生作文能力的培养的课文具有极强的时代感，内容丰富，语言优美。教师要抓住每篇课文的特点，加强练习训练，使学生从中学到好的表现形式、手法，并应用于作文中来。
-
-
+                                    {$arr.content}
                                 </td>
                             </tr>
                             </tbody>
                         </table>
 
                     </div>
-                    <div style="height: 40px;width: 810px;margin-left: auto;margin-right: auto">
-                        <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
-                            <a href="#" class="jieshao_a"><label class="jieshao_a"style="color: black">回复</label></a>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red">支持</label></a>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a">反对</label></a>&nbsp;
+                </div>
+                <div style="height: 40px;width: 810px;margin:auto;float:left;">
+                    <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
+                        <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
+                        <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red">支持</label></a>&nbsp;
+                        <a href="#" class="jieshao_a"><label class="jieshao_a">反对</label></a>&nbsp;
 
-                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
     </div>
-    <div >
-        <div style="height:auto;width: 999px" class="tiezi_border">
-            <div style="height: auto;width: 1000px">
-                <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
-                     class="tiezi_border">
-                    <div style="margin-top: 10px;margin-left: 13px">
-                        <label class="jieshao_a">查看:</label>
-                        <label class="xiaohongzi">318</label>&nbsp;
-                        <label class="jieshao_a" style="color: #c8c8c8">|</label>&nbsp;
-                        <label class="jieshao_a">回复:</label>
-                        <label class="xiaohongzi">67</label>
-                    </div>
-                </div>
-                <div style="height: 55px;width: 840px ;float: left;border-bottom: 4px #f8f8f8 solid ">
-                    <div style="width: 750px;height: 40px;margin-top: 3px;margin-left: 5px;float: left  ">
-                        <div style="margin-left: 10px;margin-top: 5px">
-                            <label style="font-size: large;font-weight: bolder;color: #666666">【主题】此帖标题。。。。</label>
-                        </div>
-                    </div>
-                    <div style="float: left;width: 70px;margin-top: 15px">
-                        <a href="#" class="xiaohongzi" style="color: #666666">[复制链接]</a>
-                    </div>
-                </div>
-            </div>
-            <div style="height:auto;width: 1000px">
-                <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px" class="shutiao">
-                    <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
-                        <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 130px;height: 23px">
-                            <a href="#" class="louzhu">楼主</a>
-                        </div>
-                    </div>
-                    <div style="width: 154px;height: 180px">
-                        <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                            <a href="#"><img src='/Public/img/touxiang.png'
-                                             style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
-                        </div>
-                        <div style="margin-top: 10px;width: 145px">
-                            <a href="#"><img src="/Public/img/level.gif"></a>
-                        </div>
-                        <div style="width: 50px;float: left;margin-top: 10px">
-                            <ul class="li_shutiao">
-                                <li>UID</li>
-                                <li>精华</li>
-                                <li>威望</li>
-                                <li>经验</li>
-                                <li>金币</li>
-                                <li>元宝</li>
-                                <li>贡献</li>
-                                <li>注册时间</li>
-                                <li>最后登录</li>
-                            </ul>
-                        </div>
-                        <div style="width: 60px;float: left;margin-top: 10px;margin-left: 25px">
-                            <ul class="li_shutiao">
-                                <li>1709</li>
-                                <li>0</li>
-                                <li>0</li>
-                                <li>877</li>
-                                <li>1494</li>
-                                <li>100</li>
-                                <li>0</li>
-                                <li>2015-8-3</li>
-                                <li>2015-12-12</li>
-                            </ul>
-                        </div>
+</div>
 
-                    </div>
-
-                </div>
-                <div style="width: 844px;float: right;border-left:1px #e6e6e6 solid ;">
-                    <div style="height: 40px;width: 810px;border-bottom:1px dashed #CDCDCD;margin-left: auto;margin-right: auto">
-                        <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
-                            <label class="jieshao_a">发表于</label>&nbsp;
-                            <label class="jieshao_a">5天前</label>&nbsp;
-                            <label class="jieshao_a" style="color: #c8c8c8">|</label>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a">只看该作者</label></a>
-                        </div>
-                    </div>
-                    <div style="width: 814px;height: auto;margin-top: 10px;margin-left: 17px;border-bottom:1px dashed #CDCDCD">
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="jieshao_a" style="font-size: 14px">
-                                    <br>
-                                    摘要：小学生作文能力的培养写作能力是语文素养的综合体现。然而目前大多数学生的写作能力和水平不容乐观，一提到作文就头疼，苦于作文，烦于写作，写作兴趣更无从谈起。长此下去，不仅影响学生作文能力的提高，而且不利于学生语文综合素养的培养。小学生作文能力的培养因此，搞好作文教学是每个语文教师必须思考的问题。下面是笔者对作文教学的几点看法。
-                                    <br>
-                                    一小学生写作能力培养的方法
-                                    <br>
-                                    （一） 情趣引导，焕发写作灵感
-                                    <br>
-                                    兴趣是入门的向导。每个人从事各小学生作文能力的培养种各样的活动，都是由一定的活动动机、兴趣爱好引起的。激发兴趣和爱好是培养作文能力的关键。因此作文教学离不开良好的情趣参与，否则，收不到良好的教学效果。
-                                    <br>
-                                    创设情境，激发写作兴趣情动于衷而成于言小学生作文能力的培养。教师要充分发挥“情感”在作文教学中的作用，通过如临其境、如见其人的情感体验，缩短学生与作文中人物的心理距离，使学生设身处地得去体会、去感受、去写作。所以，教师在教学中要通过各种途小学生作文能力的培养径，在习作指导中创设丰富多彩的情境（如利用电教媒体、小品表演、游戏等），利用语文教学的情感因素，激发学生共鸣，并创造条件，营造情感倾吐氛围，激活学生的思维，让学生畅所欲言，小学生作文能力的培养从而消除学生对作文的恐惧厌烦心理，真正地喜欢作文，这也为学生自由表达，真实写作打开通道。
-                                    <br>
-                                    注重感受，激发写作热情笔为心声小学生作文能力的培养，敢想、敢说是敢写的前提。教师要善于激发和保护好学生的这种热情、冲动和愿望。放手让学生说真话、实话。心里怎么想就怎么说，怎么说就怎么写。例如：笔者发现部分学生有写日记的习惯，而且都小学生作文能力的培养写真心话。笔者就试着让他们写“生活日记”“观察日记”等，并在全班朗读，教师适当的给予鼓励和表扬，使学生明白了作文就是在记录自己的真实生活，也使学生感受到写作文很简单，从而产生强烈的小学生作文能力的培养情趣。
-                                    <br>
-                                    (二) 积累素材，拓展知识空间
-                                    <br>
-                                    指导学生作文，要从内容入手。写小学生作文能力的培养作文困难的学生虽然兴趣被激活了，但往往还是“无话可说”，“无事可写”。因此，教师有必要帮助学生全方位、多角度地、广泛地搜集素材。
-                                    <br>
-                                    重视生活实践作文离不开生活。教师要引导学生从生活中来，到生活中去。学生自己看到、听到、想到的内容丰富了，作文的素材也就多了起来。教小学生作文能力的培养师可以经常安排学生在生活中观察事物，展开想象，鼓励学生积极参与生活实践，切实体验生活方方面面的酸甜苦辣，这样才能把学生思维的引线打开，使学生举一反三，去想生活中的事，从而积累生活素材小学生作文能力的培养，为写作开启鲜活的永不枯竭的源泉。
-                                    <br>
-                                    广开阅读门路读书破万卷，下笔如有神。增加阅读量也是积累素材的重要方法。作文所需要的遣词造句，布局谋篇在很大程度上依赖于阅读。读书能积小学生作文能力的培养累累语言，提高语文素养，学生才能准确生动地表情达意。因此，在作文教学中，要引导学生注意语言积累，要赋予语言生活气息，要能把语言还原于生活，发表一定的见解。在课外阅读中，对自己喜欢的语言，要能大体理解它的意思，摘抄下来；同时教师还要抓住教学时机，布置名篇阅读。新课程实施以来，新选入小学生作文能力的培养的课文具有极强的时代感，内容丰富，语言优美。教师要抓住每篇课文的特点，加强练习训练，使学生从中学到好的表现形式、手法，并应用于作文中来。
-
-
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-                    <div style="height: 40px;width: 810px;margin-left: auto;margin-right: auto">
-                        <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
-                            <a href="#" class="jieshao_a"><label class="jieshao_a"style="color: black">回复</label></a>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red">支持</label></a>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a">反对</label></a>&nbsp;
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+</foreach>
+<div style="height: 63px;width: 845px;margin:5px auto;">
+    <div style="width: 84px;height: auto;float: left;margin-top:10px">
+        <a href=""><img src="/Public/img/fatie.png"></a>
     </div>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <div style="float: left;height: 63px;width: 845px">
-        <div style="width: 84px;height: auto;float: left;margin-top:10px">
-            <a href=""><img src="/Public/img/fatie.png"></a>
-        </div>
-    </div>
+<div style="margin:10px 0 10px 145px;float:left;width:1000px;">
     <div style=";width:155px;">
-        <div style="float: left;height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid"
+        <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid"
              class="shutiao">
             <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                <a href="#"><img src='/Public/img/touxiang.png' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                <a href="#"><img src='/Public/img/touxiang.png'
+                                 style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
             </div>
         </div>
     </div>
 
-    <div style="margin-top: -1px ;height: 300px;float: left;width: 845px;margin-left: -1px" class="zlt_border">
+    <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
         <div style="margin-top: 20px;margin-left: 20px;float: left">
             <select name="zhuti" class="jieshao_a">
                 <option value="">选择主题分类</option>

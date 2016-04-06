@@ -24,10 +24,15 @@ class IndexController extends Controller
         $this->results = $results;
         $this->display();
     }
+
     public function ziluntan()
     {
+        $table=M('note');
+        $data=$table->join('dz_user on dz_user.id=dz_note.user_id','left')->field('dz_user.name,dz_note.*')->select();
+        $this->user=$data;
         $this->display();
     }
+
     public function loginCheck()
     {
         $table = M('user');
@@ -71,6 +76,12 @@ class IndexController extends Controller
     }
     public function tiezi()
     {
+        $table=M('note');
+        $data=$table->join('LEFT JOIN dz_user ON dz_user.id=dz_note.user_id')->select();
+        foreach($data as &$value){
+            $value['content']=html_entity_decode($value['content']);
+        }
+        $this->user=$data;
         $this->display();
     }
 
@@ -176,9 +187,12 @@ class IndexController extends Controller
     {
         $table=D('note');
         if($table->create()){
-            $table->add();
+           if($table->add()){
+               $this->success('发布成功','/Admin/index/tiezi');
+           }
         }
     }
+
 }
 
 
