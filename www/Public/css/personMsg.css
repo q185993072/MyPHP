@@ -1,6 +1,6 @@
 #bd
 {
-    height: 500px;
+    height: 400px;
     width: 400px;
     border: 1px solid black;
 }
@@ -32,7 +32,17 @@
 
 }
 
-.input select
+.input #gender
 {
     width: 143px;
+}
+
+#sbmt input
+{
+    margin: 10px 0 0 0;
+}
+
+.bnt
+{
+   background-color: deepskyblue;
 }

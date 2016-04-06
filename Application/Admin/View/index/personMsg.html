@@ -1,12 +1,12 @@
+ <link href="/Public/css/personMsg.css" rel="stylesheet" type="text/css"/>
 
-    <link href="/Public/css/personMsg.css" rel="stylesheet" type="text/css"/>
 <div id="bd">
     <div id="form">
         <form method="post" action="">
             <div class="label"><label>用户名: </label></div>
             <div class="input"><input type="text" name="name" value="{$result.name}"/></div>
             <div class="label"><label>性别: </label></div>
-            <div class="input"><select name="gender">
+            <div class="input"><select name="gender" id="gender">
                 <if condition="$result.gender EQ F">
                     <option value="F" selected="selected">女</option>
                     <option value="M">男</option>
@@ -15,10 +15,37 @@
                     <option value="M" selected="selected">男</option>
                 </if>
             </select></div>
-            <div class="label"><label>出生年份: </label></div>
+            <div class="label"><label>生日: </label></div>
             <div class="input">
+                <select name="year">
+                    <?php
+                    foreach($nians as $nian) {
+                    ?>
+                    <option value="<?=$nian?>"><?=$nian?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
 
+                <select name="month">
+                    <?php
+                    foreach($yues as $yue) {
+                    ?>
+                    <option value="<?=$yue?>"><?=$yue?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
 
+                <select name="day">
+                    <?php
+                    foreach($ris as $ri) {
+                    ?>
+                    <option value="<?=$ri?>"><?=$ri?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
             </div>
             <div class="label"><label>地址: </label></div>
             <div class="input"><input type="text" name="address" value="{$result.address}"/></div>
@@ -26,6 +53,10 @@
             <div class="input"><input type="email" name="email" value="{$result.email}"/></div>
             <div class="label"><label>手机: </label></div>
             <div class="input"><input type="text" name="mobile" value="{$result.mobile}"/></div>
+
+            <div id="sbmt">
+                <input type="submit" value="提交" class="btn"/>
+            </div>
         </form>
     </div>
 </div>

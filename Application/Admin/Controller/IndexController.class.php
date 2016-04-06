@@ -82,6 +82,16 @@ class IndexController extends Controller
      */
     public function personMsg()
     {
+
+        $nian = range(2012,1960);
+       $this->nians = $nian;
+
+        $yue = range(1,12);
+        $this->yues = $yue;
+
+        $ri = range(1,31);
+        $this->ris = $ri;
+
         $this->action = I('ac',0);
         $table = M('User');
         $id = I('id');
