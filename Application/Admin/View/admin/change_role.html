@@ -1,0 +1,15 @@
+<extend name="admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_fu">
+        <form method="post" action="Admin/Admin/change_role">
+            <label>用户名：</label>
+            <select name="username">
+               <foreach name="username" item="arr">
+                   <option value="{$arr.id}">{$arr.name}</option>
+               </foreach>
+            </select>
+            <button type="button">增加</button>
+        </form>
+    </div>
+</block>

@@ -110,4 +110,14 @@ class AdminController extends Controller
             echo false;
         }
     }
+    public function change_role()
+    {
+        layout(false);
+        $table = D('User');
+        $this->username = $table->select();
+
+
+
+        $this->display();
+    }
 }
