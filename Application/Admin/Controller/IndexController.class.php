@@ -103,13 +103,15 @@ class IndexController extends Controller
             $data=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->select();
             //分页开始
             $cont=count($data);
-            $page=new Page("$cont",3);
+            $page=new Page("$cont",1);
             $list=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->limit($page->firstRow,$page->listRows)->select();
 
             foreach($list as &$value){
                 $value['content']=html_entity_decode($value['content']);
             }
             $this->pinlun=$list;
+            $page->setConfig('prev','上一页');
+            $page->setConfig('next','下一页');
             $this->page=$page;
             $this->display();
 

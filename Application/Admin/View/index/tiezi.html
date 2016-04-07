@@ -157,16 +157,15 @@
      </foreach>
         <!--评论结束-->
 </div>
-{$page->show()}
+<div style="color:red;">{$page->show()}</div>
 
 <!--发表评论开始-->
 <div style="margin:10px 0 10px 0;float:left;width:1000px;">
 
     <div style=";width:155px;">
-        <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid"
-             class="shutiao">
+        <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid" class="shutiao">
             <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                <a href="#"><img src='/Public/img/touxiang.png' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                <a href="#"><img src='{$Think.session.image}' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
                 <a href="#" style="width:120px;display: inline-block;text-align:center;">{$Think.session.username}</a>
             </div>
         </div>
@@ -195,7 +194,7 @@
             initialFrameWidth: 600,
             initialFrameHeight: 140,
             toolbars: [
-                ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
+                [ 'source', 'forecolor', 'redo', 'bold']
             ]
         });
         var id = $('#tiezi').text();
