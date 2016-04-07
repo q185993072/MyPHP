@@ -118,26 +118,41 @@ class AdminController extends Controller
         layout(false);
         $user_id=$_GET['id'];
         $tableuser = D('user');
-        $this->username = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
-            ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id')
-            ->field('dz_user.name as username')
+        $this->username = $tableuser
+            ->field('dz_user.name as username,dz_user.id as user_id')
             ->where(['dz_user.id' => $user_id])
             ->select();
 
         $this->userrole = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
             ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id ')
-            ->field('dz_role.name as rolename')
+            ->field('dz_role.name as rolename,dz_role.id as role_id')
             ->where(['dz_user.id' => $user_id])
             ->select();
 
+        $tablerole = M('role');
+        $this->newrole = $tablerole->select();
 
-        $apple=$this->newrole = $tableuser->join('LEFT JOIN dz_user_role on dz_user_role.user_id=dz_user.id')
-            ->join('LEFT JOIN dz_role on dz_user_role.role_id=dz_role.id ')
-            ->field('dz_role.name as rolename')
-            ->select();
-        print_r($apple);
 
         $this->display();
+    }
+    public function change_role_save()
+    {
+        $role_ids=$_POST['role_id'];
+        $user_id=$_POST['user_id'];
+        $table=M('user_role');
+
+        $table->where(['user_id' => $user_id])->delete();
+
+        foreach($role_ids as $item){
+
+            $table->add([
+                'user_id' => $user_id,
+                'role_id' => $item
+            ]);
+
+        }
+
+        $this->success('修改成功',"/admin/admin/change_role_prem/id/$user_id");
     }
 
 }

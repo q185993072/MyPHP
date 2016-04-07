@@ -2,27 +2,33 @@
 <block name="main">
     <span>详细信息页</span>
     <div class="right_fu">
-        <form method="post" action="/Admin/Admin/change_role">
+        <form method="post" action="/Admin/Admin/change_role_save">
             <label>用户名：</label>
             <foreach name="username" item="arr1">
+                <input value="{$arr1.user_id}" name="user_id" style="display: none">
                 <input value="{$arr1.username}">
             </foreach>
 
             <label>当前角色：</label>
             <select name="rolename">
                 <foreach name="userrole" item="arr2">
-                    <option value="{$arr2.rolename}">{$arr2.rolename}</option>
+                    <option value="{$arr2.id}">{$arr2.rolename}</option>
                 </foreach>
             </select>
 
-            <label>新增角色：</label>
-            <select name="rolename">
-                <foreach name="userrole" item="arr2">
-                    <option value="{$arr2.rolename}">{$arr2.rolename}</option>
-                </foreach>
-            </select>
+           <br/> <label>新增角色：</label><br/>
+                 <if >
 
-            <input type="submit" value="修改">
+                 </if>
+
+                <foreach name="newrole" item="arr3">
+                   <label style="font-size: small;font-weight: normal">
+                       <input type="checkbox" style="width: 10%;height: auto;" name="role_id[]" value="{$arr3.id}"/>{$arr3.name}
+                   </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                </foreach>
+
+
+           <br/> <input type="submit" value="修改">
         </form>
     </div>
 </block>
