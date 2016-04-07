@@ -1,5 +1,5 @@
 <link href="/Public/ziluntan.css" rel="stylesheet" type="text/css">
-<div id="bd"  style="height: 1450px">
+<div id="bd"  style="height: auto">
     <div id="bankaidaohang" style="float: left;width: 135px;height: auto;">
         <div style="width: 134px;height: 43px;background-color: #F5F9FB;">
             <div style="width: 70px;height: 30px;margin-left: 10px">
@@ -26,7 +26,7 @@
     </div>
 
 
-    <div style="float: right;width:845px;height: 1350px">
+    <div style="float: right;width:845px;height: auto;margin-top: auto">
         <div class=" nav" style="height: 40px;width: 846px;float:left;">
             <div style=";margin-top: 9px;margin-left: 7px;float: left;width: 50px">
                 <label class="jieshao_a" style="font-weight: bolder;">板块名</label>
@@ -76,13 +76,7 @@
         </div>
 
 
-        <div style="float: left;height: 63px;border-bottom:2px solid #CDCDCD;width: 845px">
-            <div style="width: 84px;height: auto;float: left;margin-top:10px">
-                <a href="/Admin/index/fatie/id/{$Think.get.id}/uid/{$Think.session.id}"><img src="/Public/img/fatie.png"></a>
-            </div>
-        </div>
-
-        <div style=";height: 800px;margin-top: 30px;background-color: white" class="zlt_border">
+        <div style=";height: auto;margin-top: 30px;background-color: white" class="zlt_border">
             <div class="zlt_border" style="height: 40px;background-color: #EFEFEF;margin-left: -1px;border-top: 1px white solid "  >
                 <div style="float: left;margin-top: 9px;margin-left: 7px ;">
                     <a href="#" class="xiaohongzi">全部主题</a>&nbsp;&nbsp;&nbsp
@@ -236,42 +230,9 @@
                 {$pager->show()}
                 </div>
             </div>
-
-            <div style="float: left;height: 63px;width: 845px">
-                <div style="width: 84px;height: auto;float: left;margin-top:10px">
-                    <a href="/Admin/index/fatie"><img src="/Public/img/fatie.png"></a>
-                </div>
-            </div>
-            <div style="float: right;width:845px;">
-                <div class=" nav" style="height: 40px;width: 846px;float:left;">
-                    <div style=";margin-top: 9px;margin-left: 7px;float: left;width: 70px">
-                        <label class="jieshao_a" style="font-weight: bolder;">快速发帖</label>
-                    </div>
-                </div>
-            </div>
-
-            <div style="margin-top: -1px ;height: 300px;" class="zlt_border">
-                <div style="margin-top: 20px;margin-left: 20px;float: left">
-                    <select name="zhuti" class="jieshao_a" >
-                        <option value="">选择主题分类</option>
-                        <option value="zhuti1"  selected="selected">主题1</option>
-                    </select>
-                </div>
-                <div style="margin-top: 20px;margin-left: 20px ;float: left">
-                    <input style="width: 320px"/>
-                </div>
-
-                <div style="margin-top: 60px;margin-left: 20px">
-                    <script id="container" name="content" type="text/plain"></script>
-
-                </div>
-                <div style="margin-top: 5px;margin-left: 20px">
-                    <button  style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;"><strong>发表帖子</strong></button>
-                </div>
-            </div>
+</div>
         </div>
     </div>
-</div>
 <script type="text/javascript">
     var ue = UE.getEditor('container', {
         initialFrameWidth: 600,
@@ -279,9 +240,5 @@
         toolbars: [
             ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
         ]
-    });
-
-    $('.zbkdh').click(function(){
-        $('.bkdh').toggleClass('xianshi')
     });
 </script>
