@@ -23,6 +23,10 @@ class IndexController extends Controller
         $table = M('subsection');
         $results = $table->query("select * from dz_subsection ");
         $this->results = $results;
+
+        $table = M('note');
+        $result=$table->order(['created_at'=>'DESC'])->limit(5)->select();
+        $this->title=$result;
         $this->display();
     }
 
@@ -84,13 +88,8 @@ class IndexController extends Controller
     public function tiezi()
     {
             $table=M('user');
-            $uid=session('id');
-            if($id=I('id')){
-                $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
-            }else{
-                $data=$table->join("LEFT JOIN")->where("id=$uid")->select();
-             }
-
+            $id=I('id');
+            $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
             foreach($data as &$value){
                 $value['content']=html_entity_decode($value['content']);
             }
@@ -215,8 +214,8 @@ class IndexController extends Controller
     {
         $table=D('note');
         if($table->create()){
-           if($table->add()){
-               $this->success('发布成功','/Admin/index/tiezi');
+           if($ad=$table->add()){
+               $this->success('发布成功',"/Admin/index/tiezi/id/$ad");
            }
         }
     }

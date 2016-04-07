@@ -14,7 +14,7 @@
                 </ul>
             </div>
         </div>
-        <div style="float: left;width: 370px;height: 190px;margin-top: 22px">
+        <div style="float: left;width: 370px;height: 190px;margin-top: 6px">
             <div style="width: 368px;height: 30px">
                 <ul class="tabs">
                     <li class="lid" style="font-weight: normal">最新帖子</li>
@@ -23,9 +23,13 @@
                     <li class="lid" style="font-weight: normal">活跃会员</li>
                 </ul>
             </div>
-            <div class="bd_border"
-                 style="width: 350px;margin-top: -10px;margin-left: auto;margin-right: auto"></div>
-
+            <div class="bd_border" style="width: 300px;height:167px;border:1px solid #ccc;margin-top: -10px;margin-left: auto;margin-right: auto">
+                  <foreach name="title" item="arr">
+                      <div style="padding:5px 0 0 10px;border-bottom: 1px dashed #ccc;">
+                          <a href="/Admin/index/tiezi/id/{$arr.id}">{$arr.title}</a>
+                      </div>
+                  </foreach>
+            </div>
         </div>
     </div>
     <div style="float: left;width: 276px;height: 230px; margin-left: 15px" class="bd_border">
