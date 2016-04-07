@@ -8,6 +8,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $this->js='admin_index';
         if(!session('name')){
             $this->error('你已偏离正常轨道','/Admin/admin/login');
         }
@@ -21,6 +22,7 @@ class AdminController extends Controller
 
     public function add_fu()
     {
+        $this->js='admin_index';
         layout(false);
         $this->display();
     }
