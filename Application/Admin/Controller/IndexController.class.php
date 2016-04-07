@@ -25,50 +25,50 @@ class IndexController extends Controller
         $this->results = $results;
 
         $table = M('note');
-        $result=$table->order(['created_at'=>'DESC'])->limit(5)->select();
-        $this->title=$result;
+        $result = $table->order(['created_at' => 'DESC'])->limit(5)->select();
+        $this->title = $result;
         $this->display();
     }
 
     public function ziluntan()
     {
-        $table=M('note');
-        $data=$table->join('dz_user on dz_user.id=dz_note.user_id','left')->field('dz_user.name,dz_note.*')->select();
+        $table = M('note');
+        $data = $table->join('dz_user on dz_user.id=dz_note.user_id', 'left')->field('dz_user.name,dz_note.*')->select();
         $total = count($data);
-        $pager = new Page("$total",10);
-        $list  = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->field('dz_user.name,dz_note.*')->select();
-        $pager->setConfig('prev','上一页');
-        $pager->setConfig('next','下一页');
+        $pager = new Page("$total", 10);
+        $list = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->field('dz_user.name,dz_note.*')->select();
+        $pager->setConfig('prev', '上一页');
+        $pager->setConfig('next', '下一页');
 
         $this->pager = $pager;
         $this->list = $list;
-        $this->user=$data;
+        $this->user = $data;
         $this->display();
     }
 
     public function loginCheck()
     {
         $table = M('user');
-        $username =trim(I('username'));
+        $username = trim(I('username'));
         $password = trim(I('password'));
         $conditions = [
             'name' => $username,
         ];
         $result = $table->where($conditions)->find();
         if ($username && $password) {
-           if ($result) {
-               if (MD5($password) == $result['password']) {
-                   $_SESSION['auth'] = true;
-                   $_SESSION['username'] = $username;
-                   $_SESSION['id'] =$table->getFieldByName($username,'id');
-                   $_SESSION['image'] = $table->getFieldByName($username,'image');
-                   $this->success('登陆成功');
-               } else {
-                   $this->error('用户名或密码错误');
-               }
-           } else {
-               $this->error('用户名不存在');
-           }
+            if ($result) {
+                if (MD5($password) == $result['password']) {
+                    $_SESSION['auth'] = true;
+                    $_SESSION['username'] = $username;
+                    $_SESSION['id'] = $table->getFieldByName($username, 'id');
+                    $_SESSION['image'] = $table->getFieldByName($username, 'image');
+                    $this->success('登陆成功');
+                } else {
+                    $this->error('用户名或密码错误');
+                }
+            } else {
+                $this->error('用户名不存在');
+            }
         } else {
             $this->error('请填写用户名或密码');
         }
@@ -78,7 +78,7 @@ class IndexController extends Controller
     {
         $name = I('username');
         $table = M('user');
-        $conditions  = [
+        $conditions = [
             'name' => $name,
         ];
         $user = $table->where($conditions)->find();
@@ -90,14 +90,14 @@ class IndexController extends Controller
 
     public function tiezi()
     {
-            $table=M('user');
-            $id=I('id');
-            $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
-            foreach($data as &$value){
-                $value['content']=html_entity_decode($value['content']);
-            }
-            $this->user=$data;
-            $this->display();
+        $table = M('user');
+        $id = I('id');
+        $data = $table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
+        foreach ($data as &$value) {
+            $value['content'] = html_entity_decode($value['content']);
+        }
+        $this->user = $data;
+        $this->display();
     }
 
     public function logout()
@@ -114,13 +114,13 @@ class IndexController extends Controller
     public function personMsg()
     {
 
-        $nian = range(2012,1960);
-       $this->nians = $nian;
+        $nian = range(2012, 1960);
+        $this->nians = $nian;
 
-        $yue = range(1,12);
+        $yue = range(1, 12);
         $this->yues = $yue;
 
-        $ri = range(1,31);
+        $ri = range(1, 31);
         $this->ris = $ri;
 
         $table = M('User');
@@ -128,7 +128,7 @@ class IndexController extends Controller
         $conditions = [
             'id' => $id,
         ];
-       $this->result = $table->where($conditions)->find();
+        $this->result = $table->where($conditions)->find();
         $this->display();
     }
 
@@ -140,7 +140,7 @@ class IndexController extends Controller
         $year = I('year');
         $month = I('month');
         $day = I('day');
-        $age = $year . "-" . $month . "-" . $day ;
+        $age = $year . "-" . $month . "-" . $day;
         //print_r($_FILES);exit;
         if ($_FILES['image']['error'] == 0) {
             $upload = new Upload();
@@ -151,33 +151,33 @@ class IndexController extends Controller
             $upload->maxSize = 2 * 1024 * 1024;
             $upload->autoSub = true;
             if ($info = $upload->upload($_FILES)) {
-                $path ="/Uploads/" . $info['image']['savepath'] . $info['image']['savename'];
+                $path = "/Uploads/" . $info['image']['savepath'] . $info['image']['savename'];
                 if ($table->create()) {
                     $table->age = $age;
                     $table->image = $path;
                     if ($table->save()) {
-                        $_SESSION['image'] = $table->getFieldById($id,'image');
-                        $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
+                        $_SESSION['image'] = $table->getFieldById($id, 'image');
+                        $this->success('成功', '/admin/index/gerenzhuye?username=' . $_SESSION['username']);
                     } else {
-                        $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                        $this->error($table->getError(), "/admin/index/personMsg?id=" . $id);
                     }
                 } else {
-                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                    $this->error($table->getError(), "/admin/index/personMsg?id=" . $id);
                 }
             } else {
-                $this->error($upload->getError(),"/admin/index/personMsg?id=" . $id);
+                $this->error($upload->getError(), "/admin/index/personMsg?id=" . $id);
             }
         } else {
             if ($table->create()) {
                 $table->age = $age;
                 if ($table->save()) {
-                    $_SESSION['image'] = $table->getFieldById($id,'image');
-                    $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
+                    $_SESSION['image'] = $table->getFieldById($id, 'image');
+                    $this->success('成功', '/admin/index/gerenzhuye?username=' . $_SESSION['username']);
                 } else {
-                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                    $this->error($table->getError(), "/admin/index/personMsg?id=" . $id);
                 }
             } else {
-                $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                $this->error($table->getError(), "/admin/index/personMsg?id=" . $id);
             }
         }
     }
@@ -193,19 +193,20 @@ class IndexController extends Controller
             echo $b;
         }
     }
-    public  function yasuoimg()
+
+    public function yasuoimg()
     {
         $obj = new \Think\Image();
         $img = $obj->open('"/Public/img/lufei.png"');
-        echo "宽".$img->width()."</br>";
-        echo "MIME".$img->mime()."</br>";
-        echo "高".$img->height()."</br>";
-        echo "类型".$img->type()."</br>";
-       // $img->crop(400,175,50,50)->save('upload_2.png');//裁剪
-      //  $img->thumb(500,500,Image::IMAGE_THUMB_FILLED)->save("/Public/img/lufei2.png");//缩放并填充白边
-      //  $img->thumb(400,400,Image::IMAGE_THUMB_FIXED)->save("/Public/img/lufei3.png");//缩放并拉伸
-       // $img->water('shuiying.png')->save("/Public/img/lufei4.png");//加水印
-        $img->text('asdf','./ThinkPHP/Library/Think/Verify/ttfs/5.ttf','30','#999999',Image::IMAGE_THUMB_SOUTHEAST)->save("/Public/img/lufei4.png");
+        echo "宽" . $img->width() . "</br>";
+        echo "MIME" . $img->mime() . "</br>";
+        echo "高" . $img->height() . "</br>";
+        echo "类型" . $img->type() . "</br>";
+        // $img->crop(400,175,50,50)->save('upload_2.png');//裁剪
+        //  $img->thumb(500,500,Image::IMAGE_THUMB_FILLED)->save("/Public/img/lufei2.png");//缩放并填充白边
+        //  $img->thumb(400,400,Image::IMAGE_THUMB_FIXED)->save("/Public/img/lufei3.png");//缩放并拉伸
+        // $img->water('shuiying.png')->save("/Public/img/lufei4.png");//加水印
+        $img->text('asdf', './ThinkPHP/Library/Think/Verify/ttfs/5.ttf', '30', '#999999', Image::IMAGE_THUMB_SOUTHEAST)->save("/Public/img/lufei4.png");
     }
 
     public function fatie()
@@ -215,11 +216,11 @@ class IndexController extends Controller
 
     public function tie_save()
     {
-        $table=D('note');
-        if($table->create()){
-           if($ad=$table->add()){
-               $this->success('发布成功',"/Admin/index/tiezi/id/$ad");
-           }
+        $table = D('note');
+        if ($table->create()) {
+            if ($ad = $table->add()) {
+                $this->success('发布成功', "/Admin/index/tiezi/id/$ad");
+            }
         }
     }
 
@@ -227,11 +228,11 @@ class IndexController extends Controller
     {
         $name = I('name');
         $table = M('User');
-        $id = $table->getFieldByName($name,'id');
+        $id = $table->getFieldByName($name, 'id');
         $result = $table->query("select *,dz_note.title from dz_user left join dz_note on dz_note.user_id = dz_user.id where dz_user.id = $id GROUP by dz_note.created_at DESC ");
-        $total =  count($result);
+        $total = count($result);
         $pager = new Page("$total", 10);
-        $list  = $table->join('LEFT JOIN dz_note ON dz_note.user_id = dz_user.id')->where("dz_user.id = $id")->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->select();
+        $list = $table->join('LEFT JOIN dz_note ON dz_note.user_id = dz_user.id')->where("dz_user.id = $id")->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->select();
         $this->pager = $pager;
         $this->list = $list;
         $this->user = $result;
@@ -240,6 +241,19 @@ class IndexController extends Controller
         $this->display();
     }
 
+
+    public function forObey()
+    {
+        $id = I('id');
+        $action = I('ac');
+        $table = M('Note');
+        if ($action == 'jia') {
+             $table->where("id = $id")->setInc("jianum");
+             $zhichi = $table->where("id = $id")->field("jianum")->find();
+            echo $zhichi['jianum'];
+        }
+
+    }
 }
 
 
