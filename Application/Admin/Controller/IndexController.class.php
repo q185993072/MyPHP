@@ -90,7 +90,7 @@ class IndexController extends Controller
 
     public function tiezi()
     {
-<<<<<<< Updated upstream
+
             $this->js='admin_tiezi';
             $table=M('user');
             $id=I('id');
@@ -113,17 +113,6 @@ class IndexController extends Controller
             $this->pinlun=$list;
             $this->page=$page;
             $this->display();
-=======
-        $this->js = 'admin_tiezi';
-        $table = M('user');
-        $id = I('id');
-        $data = $table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
-        foreach ($data as &$value) {
-            $value['content'] = html_entity_decode($value['content']);
-        }
-        $this->user = $data;
-        $this->display();
->>>>>>> Stashed changes
 
     }
 
@@ -286,26 +275,21 @@ class IndexController extends Controller
         }
 
     }
-<<<<<<< Updated upstream
+
         public function pinlun_save()
         {
             $table = M('comment');
-            $note_id=I('get.note_id');
-            if($table->create()){
-                $table->note_id=$note_id;
-                $table->comment_time=date('Y-m-d H:i:s');
-                if($table->add()){
+            $note_id = I('get.note_id');
+            if ($table->create()) {
+                $table->note_id = $note_id;
+                $table->comment_time = date('Y-m-d H:i:s');
+                if ($table->add()) {
                     $this->redirect("/Admin/index/tiezi/id/$note_id");
                 }
             }
-=======
 
-    public function pinlun()
-    {
-        $table = M('comment');
-        print_r($table->create());
+        }
 
-    }
 
     public function resetPw()
     {
@@ -333,7 +317,7 @@ class IndexController extends Controller
             }
         } else {
             $this->error("请全部填写", "/admin/index/resetPw");
->>>>>>> Stashed changes
+
         }
     }
 }
