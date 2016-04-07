@@ -101,11 +101,16 @@ class IndexController extends Controller
 
             $table=M('comment');
             $data=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->select();
-            foreach($data as &$value){
+            //分页开始
+            $cont=count($data);
+            $page=new Page("$cont",3);
+            $list=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->limit($page->firstRow,$page->listRows)->select();
+
+            foreach($list as &$value){
                 $value['content']=html_entity_decode($value['content']);
             }
-            $this->pinlun=$data;
-
+            $this->pinlun=$list;
+            $this->page=$page;
             $this->display();
 
     }
