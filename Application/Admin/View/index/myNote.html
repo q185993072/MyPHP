@@ -8,20 +8,20 @@
         </div>
 
 
-       <div>
-           <div class="zbkdh">
-               <div style="width: 70px;height: 30px;margin-top: 5px;margin-left: 15px">
-                   <a href="#" class="jieshao_a">板块1</a>
-               </div>
-           </div>
-           <div class="bkdh xianshi" style="height: auto;width: 135px;float: left;">
-               <div style="margin-left: 10px;margin-top: 5px">
-                   <a href="#" class="jieshao_a">子版块1</a><br/>
-                   <a href="#" class="jieshao_a">子版块2</a><br/>
-                   <a href="#" class="jieshao_a">子版块3</a><br/>
-               </div>
-           </div>
-       </div>
+        <div>
+            <div class="zbkdh">
+                <div style="width: 70px;height: 30px;margin-top: 5px;margin-left: 15px">
+                    <a href="#" class="jieshao_a">板块1</a>
+                </div>
+            </div>
+            <div class="bkdh xianshi" style="height: auto;width: 135px;float: left;">
+                <div style="margin-left: 10px;margin-top: 5px">
+                    <a href="#" class="jieshao_a">子版块1</a><br/>
+                    <a href="#" class="jieshao_a">子版块2</a><br/>
+                    <a href="#" class="jieshao_a">子版块3</a><br/>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -196,44 +196,44 @@
 
                     </div>
                 </div>
-            <foreach name="list" item="arr">
-                <div id="zhutitie" style="margin-right: auto;margin-left: auto">
-                    <div class="hang">
-                        <div style="height: 40px;width: 830px;border-top: 1px #E6E6E6 solid;">
-                            <div style="float: left;margin-top: 8px">
-                                <img src="/Public/img/zhuti.gif">
-                            </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 4px">
-                                <a href="" class="xiaohongzi" style="color:#007cd5;">[各类主题]</a>
-                            </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 8px;width: 300px">
-                                <a href="/admin/index/tiezi/id/{$arr.id}" class="jieshao_a" style="font-size: 85%"> {$arr.title}</a>
-                            </div>
-                            <div style="float: left;margin-left:95px ;width: 150px">
-                                <a href="" class="jieshao_a" style="font-size: 75% ;">{$arr.name}</a><br/>
-                                <label class="jieshao_a" style="font-size: 70%">{$arr.created_at}</label>
-                            </div>
-                            <div style="float: left;margin-left:5px;width: 65px;margin-top: 8px">
-                                <label class="xiaohongzi" style="font-size: 75%">12</label>
-                                <label class="jieshao_a" style="font-size: 75%">/</label>
-                                <label class="jieshao_a" style="font-size: 75%">115</label>
-                            </div>
-                            <div style="float: left;margin-left:12px;width:100px;">
-                                <a href="#" class="jieshao_a" style="font-size: 75%">作者名</a><br>
-                                <a href="#" class="jieshao_a" style="font-size: 70%">2016-4-1 10:34</a>
-                            </div>
+                <foreach name="list" item="arr">
+                    <div id="zhutitie" style="margin-right: auto;margin-left: auto">
+                        <div class="hang">
+                            <div style="height: 40px;width: 830px;border-top: 1px #E6E6E6 solid;">
+                                <div style="float: left;margin-top: 8px">
+                                    <img src="/Public/img/zhuti.gif">
+                                </div>
+                                <div style="float: left;margin-top: 10px;margin-left: 4px">
+                                    <a href="" class="xiaohongzi" style="color:#007cd5;">[各类主题]</a>
+                                </div>
+                                <div style="float: left;margin-top: 10px;margin-left: 8px;width: 300px">
+                                    <a href="/admin/index/tiezi/id/{$arr.id}" class="jieshao_a" style="font-size: 85%"> {$arr.title}</a>
+                                </div>
+                                <div style="float: left;margin-left:95px ;width: 150px">
+                                    <a href="" class="jieshao_a" style="font-size: 75% ;">{$arr.name}</a><br/>
+                                    <label class="jieshao_a" style="font-size: 70%">{$arr.created_at}</label>
+                                </div>
+                                <div style="float: left;margin-left:5px;width: 65px;margin-top: 8px">
+                                    <label class="xiaohongzi" style="font-size: 75%">12</label>
+                                    <label class="jieshao_a" style="font-size: 75%">/</label>
+                                    <label class="jieshao_a" style="font-size: 75%">115</label>
+                                </div>
+                                <div style="float: left;margin-left:12px;width:100px;">
+                                    <a href="#" class="jieshao_a" style="font-size: 75%">作者名</a><br>
+                                    <a href="#" class="jieshao_a" style="font-size: 70%">2016-4-1 10:34</a>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-            </foreach>
+                </foreach>
             </div>
         </div>
 
         <div >
             <div class="zlt_border" style="height: 30px;background-color: #F2F2F2;margin-left: -1px;margin-top: 20px;border: 1px #C2D5E3 solid ">
                 <div style="margin-right: auto;margin-left: auto;margin-top: 5px;cursor: pointer;text-align: center">
-                    {$pager->show()}
+                {$pager->show()}
                 </div>
             </div>
 
@@ -272,23 +272,3 @@
         </div>
     </div>
 </div>
-
-
-
-<script type="text/javascript">
-    var ue = UE.getEditor('container', {
-        initialFrameWidth: 600,
-        initialFrameHeight: 140,
-        toolbars: [
-            ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
-    ]
-    });
-
-    $('.zbkdh').click(function(){
-        $('.bkdh').toggleClass('xianshi')
-    })
-
-
-
-</script>
-

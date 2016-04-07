@@ -28,7 +28,7 @@
 
         <div class="hd_dl border " style="float: right;width: 600px;height: auto;margin-top: 40px">
             <div style="float: right;width: 54px;height: 54px;">
-                <a href="#"><if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/img/user.png" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"></if></a>
+                <a href="/admin/index/gerenzhuye?username={$Think.session.username}"><if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/img/user.png" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"></if></a>
             </div>
             <div class="hd_dl border " style="float: right;width: 500px;height: auto;">
                 <div style="float: right;margin-right: 5px">
@@ -59,7 +59,7 @@
                     &nbsp;<a href="#" class="jieshao_a">查看新帖</a>
                 </div>
                 <div style="float: right;margin-right: 5px">
-                    &nbsp;<a href="#" class="jieshao_a">我的帖子</a>&nbsp;
+                    &nbsp;<a href="/admin/index/myNote?name={$Think.session.username}" class="jieshao_a">我的帖子</a>&nbsp;
                     <label class="jieshao_a" style="color: #daccda">|</label>
                 </div>
                 <div style="float: right;margin-right: 5px">
@@ -73,7 +73,7 @@
                     <label class="jieshao_a" style="color: #daccda">|</label>
                 </div>
                 <div style="float: right;margin-right: 5px">
-                    <label class="xiaohongzi">UID:123455</label>
+                    <label class="xiaohongzi">UID:{$Think.session.id}</label>
 
                 </div>
 

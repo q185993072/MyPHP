@@ -8,7 +8,7 @@
             <div class="input"><input type="text" name="name" value="{$result.name}" id="username"/><span id="name"></span></div>
             <div class="label"><label>性别: </label></div>
             <div class="input"><select name="gender" id="gender">
-                <if condition="$result.gender EQ F">
+                <if condition="$result.gender EQ 'F'">
                     <option value="F" selected="selected">女</option>
                     <option value="M">男</option>
                     <else/>

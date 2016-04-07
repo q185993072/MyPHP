@@ -4,6 +4,7 @@ namespace Admin\Controller;
 use Admin\Model\UserModel;
 use Think\Controller;
 use Think\Upload;
+use Think\Page;
 
 
 class IndexController extends Controller
@@ -29,6 +30,11 @@ class IndexController extends Controller
     {
         $table=M('note');
         $data=$table->join('dz_user on dz_user.id=dz_note.user_id','left')->field('dz_user.name,dz_note.*')->select();
+        $total = count($data);
+        $pager = new Page("$total",10);
+        $list  = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->select();
+        $this->pager = $pager;
+        $this->list = $list;
         $this->user=$data;
         $this->display();
     }
@@ -133,18 +139,35 @@ class IndexController extends Controller
         $month = I('month');
         $day = I('day');
         $age = $year . "-" . $month . "-" . $day ;
-        $upload = new Upload();
-        $upload->mimes = [
-            'image/png',
-            'image/jpeg',
-        ];
-        $upload->maxSize = 2 * 1024 * 1024;
-        $upload->autoSub = true;
-        if ($info = $upload->upload($_FILES)) {
-           echo  $path ="/Uploads/" . $info['image']['savepath'] . $info['image']['savename'];
+        //print_r($_FILES);exit;
+        if ($_FILES['image']['error'] == 0) {
+            $upload = new Upload();
+            $upload->mimes = [
+                'image/png',
+                'image/jpeg',
+            ];
+            $upload->maxSize = 2 * 1024 * 1024;
+            $upload->autoSub = true;
+            if ($info = $upload->upload($_FILES)) {
+                $path ="/Uploads/" . $info['image']['savepath'] . $info['image']['savename'];
+                if ($table->create()) {
+                    $table->age = $age;
+                    $table->image = $path;
+                    if ($table->save()) {
+                        $_SESSION['image'] = $table->getFieldById($id,'image');
+                        $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
+                    } else {
+                        $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                    }
+                } else {
+                    $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
+                }
+            } else {
+                $this->error($upload->getError(),"/admin/index/personMsg?id=" . $id);
+            }
+        } else {
             if ($table->create()) {
                 $table->age = $age;
-                $table->image = $path;
                 if ($table->save()) {
                     $_SESSION['image'] = $table->getFieldById($id,'image');
                     $this->success('成功','/admin/index/gerenzhuye?username=' . $_SESSION['username']);
@@ -154,8 +177,6 @@ class IndexController extends Controller
             } else {
                 $this->error($table->getError(),"/admin/index/personMsg?id=" . $id);
             }
-        } else {
-            $this->error($upload->getError(),"/admin/index/personMsg?id=" . $id);
         }
     }
 
@@ -198,6 +219,23 @@ class IndexController extends Controller
                $this->success('发布成功','/Admin/index/tiezi');
            }
         }
+    }
+
+    public function myNote()
+    {
+        $name = I('name');
+        $table = M('User');
+        $id = $table->getFieldByName($name,'id');
+        $result = $table->query("select *,dz_note.title from dz_user left join dz_note on dz_note.user_id = dz_user.id where dz_user.id = $id GROUP by dz_note.created_at DESC ");
+        $total =  count($result);
+        $pager = new Page("$total", 10);
+        $list  = $table->join('LEFT JOIN dz_note ON dz_note.user_id = dz_user.id')->where("dz_user.id = $id")->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->select();
+        $this->pager = $pager;
+        $this->list = $list;
+        $this->user = $result;
+
+
+        $this->display();
     }
 
 }

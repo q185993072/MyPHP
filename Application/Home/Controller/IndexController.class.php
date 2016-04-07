@@ -44,6 +44,7 @@ class IndexController extends Controller
     public function login_out()
     {
         session('username',null);
+        $_SESSION['auth'] = null;
         $this->redirect('/Home/index/index');
     }
 }
