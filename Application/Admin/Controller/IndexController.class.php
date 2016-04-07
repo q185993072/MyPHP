@@ -36,7 +36,10 @@ class IndexController extends Controller
         $data=$table->join('dz_user on dz_user.id=dz_note.user_id','left')->field('dz_user.name,dz_note.*')->select();
         $total = count($data);
         $pager = new Page("$total",10);
-        $list  = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->select();
+        $list  = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at'=>'DESC'])->limit($pager->firstRow,$pager->listRows)->field('dz_user.name,dz_note.*')->select();
+        $pager->setConfig('prev','上一页');
+        $pager->setConfig('next','下一页');
+
         $this->pager = $pager;
         $this->list = $list;
         $this->user=$data;

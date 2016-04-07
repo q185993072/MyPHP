@@ -94,7 +94,7 @@
                 <a href="/Home/register/register"><button type="button" class="register">马上注册</button></a>
             </div>
             <div class="photo">
-                <img src="/Public/images/photo.png" />
+                <if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/images/photo.png" /></if>
             </div>
         </div>
         <!--登录页面-->
