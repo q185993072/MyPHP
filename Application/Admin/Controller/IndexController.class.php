@@ -90,14 +90,16 @@ class IndexController extends Controller
 
     public function tiezi()
     {
-        $table = M('user');
-        $id = I('id');
-        $data = $table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
-        foreach ($data as &$value) {
-            $value['content'] = html_entity_decode($value['content']);
-        }
-        $this->user = $data;
-        $this->display();
+        $this->js='admin_tiezi';
+            $table=M('user');
+            $id=I('id');
+            $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
+            foreach($data as &$value){
+                $value['content']=html_entity_decode($value['content']);
+            }
+            $this->user=$data;
+            $this->display();
+
     }
 
     public function logout()
@@ -242,18 +244,27 @@ class IndexController extends Controller
     }
 
 
+
     public function forObey()
     {
         $id = I('id');
         $action = I('ac');
         $table = M('Note');
         if ($action == 'jia') {
-             $table->where("id = $id")->setInc("jianum");
-             $zhichi = $table->where("id = $id")->field("jianum")->find();
+            $table->where("id = $id")->setInc("jianum");
+            $zhichi = $table->where("id = $id")->field("jianum")->find();
             echo $zhichi['jianum'];
         }
 
     }
+
+        public
+        function pinlun()
+        {
+            $table = M('comment');
+            print_r($table->create());
+
+        }
 }
 
 
