@@ -5,7 +5,7 @@ use Think\Model;
 class ModelModel extends Model
 {
         protected $_auto=[
-            ['created_at','date',Model::MODEL_BOTH,'callback'],
+            ['created_at','date',Model::MODEL_INSERT,'callback'],
             ['updated_at','date',Model::MODEL_BOTH,'callback'],
             ['u_name','user_id',Model::MODEL_BOTH,'callback']
         ];
