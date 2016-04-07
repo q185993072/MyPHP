@@ -4,8 +4,9 @@
 $(function(){
     var abtn=$('.zlt_border .btn button');
     abtn.click(function(){
+        var value=$('.li_shutiao #tiezi').text();
         $.post('/Admin/index/pinlun',{},function(e){
-            alert(e);
+            alert(value);
         })
     })
 });
