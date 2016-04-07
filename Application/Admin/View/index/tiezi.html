@@ -11,8 +11,8 @@
     </div>
 
     <div>
-        <foreach name="user" item="arr">
             <div style="height:auto;width: 999px" class="tiezi_border">
+                <foreach name="user" item="arr">
                 <div style="height: auto;width: 1000px">
                     <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
                          class="tiezi_border">
@@ -115,42 +115,79 @@
                 </div>
         </foreach>
     </div>
+
+        <!--评论开始-->
+     <foreach name="pinlun" item="arr">
+        <div style="height:auto;width: 1000px;border:1px solid #ccc;float:left;background-color:white;">
+            <div style="float: left;width: 154px;margin-top: -1px;margin-left: -1px" >
+
+                    <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 120px;height:100%;">
+                        <a href="#" class="louzhu">{$arr.name}</a>
+                    </div>
+
+
+                    <div style="margin-left: 12px;margin-top: 30px ;width: 145px;">
+                        <a href="#"><img src='{$arr.image}' style="width: 131px;border-bottom: 1px solid #d1d1d1"></a>
+                    </div>
+
+            </div>
+
+            <div style="width: 844px;float: right;height:auto;">
+                <div style="height: 40px;width: 800px;border-bottom:1px dashed #ccc;margin-left: auto;margin-right: auto">
+                    <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
+                        <label class="jieshao_a">发表于</label>&nbsp;
+                        <label class="jieshao_a">{$arr.comment_time}</label>&nbsp;
+                        <label class="jieshao_a" style="color: #c8c8c8">|</label>&nbsp;
+                    </div>
+                </div>
+                <div style="width: 814px;height:100%;margin-top: 10px;margin-left: 17px;">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="jieshao_a" style="font-size: 14px">
+                                {$arr.content}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+     </foreach>
+        <!--评论结束-->
 </div>
 
+
+<!--发表评论开始-->
 <div style="margin:10px 0 10px 0;float:left;width:1000px;">
+
     <div style=";width:155px;">
         <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid"
              class="shutiao">
             <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                <a href="#"><img src='/Public/img/touxiang.png'
-                                 style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                <a href="#"><img src='/Public/img/touxiang.png' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                <a href="#" style="width:120px;display: inline-block;text-align:center;">{$Think.session.username}</a>
             </div>
         </div>
-
     </div>
-    <!--发表评论开始-->
-    <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
-        <div style="margin-top: 20px;margin-left: 20px;float: left">
-            <select name="zhuti" class="jieshao_a">
-                <option value="">选择主题分类</option>
-                <option value="zhuti1" selected="selected">主题1</option>
-            </select>
-        </div>
-        <div style="margin-top: 20px;margin-left: 20px ;float: left">
-            <input style="width: 320px"/>
-        </div>
 
-        <div style="margin-top: 60px;margin-left: 20px">
-            <script id="container" name="content" type="text/plain"></script>
-        </div>
-        <div style="margin-top: 5px;margin-left: 20px;" class="btn">
-            <button style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;">
-                <strong>发表回复</strong>
-            </button>
-        </div>
+    <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
+        <form method="post" action="/Admin/index/pinlun_save/note_id/{$Think.get.id}">
+                <div style="margin-top: 20px;margin-left: 20px" class="content">
+                    <script id="container" name="content" type="text/plain"></script>
+                </div>
+            <input type="hidden" value="{$Think.session.id}" name="user_id"/>
+            <div style="margin-top: 5px;margin-left: 20px;" class="btn">
+                <button style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;">
+                    <strong>发表回复</strong>
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 <!--发表评论结束-->
+</div>
+
 <script type="text/javascript">
     $(function () {
         var ue = UE.getEditor('container', {

@@ -90,7 +90,7 @@ class IndexController extends Controller
 
     public function tiezi()
     {
-        $this->js='admin_tiezi';
+            $this->js='admin_tiezi';
             $table=M('user');
             $id=I('id');
             $data=$table->join("LEFT JOIN dz_note ON $id=dz_note.id")->where('dz_note.user_id=dz_user.id')->select();
@@ -98,6 +98,14 @@ class IndexController extends Controller
                 $value['content']=html_entity_decode($value['content']);
             }
             $this->user=$data;
+
+            $table=M('comment');
+            $data=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->select();
+            foreach($data as &$value){
+                $value['content']=html_entity_decode($value['content']);
+            }
+            $this->pinlun=$data;
+
             $this->display();
 
     }
@@ -257,13 +265,17 @@ class IndexController extends Controller
         }
 
     }
-
-        public
-        function pinlun()
+        public function pinlun_save()
         {
             $table = M('comment');
-            print_r($table->create());
-
+            $note_id=I('get.note_id');
+            if($table->create()){
+                $table->note_id=$note_id;
+                $table->comment_time=date('Y-m-d H:i:s');
+                if($table->add()){
+                    $this->redirect("/Admin/index/tiezi/id/$note_id");
+                }
+            }
         }
 }
 
