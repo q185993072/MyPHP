@@ -129,6 +129,17 @@ class AdminController extends Controller
             ->where(['dz_user.id' => $user_id])
             ->select();
 
+        $this->userperm = $tableuser->join('LEFT JOIN dz_user_perm on dz_user_perm.user_id=dz_user.id')
+            ->join('LEFT JOIN dz_perm on dz_user_perm.perm_id=dz_perm.id')
+            ->field('dz_perm.id ,dz_perm.name as perm_name')
+            ->where(['dz_user.id' => $user_id])
+            ->select();
+
+
+        $tableperm = M('perm');
+        $this->newperm = $tableperm->select();
+
+
         $tablerole = M('role');
         $this->newrole = $tablerole->select();
 
@@ -139,8 +150,23 @@ class AdminController extends Controller
     {
         $role_ids=$_POST['role_id'];
         $user_id=$_POST['user_id'];
-        $table=M('user_role');
+        $perm_ids=$_POST['perm_id'];
 
+        $table_perm = M('user_perm');
+        $table_perm->where(['user_id' => $user_id])->delete();
+
+        foreach($perm_ids as $perm_id){
+            $table_perm->add([
+                'user_id' => $user_id,
+                'perm_id' => $perm_id,
+            ]);
+        }
+
+        $this->success('修改成功',"/admin/admin/change_role_prem/id/$user_id");
+
+
+
+        $table=M('user_role');
         $table->where(['user_id' => $user_id])->delete();
 
         foreach($role_ids as $item){
@@ -155,4 +181,53 @@ class AdminController extends Controller
         $this->success('修改成功',"/admin/admin/change_role_prem/id/$user_id");
     }
 
+    public function view_role_perm()
+    {
+        $table = M('role_perm');
+       $role_perms = $table->join('LEFT JOIN dz_perm on dz_role_perm.perm_id=dz_perm.id ')
+           ->join('LEFT JOIN dz_role on dz_role_perm.role_id=dz_role.id ')
+           ->field('dz_perm.name as perm_name, dz_role.name as role_name, dz_role.id as role_id')
+           ->select();
+        $rolename = [];
+        foreach ($role_perms as $role_perm) {
+            $rolename[$role_perm['role_id']]['role_id'] = $role_perm['role_id'];
+            $rolename[$role_perm['role_id']]['role_name'] = $role_perm['role_name'];
+            $rolename[$role_perm['role_id']]['perm_name'][] = $role_perm['perm_name'];
+        }
+        $this->rolename = $rolename;
+        $this->display();
+    }
+
+    public function add_role_perm()
+    {
+        $role_id=$_GET['id'];
+
+
+        $tablerole = M('role');
+
+            $this->rolename = $tablerole
+                ->field('dz_role.id as role_id,dz_role.name as role_name')
+                ->where(['dz_role.id'=>$role_id])
+                ->select();
+
+
+        $tableperm = M('perm');
+           $this->permname = $tableperm-> select();
+
+            $this->display();
+    }
+    public function role_perm_save()
+    {
+        $role_id = $_POST['role_id'];
+        $perm_ids = $_POST['perm_id'];
+        $table_role_perm = M('role_perm');
+        $table_role_perm->where(['role_id'=>$role_id])->delete();
+        foreach($perm_ids as $perm_id){
+            $table_role_perm->add([
+                'role_id'=>$role_id,
+                'perm_id'=>$perm_id,
+            ]);
+        }
+        $this->success('修改成功','/admin/admin/view_role_perm');
+    }
 }

@@ -16,10 +16,16 @@
                 </foreach>
             </select>
 
-           <br/> <label>新增角色：</label><br/>
-                 <if >
+            <label>当前权限：</label>
+            <select name="userperm">
+                <foreach name="userperm" item="arr4">
+                    <option value="{$arr4.id}">{$arr4.perm_name}</option>
+                </foreach>
+            </select>
 
-                 </if>
+
+
+            <br/> <label>新增角色：</label><br/>
 
                 <foreach name="newrole" item="arr3">
                    <label style="font-size: small;font-weight: normal">
@@ -28,7 +34,17 @@
                 </foreach>
 
 
-           <br/> <input type="submit" value="修改">
+
+            <br/> <label>另增权限：</label><br/>
+
+            <foreach name="newperm" item="arr5">
+                <label style="font-size: small;font-weight: normal">
+                    <input type="checkbox" style="width: 10%;height: auto;" name="perm_id[]" value="{$arr5.id}"/>{$arr5.name}
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+            </foreach>
+
+
+            <br/> <input type="submit" value="修改">
         </form>
     </div>
 </block>

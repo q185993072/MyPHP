@@ -1,0 +1,24 @@
+<extend name="admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_fu">
+        <form method="post" action="/Admin/Admin/role_perm_save">
+            <label>角色：</label>
+
+            <foreach name="rolename" item="arr1">
+                <input value="{$arr1.role_id}" name="role_id" style="display: none">
+                <input value="{$arr1.role_name}">
+            </foreach>
+
+
+            <br/><label>选择角色权限：</label>
+            <foreach name="permname" item="arr3">
+                <label style="font-size: small;font-weight: normal">
+                    <input type="checkbox" style="width: 10%;height: auto;" name="perm_id[]" value="{$arr3.id}"/>{$arr3.name}
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+            </foreach>
+
+           <br/> <input type="submit" value="修改">
+        </form>
+    </div>
+</block>

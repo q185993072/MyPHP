@@ -1,0 +1,25 @@
+<extend name="admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_fu">
+        <form method="post">
+            <table class="table table-border">
+                <tr>
+                    <th>id</th>
+                    <th>角色名</th>
+                    <th>当前权限</th>
+
+                    <th>操作</th>
+                </tr>
+                <foreach name="rolename" item="arr">
+                    <tr>
+                        <td>{$arr.role_id}</td>
+                        <td>{$arr.role_name}</td>
+                        <td>{:implode(',', $arr['perm_name'])}</td>
+                        <td><a href="/admin/admin/add_role_perm/id/{$arr.role_id}">修改</a> </td>
+                    </tr>
+                </foreach>
+            </table>
+        </form>
+    </div>
+</block>
