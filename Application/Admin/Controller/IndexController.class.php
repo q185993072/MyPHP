@@ -90,6 +90,7 @@ class IndexController extends Controller
 
     public function tiezi()
     {
+
             $this->js='admin_tiezi';
             $table=M('user');
             $id=I('id');
@@ -122,6 +123,7 @@ class IndexController extends Controller
         $_SESSION['auth'] = false;
         $_SESSION['username'] = null;
         $_SESSION['id'] = null;
+        $_SESSION['image'] = null;
         redirect("/admin/index/luntan");
     }
 
@@ -259,7 +261,6 @@ class IndexController extends Controller
     }
 
 
-
     public function forObey()
     {
         $id = I('id');
@@ -268,22 +269,59 @@ class IndexController extends Controller
         if ($action == 'jia') {
             $table->where("id = $id")->setInc("jianum");
             $zhichi = $table->where("id = $id")->field("jianum")->find();
-            echo $zhichi['jianum'];
+            echo true;
+        } else {
+            $table->where("id = $id")->setInc("jiannum");
+            $obey = $table->where("id = $id")->field("jiannum")->find();
+            echo true;
         }
 
     }
+
         public function pinlun_save()
         {
             $table = M('comment');
-            $note_id=I('get.note_id');
-            if($table->create()){
-                $table->note_id=$note_id;
-                $table->comment_time=date('Y-m-d H:i:s');
-                if($table->add()){
+            $note_id = I('get.note_id');
+            if ($table->create()) {
+                $table->note_id = $note_id;
+                $table->comment_time = date('Y-m-d H:i:s');
+                if ($table->add()) {
                     $this->redirect("/Admin/index/tiezi/id/$note_id");
                 }
             }
+
         }
+
+
+    public function resetPw()
+    {
+        $this->display();
+    }
+
+    public function resetPwSave()
+    {
+
+        $id = $_SESSION['id'];
+        $oldpw = trim(I('oldpassword'));
+        $newpw = trim(I('password'));
+        //echo $oldpw . $newpw;exit;
+        $table = M("User");
+        $result = $table->where("id = $id")->field('password')->find();
+        if ($oldpw && $newpw) {
+            if (MD5($oldpw) == $result['password']) {
+                if (mb_strlen($newpw, 'UTF-8') >= 6 && mb_strlen($newpw, 'UTF-8') <= 12) {
+                    $table->execute("update dz_user set password=" . "MD5('$newpw')" . " where id =$id");
+                    $this->success('成功', "/admin/index/gerenzhuye");
+
+                }
+            } else {
+                $this->error("旧密码错误", "/admin/index/resetPw");
+            }
+        } else {
+            $this->error("请全部填写", "/admin/index/resetPw");
+
+        }
+    }
 }
 
 
