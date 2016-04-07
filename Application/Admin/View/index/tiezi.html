@@ -11,8 +11,9 @@
     </div>
 
     <div>
+        <foreach name="user" item="arr">
         <div style="height:auto;width: 999px" class="tiezi_border">
-            <foreach name="user" item="arr">
+
                 <div style="height: auto;width: 1000px">
                     <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
                          class="tiezi_border">
@@ -37,7 +38,7 @@
                 </div>
 
 
-                <div style="height:auto;width: 1000px">
+                <div style="height:auto;width: 1000px;">
                     <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px"
                          class="shutiao">
                         <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
@@ -67,7 +68,7 @@
                                     <li>最后登录</li>
                                 </ul>
                             </div>
-                            
+                        </div>
                         <div style="width: 60px;float: left;margin-top: 10px;margin-left: 25px">
                             <ul class="li_shutiao">
                                 <li id="tiezi">{$arr.id}</li>
@@ -80,12 +81,10 @@
                                 <li>{$arr.created_at}</li>
                                 <li>2015-12-12</li>
                             </ul>
-
                         </div>
-
                     </div>
-                    <div style="width: 844px;float: right;border-left:1px #e6e6e6 solid ;">
-                        <div style="height: 40px;width: 810px;border-bottom:1px dashed #CDCDCD;margin-left: auto;margin-right: auto">
+                    <div style="width: 844px;float: right;border-left:1px solid #ccc;">
+                        <div style="height: 40px;width: 600px;border-bottom:1px dashed #ccc;margin-left: auto;margin-right: auto">
                             <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
                                 <label class="jieshao_a">发表于</label>&nbsp;
                                 <label class="jieshao_a">5天前</label>&nbsp;
@@ -106,19 +105,16 @@
 
                         </div>
                     </div>
-
+                 </div>
                 <div style="height: 40px;width: 810px;margin:auto;float:left;">
                     <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
                         <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
                         <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red" id="zhichi">支持</label></a>&nbsp;
                         <a href="#" class="jieshao_a"><label class="jieshao_a" id="obey">反对</label></a>&nbsp;
-
-
                         </div>
                     </div>
                 </div>
-            </foreach>
-        </div>
+      </foreach>
     </div>
 </div>
 
