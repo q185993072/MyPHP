@@ -12,8 +12,7 @@
 
     <div>
         <foreach name="user" item="arr">
-        <div style="height:auto;width: 999px" class="tiezi_border">
-
+            <div style="height:auto;width: 999px" class="tiezi_border">
                 <div style="height: auto;width: 1000px">
                     <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
                          class="tiezi_border">
@@ -35,86 +34,86 @@
                             <a href="#" class="xiaohongzi" style="color: #666666">[复制链接]</a>
                         </div>
                     </div>
-                </div>
 
 
-                <div style="height:auto;width: 1000px;">
-                    <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px"
-                         class="shutiao">
-                        <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
-                            <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 130px;height: 23px">
-                                <a href="#" class="louzhu">{$arr.name}</a>
+                    <div style="height:auto;width: 1000px;">
+                        <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px"
+                             class="shutiao">
+                            <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
+                                <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 130px;height: 23px">
+                                    <a href="#" class="louzhu">{$arr.name}</a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div style="width: 154px;height: 180px">
-                            <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                                <a href="#"><img src='{$arr.image}'
-                                                 style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                            <div style="width: 154px;height: 180px">
+                                <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
+                                    <a href="#"><img src='{$arr.image}'
+                                                     style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+                                </div>
+                                <div style="margin-top: 10px;width: 145px">
+                                    <a href="#"><img src="/Public/img/level.gif"></a>
+                                </div>
+                                <div style="width: 50px;float: left;margin-top: 10px">
+                                    <ul class="li_shutiao">
+                                        <li>UID</li>
+                                        <li>精华</li>
+                                        <li>威望</li>
+                                        <li>经验</li>
+                                        <li>金币</li>
+                                        <li>元宝</li>
+                                        <li>贡献</li>
+                                        <li>注册时间</li>
+                                        <li>最后登录</li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div style="margin-top: 10px;width: 145px">
-                                <a href="#"><img src="/Public/img/level.gif"></a>
-                            </div>
-                            <div style="width: 50px;float: left;margin-top: 10px">
+                            <div style="width: 60px;float: left;margin-top: 10px;margin-left: 25px">
                                 <ul class="li_shutiao">
-                                    <li>UID</li>
-                                    <li>精华</li>
-                                    <li>威望</li>
-                                    <li>经验</li>
-                                    <li>金币</li>
-                                    <li>元宝</li>
-                                    <li>贡献</li>
-                                    <li>注册时间</li>
-                                    <li>最后登录</li>
+                                    <li id="tiezi">{$arr.id}</li>
+                                    <li>0</li>
+                                    <li>0</li>
+                                    <li>877</li>
+                                    <li>1494</li>
+                                    <li>100</li>
+                                    <li>0</li>
+                                    <li>{$arr.created_at}</li>
+                                    <li>2015-12-12</li>
                                 </ul>
                             </div>
                         </div>
-                        <div style="width: 60px;float: left;margin-top: 10px;margin-left: 25px">
-                            <ul class="li_shutiao">
-                                <li id="tiezi">{$arr.id}</li>
-                                <li>0</li>
-                                <li>0</li>
-                                <li>877</li>
-                                <li>1494</li>
-                                <li>100</li>
-                                <li>0</li>
-                                <li>{$arr.created_at}</li>
-                                <li>2015-12-12</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="width: 844px;float: right;border-left:1px solid #ccc;">
-                        <div style="height: 40px;width: 600px;border-bottom:1px dashed #ccc;margin-left: auto;margin-right: auto">
-                            <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
-                                <label class="jieshao_a">发表于</label>&nbsp;
-                                <label class="jieshao_a">5天前</label>&nbsp;
-                                <label class="jieshao_a" style="color: #c8c8c8">|</label>&nbsp;
-                                <a href="#" class="jieshao_a"><label class="jieshao_a">只看该作者</label></a>
+                        <div style="width: 844px;float: right;border-left:1px solid #ccc;">
+                            <div style="height: 40px;width: 600px;border-bottom:1px dashed #ccc;margin-left: auto;margin-right: auto">
+                                <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 230px;height: 23px">
+                                    <label class="jieshao_a">发表于</label>&nbsp;
+                                    <label class="jieshao_a">5天前</label>&nbsp;
+                                    <label class="jieshao_a" style="color: #c8c8c8">|</label>&nbsp;
+                                    <a href="#" class="jieshao_a"><label class="jieshao_a">只看该作者</label></a>
+                                </div>
+                            </div>
+                            <div style="width: 814px;height: auto;margin-top: 10px;margin-left: 17px;border-bottom:1px dashed #CDCDCD">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td class="jieshao_a" style="font-size: 14px">
+                                            {$arr.content}
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div style="width: 814px;height: auto;margin-top: 10px;margin-left: 17px;border-bottom:1px dashed #CDCDCD">
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td class="jieshao_a" style="font-size: 14px">
-                                        {$arr.content}
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
                     </div>
-                 </div>
-                <div style="height: 40px;width: 810px;margin:auto;float:left;">
-                    <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
-                        <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
-                        <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red" id="zhichi">支持</label></a>&nbsp;
-                        <a href="#" class="jieshao_a"><label class="jieshao_a" id="obey">反对</label></a>&nbsp;
+                    <div style="height: 40px;width: 810px;margin:auto;float:left;">
+                        <!---->
+                        <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
+                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
+                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red"
+                                                                 id="zhichi">支持</label></a>&nbsp;
+                            <a href="#" class="jieshao_a"><label class="jieshao_a" id="obey">反对</label></a>&nbsp;
                         </div>
                     </div>
                 </div>
-      </foreach>
+        </foreach>
     </div>
 </div>
 
@@ -129,7 +128,7 @@
         </div>
 
     </div>
-<!--发表评论开始-->
+    <!--发表评论开始-->
     <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
         <div style="margin-top: 20px;margin-left: 20px;float: left">
             <select name="zhuti" class="jieshao_a">
@@ -153,7 +152,7 @@
 </div>
 <!--发表评论结束-->
 <script type="text/javascript">
-    $(function() {
+    $(function () {
         var ue = UE.getEditor('container', {
             initialFrameWidth: 600,
             initialFrameHeight: 140,
@@ -162,8 +161,8 @@
             ]
         });
         var id = $('#tiezi').text();
-        $('#zhichi').bind('click',function() {
-            $.post('/admin/index/forObey',{id:id,ac:'jia'},function(el) {
+        $('#zhichi').bind('click', function () {
+            $.post('/admin/index/forObey', {id: id, ac: 'jia'}, function (el) {
 
             })
         })
