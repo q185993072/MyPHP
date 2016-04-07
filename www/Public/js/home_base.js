@@ -197,4 +197,14 @@ $(function(){
             return false;
         }
     })
+
+    $('#denlu').click(function(){
+        var avalue=$('.right_login input').val();
+        if(avalue==0){
+            return true;
+        }else{
+            alert('请勿重复登陆');
+            return false;
+        }
+    })
 });
