@@ -1,0 +1,16 @@
+<div style=" width: 330px;height: 180px;margin-left: auto;margin-right: auto;background-color: white">
+    <form method="post" action="/admin/index/resetPwSave">
+        <input type="hidden" value="{$Think.session.id}"/>
+        <div style=" width: 100px;height: 20px;margin-top: 10px;margin-left: 20px;float: left"><label>旧密码：</label></div>
+        <div style=" width: 200px;float: left;margin-top: 10px;margin-left: 10px;"><input type="password" name="oldpassword"
+                                                                                         style="height: 20px;width: 150px;;"/>
+        </div>
+        <div style="width: 100px;height: 30px;margin-top: 10px;margin-left: 20px;float: left"><label>新密码：</label></div>
+        <div style="width: 200px;float: left;margin-top: 10px;margin-left: 10px;"><input type="password" name="password"
+                                                                                         style="height: 20px;width: 150px;" placeholder="请输入6至12位新密码"/>
+        </div>
+        <div style="width: 200px;float: left;margin-top: 10px;margin-left: 10px;"><input type="submit" value="确认修改"
+                                                                                         style="height: 30px;width: 100px;"/>
+        </div>
+    </form>
+</div>

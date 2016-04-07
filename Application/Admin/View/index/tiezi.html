@@ -108,8 +108,8 @@
                         <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
                             <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
                             <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red"
-                                                                 id="zhichi">支持</label></a>&nbsp;
-                            <a href="#" class="jieshao_a"><label class="jieshao_a" id="obey">反对</label></a>&nbsp;
+                                                                 id="zhichi">支持<span>({$arr.jianum})</span></label></a>&nbsp;
+                            <a href="#" class="jieshao_a"><label class="jieshao_a" id="obey">反对<span>({$arr.jiannum})</span></label></a>&nbsp;
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,17 @@
         var id = $('#tiezi').text();
         $('#zhichi').bind('click', function () {
             $.post('/admin/index/forObey', {id: id, ac: 'jia'}, function (el) {
+                if (el) {
+                    window.location.reload();
+                }
+            });
+        });
 
+        $('#obey').bind('click', function () {
+            $.post('/admin/index/forObey', {id: id, ac: 'jian'}, function (el) {
+                if (el) {
+                    window.location.reload();
+                }
             })
         })
     })

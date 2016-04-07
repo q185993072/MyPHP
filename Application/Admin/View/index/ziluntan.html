@@ -77,8 +77,9 @@
 
 
         <div style="float: left;height: 63px;border-bottom:2px solid #CDCDCD;width: 845px">
-            <div style="width: 84px;height: auto;float: left;margin-top:10px">
+            <div style="width: 84px;height: auto;float: left;margin-top:10px"  id="fatie">
                 <a href="/Admin/index/fatie/id/{$Think.get.id}/uid/{$Think.session.id}"><img src="/Public/img/fatie.png"></a>
+                <input type="hidden" value="{$Think.session.id}"/>
             </div>
         </div>
 
@@ -237,27 +238,25 @@
             </div>
 
             <div style="float: left;height: 63px;width: 845px">
-                <div style="width: 84px;height: auto;float: left;margin-top:10px">
+                <div style="width: 84px;height: auto;float: left;margin-top:10px"  id="faties">
                     <a href="/Admin/index/fatie/id/{$Think.get.id}/uid/{$Think.session.id}"><img src="/Public/img/fatie.png"></a>
+                    <input type="hidden" value="{$Think.session.id}"/>
                 </div>
             </div>
-            <div style="float: right;width:845px;">
-                <div class=" nav" style="height: 40px;width: 846px;float:left;">
-                    <div style=";margin-top: 9px;margin-left: 7px;float: left;width: 70px">
-                        <label class="jieshao_a" style="font-weight: bolder;">快速发帖</label>
+            <if condition="$Think.session.auth EQ 1">
+                <div style="float: right;width:845px;">
+                    <div class=" nav" style="height: 40px;width: 846px;float:left;">
+                        <div style=";margin-top: 9px;margin-left: 7px;float: left;width: 70px">
+                            <label class="jieshao_a" style="font-weight: bolder;">快速发帖</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            <form method="post" action="/admin/index/tie_save">
+                <input type="hidden" name="user_id" value="{$Think.session.id}"/>
+                <input type="hidden" name="subsection_id" value="{$Think.get.id}"/>
             <div style="margin-top: -1px ;height: 300px;" class="zlt_border">
-                <div style="margin-top: 20px;margin-left: 20px;float: left">
-                    <select name="zhuti" class="jieshao_a" >
-                        <option value="">选择主题分类</option>
-                        <option value="zhuti1"  selected="selected">主题1</option>
-                    </select>
-                </div>
                 <div style="margin-top: 20px;margin-left: 20px ;float: left">
-                    <input style="width: 320px"/>
+                   <label>标题:</label> <input type="text" name="title" style="width: 320px"/>
                 </div>
 
                 <div style="margin-top: 60px;margin-left: 20px">
@@ -268,6 +267,16 @@
                     <button  style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;"><strong>发表帖子</strong></button>
                 </div>
             </div>
+            </form>
+                <else/>
+                <div style="float: right;width:845px;">
+                    <div class=" nav" style="height: 40px;width: 846px;float:left;">
+                        <div style=";margin-top: 9px;margin-left: 7px;float: left;width: 170px">
+                            <label class="jieshao_a" style="font-weight: bolder;">登陆后可以体验快速发帖</label>
+                        </div>
+                    </div>
+                </div>
+            </if>
         </div>
     </div>
 </div>
@@ -275,19 +284,36 @@
 
 
 <script type="text/javascript">
-    var ue = UE.getEditor('container', {
-        initialFrameWidth: 600,
-        initialFrameHeight: 140,
-        toolbars: [
-            ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
-    ]
-    });
+    $(function() {
+        var ue = UE.getEditor('container', {
+            initialFrameWidth: 600,
+            initialFrameHeight: 140,
+            toolbars: [
+                ['fullscreen', 'source', 'forecolor', 'redo', 'bold']
+            ]
+        });
 
-    $('.zbkdh').click(function(){
-        $('.bkdh').toggleClass('xianshi')
+        $('.zbkdh').click(function(){
+            $('.bkdh').toggleClass('xianshi')
+        });
+
+
+        $("#fatie").bind("click",function() {
+            var id = $("#fatie input").val();
+            if(id == 0) {
+                alert('请登录后发帖');
+                return false;
+            }
+        });
+
+        $("#faties").bind("click",function() {
+            var id = $('#faties input').val();
+            if (id == 0) {
+                alert('请登录后发帖');
+                return false;
+            }
+        })
     })
-
-
 
 </script>
 
