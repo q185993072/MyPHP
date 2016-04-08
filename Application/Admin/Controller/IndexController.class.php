@@ -252,7 +252,10 @@ class IndexController extends Controller
         $total = count($result);
         $pager = new Page("$total", 10);
         $list = $table->join('LEFT JOIN dz_note ON dz_note.user_id = dz_user.id')->where("dz_user.id = $id")->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->select();
+        $pager->setConfig('prev', '上一页');
+        $pager->setConfig('next', '下一页');
         $this->pager = $pager;
+        //print_r($pager);exit;
         $this->list = $list;
         $this->user = $result;
 
@@ -267,12 +270,12 @@ class IndexController extends Controller
         $action = I('ac');
         $table = M('Note');
         if ($action == 'jia') {
-            $table->where("id = $id")->setInc("jianum");
-            $zhichi = $table->where("id = $id")->field("jianum")->find();
+             $table->where("id = $id")->setInc("jianum");
+             $table->where("id = $id")->field("jianum")->find();
             echo true;
         } else {
             $table->where("id = $id")->setInc("jiannum");
-            $obey = $table->where("id = $id")->field("jiannum")->find();
+            $table->where("id = $id")->field("jiannum")->find();
             echo true;
         }
 

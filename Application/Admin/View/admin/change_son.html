@@ -1,0 +1,24 @@
+<extend name="Admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_fu">
+        <form method="post" action="Admin/Admin/change_son">
+            <label>父版块选择：</label>
+            <select name="model_id" style="width:180px;">
+                <option value="0">-----请选择父版块-----</option>
+                <foreach name="fu" item="arr">
+
+                    <if condition="$arr.id EQ $Think.get.mid">
+                            <option value="{$arr.id}" selected="selected">{$arr.title}</option>
+                        <else />
+                            <option value="{$arr.id}">{$arr.title}</option>
+                    </if>
+
+                </foreach>
+        </select><br/>
+            <input type="hidden" name="id" value="{$son['id']}"/>
+            <label>子版块名称：</label><input type="text" name="title" value="{$son['title']}"/>
+            <input type="submit" value="修改">
+        </form>
+    </div>
+</block>

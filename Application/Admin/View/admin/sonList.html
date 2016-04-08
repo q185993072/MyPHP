@@ -1,0 +1,28 @@
+<extend name="Admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_list">
+        <table class="table table-border">
+            <tr>
+                <th>id</th>
+                <th>子版块名</th>
+                <th>创建时间</th>
+                <th>修改时间</th>
+                <th>所属父版块</th>
+                <th>创建人</th>
+                <th>操作</th>
+            </tr>
+            <foreach name="title" item="arr">
+                <tr>
+                    <td>{$arr.id}</td>
+                    <td>{$arr.subtitle}</td>
+                    <td>{$arr.created_at}</td>
+                    <td>{$arr.updated_at}</td>
+                    <td>{$arr.title}</td>
+                    <td>{$arr.u_name}</td>
+                    <td><a href="/admin/admin/change_son/id/{$arr.id}/mid/{$arr.mid}">修改</a> <a href="/Admin/admin/delete_son/id/{$arr.id}">删除</a></td>
+                </tr>
+            </foreach>
+        </table>
+    </div>
+</block>

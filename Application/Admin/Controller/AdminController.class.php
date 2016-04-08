@@ -8,6 +8,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        $this->js='admin_index';
         if(!session('name')){
             $this->error('你已偏离正常轨道','/Admin/admin/login');
         }
@@ -21,6 +22,7 @@ class AdminController extends Controller
 
     public function add_fu()
     {
+        $this->js='admin_index';
         layout(false);
         $this->display();
     }
@@ -95,11 +97,21 @@ class AdminController extends Controller
 
     public function change_fu()
     {
-        $table=M('model');
+        $table=D('model');
         $id=$_GET['id'];
         $fid['id']=$id;
         $data=$table->where($fid)->find();
         $this->user=$data;
+
+
+        $fid['id']=I('post.id');
+        if($table->create()){
+            if($table->where($fid)->save()){
+                $this->success('修改成功','/Admin/admin/index');
+            }else{
+                $this->error('修改失败','/Admin/admin/index');
+            }
+        }
         $this->display();
     }
 
@@ -229,5 +241,58 @@ class AdminController extends Controller
             ]);
         }
         $this->success('修改成功','/admin/admin/view_role_perm');
+    }
+
+    public function sonList()
+    {
+        layout(false);
+
+        if(!session('name')){
+            $this->error('你已偏离正常轨道','/Admin/admin/login');
+        }
+
+        $table=D('subsection');
+        $data=$table->join('LEFT JOIN dz_model ON dz_model.id=dz_subsection.model_id')->order(['created_at'=>'ASC'])->field('dz_subsection.title as subtitle,dz_subsection.id,dz_subsection.created_at,dz_subsection.updated_at,dz_model.title,dz_model.id as mid')->select();
+        $this->assign('title',$data);
+        layout(false);
+        $this->display();
+    }
+
+    public function add_son()
+    {
+        $table=M('model');
+        $this->fu=$table->select();
+
+        $table=D('subsection');
+        if($table->create()){
+            if($table->add()){
+                $this->success('增加成功','/Admin/admin/add_son');
+            }else{
+                $this->error('增加失败','/Admin/admin/add_son');
+            }
+        }
+        layout(false);
+        $this->display();
+    }
+
+    public function delete_son()
+    {
+        $table=M('subsection');
+        $id=I('get.id');
+        if($table->delete($id)){
+           $this->redirect('/Admin/admin/sonList');
+         }
+    }
+
+    public function change_son()
+    {
+        layout(false);
+        $table=D('subsection');
+        $id['id']=I('get.id');
+        $this->son=$table->where($id)->find();
+
+        $table=M('model');
+        $this->fu=$table->select();
+        $this->display();
     }
 }

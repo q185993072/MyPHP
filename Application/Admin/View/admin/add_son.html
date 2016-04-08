@@ -1,0 +1,16 @@
+<extend name="admin/base"/>
+<block name="main">
+    <span>详细信息页</span>
+    <div class="right_fu">
+        <form method="post" action="/admin/admin/add_son">
+            <label>父版块选择：</label><select name="model_id" style="width:180px;">
+                                    <option value="0">-----请选择父版块-----</option>
+            <foreach name="fu" item="arr">
+                                        <option value="{$arr.id}">{$arr.title}</option>
+            </foreach>
+                                     </select><br/>
+            <label>子版块名称：</label><input type="text" name="title"/>
+            <input type="submit" value="增加" style="display: block;border:1px solid #ccc;margin:20px 0 0 0;width:80px;"/>
+        </form>
+    </div>
+</block>
