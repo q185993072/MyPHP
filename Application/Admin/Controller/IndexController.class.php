@@ -17,12 +17,13 @@ class IndexController extends Controller
     public function luntan()
     {
         $tables = M('model');
-        $result = $tables->select();
-        $this->zhus = $result;
+        $result = $tables->join('LEFT JOIN dz_subsection ON dz_model.id=dz_subsection.model_id')->field('dz_model.title as mtitle,dz_subsection.title,dz_subsection.id')->select();
+        $arr=[];
+        foreach($result as $key=>$value){
+            $arr[$value['mtitle']][]=$value;
+        }
+        $this->zhus = $arr;
 
-        $table = M('subsection');
-        $results = $table->query("select * from dz_subsection ");
-        $this->results = $results;
 
         $table = M('note');
         $result = $table->order(['created_at' => 'DESC'])->limit(5)->select();
@@ -102,9 +103,10 @@ class IndexController extends Controller
 
             $table=M('comment');
             $data=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->select();
+
             //分页开始
             $cont=count($data);
-            $page=new Page("$cont",1);
+            $page=new Page("$cont",3);
             $list=$table->join("LEFT JOIN dz_user ON dz_user.id=dz_comment.user_id")->where("$id=dz_comment.note_id")->limit($page->firstRow,$page->listRows)->select();
 
             foreach($list as &$value){

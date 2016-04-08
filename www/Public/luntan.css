@@ -1,12 +1,11 @@
 
 #hd{
 
-    height: 350px;
+    height: 320px;
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
     background-color: #EFEFEF
-
 }
 a{
     text-decoration:none;
@@ -56,9 +55,8 @@ a{
 .nav{
     background-image:url('/Public/img/nv.png');
     background-size: 100% 100%;
-
-
 }
+
 .input{
     border-radius: 5px;
     height: 33px;

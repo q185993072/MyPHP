@@ -317,8 +317,19 @@ class AdminController extends Controller
         $id['id'] = I('get.id');
         $this->son = $table->where($id)->find();
 
-        $table = M('model');
-        $this->fu = $table->select();
+
+        $tables=D('model');
+        $this->fu=$tables->select();
+
+        //修改开始
+
+        if( $table->create()){
+            if($table->save()){
+                $this->success('修改成功','/Admin/admin/sonList');
+            }else{
+                $this->error('修改失败','/Admin/admin/sonList');
+            }
+        }
         $this->display();
     }
 }

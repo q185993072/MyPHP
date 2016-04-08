@@ -8,7 +8,7 @@
                 <option value="0">-----请选择父版块-----</option>
                 <foreach name="fu" item="arr">
 
-                    <if condition="$arr.id EQ $Think.get.mid">
+                    <if condition="$arr.id EQ $_GET['mid']">
                             <option value="{$arr.id}" selected="selected">{$arr.title}</option>
                         <else />
                             <option value="{$arr.id}">{$arr.title}</option>

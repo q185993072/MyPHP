@@ -47,35 +47,29 @@
 
                             <div style="width: 154px;height: 180px">
                                 <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                                    <a href="#"><if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src='/Public/img/user.png'
-                                                     style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></if></a>
+                                    <a href="#">
+                                        <if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}"
+                                                                                           style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px">
+                                            <else/>
+                                            <img src='/Public/img/user.png'
+                                                 style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1">
+                                        </if>
+                                    </a>
                                 </div>
                                 <div style="margin-top: 10px;width: 145px">
                                     <a href="#"><img src="/Public/img/level.gif"></a>
                                 </div>
                                 <div style="width: 50px;float: left;margin-top: 10px">
-                                    <ul class="li_shutiao">
+                                    <ul class="li_shutiao" >
                                         <li>UID</li>
-                                        <li>精华</li>
-                                        <li>威望</li>
-                                        <li>经验</li>
-                                        <li>金币</li>
-                                        <li>元宝</li>
-                                        <li>贡献</li>
                                         <li>注册时间</li>
                                         <li>最后登录</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div style="width: 60px;float: left;margin-top: 10px;margin-left: 25px">
+                            <div style="width: 60px;float: left;margin-top: 10px;margin-left: 20px">
                                 <ul class="li_shutiao">
                                     <li id="tiezi">{$arr.id}</li>
-                                    <li>0</li>
-                                    <li>0</li>
-                                    <li>877</li>
-                                    <li>1494</li>
-                                    <li>100</li>
-                                    <li>0</li>
                                     <li>{$arr.created_at}</li>
                                     <li>2015-12-12</li>
                                 </ul>
@@ -115,8 +109,7 @@
                     </div>
                 </div>
             </foreach>
-        </div>
-
+</div>
         <!--评论开始-->
         <foreach name="pinlun" item="arr">
             <div style="height:auto;width: 1000px;border:1px solid #ccc;float:left;background-color:white;">
@@ -157,45 +150,43 @@
             </div>
         </foreach>
         <!--评论结束-->
-</div>
-<div style="color:red;">{$page->show()}</div>
-
-<!--发表评论开始-->
-<div style="margin:10px 0 10px 0;float:left;width:1000px;">
-
-    <div style=";width:155px;">
-        <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid" class="shutiao">
-            <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
-                <a href="#"><img src='{$Think.session.image}' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
-                <a href="#" style="width:120px;display: inline-block;text-align:center;">{$Think.session.username}</a>
-            </div>
-        </div>
-
-        <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
-            <form method="post" action="/Admin/index/pinlun_save/note_id/{$Think.get.id}">
-                <div style="margin-top: 20px;margin-left: 20px" class="content">
-                    <script id="container" name="content" type="text/plain"></script>
-                </div>
-                <input type="hidden" value="{$Think.session.id}" name="user_id"/>
-
-                <div style="margin-top: 5px;margin-left: 20px;" class="btn">
-                    <button style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;">
-                        <strong>发表回复</strong>
-                    </button>
-                </div>
-            </form>
-        </div>
     </div>
-    <!--发表评论结束-->
-</div>
+    <div style="color:red;">{$page->show()}</div>
 
+    <!--发表评论开始-->
+    <div style="margin:10px 0 10px 0;float:left;width:1000px;">
+            <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid;" class="shutiao">
+                <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
+                    <a href="#"><img src='{$Think.session.image}' style="width: 131px;height: 137px;border-bottom: 1px solid #d1d1d1"></a>
+
+                    <a href="#" style="width:120px;display: inline-block;text-align:center;">{$Think.session.username}</a>
+                </div>
+            </div>
+
+            <div style="margin-top: -1px ;height: 300px;width: 845px;margin-left: -1px;" class="zlt_border">
+                <form method="post" action="/Admin/index/pinlun_save/note_id/{$Think.get.id}">
+                    <div style="margin-top: 20px;margin-left: 20px" class="content">
+                        <script id="container" name="content" type="text/plain"></script>
+                    </div>
+                    <input type="hidden" value="{$Think.session.id}" name="user_id"/>
+
+                    <div style="margin-top: 5px;margin-left: 20px;" class="btn">
+                        <button style="background-color: #06c; background-position: 0 -48px; border-color: #235994; color: #fff !important;">
+                            <strong>发表回复</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        <!--发表评论结束-->
+    </div>
+</div>
 <script type="text/javascript">
     $(function () {
         var ue = UE.getEditor('container', {
             initialFrameWidth: 600,
             initialFrameHeight: 140,
             toolbars: [
-                [ 'source', 'forecolor', 'redo', 'bold']
+                ['source', 'forecolor', 'redo', 'bold']
             ]
         });
         var id = $('#tiezi').text();
