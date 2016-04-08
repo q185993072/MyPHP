@@ -86,11 +86,16 @@ class IndexController extends Controller
     public function gerenzhuye()
     {
         $name = I('username');
+        $id = $_SESSION['id'];
         $table = M('user');
         $conditions = [
             'name' => $name,
         ];
         $user = $table->where($conditions)->find();
+
+        $tables = M('note');
+        $arrs = $tables->where("user_id=$id")->find();
+        $this->arrs = $arrs;
 
         //print_r($user);
         $this->user = $user;

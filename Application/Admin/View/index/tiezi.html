@@ -95,8 +95,9 @@
                     </div>
                     <div style="height: 40px;width: 810px;margin:auto;float:left;">
                         <!---->
-                        <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;">
-                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black">回复</label></a>&nbsp;
+                        <div style="margin-top: 8px;margin-left: 10px ;width: 230px;height: 23px;" id="huifu">
+                            <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: black" id="huifus">回复</label></a>&nbsp;
+                            <input type="hidden" value="{$Think.session.id}"/>
                             <a href="#" class="jieshao_a"><label class="jieshao_a" style="color: red"
                                                                  id="zhichi">支持<span>({$arr.jianum})</span></label></a>&nbsp;
                             <a href="#" class="jieshao_a"><label class="jieshao_a"
@@ -156,6 +157,7 @@
     <div style="color:red;">{$page->show()}</div>
 
     <!--发表评论开始-->
+    <if condition="$Think.session.auth NEQ null">
     <div style="margin:10px 0 10px 0;float:left;width:1000px;">
             <div style="height: 300px;width: 150px;margin-top: -1px;margin-left: -1px;border: 1px #c8c8c8 solid;" class="shutiao">
                 <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
@@ -181,6 +183,7 @@
             </div>
         <!--发表评论结束-->
     </div>
+    </if>
 </div>
 <script type="text/javascript">
     $(function () {
@@ -206,6 +209,17 @@
                     window.location.reload();
                 }
             })
+        })
+
+        $("#huifus").bind("click",function() {
+            var id = $("#huifu input").val();
+            if(id == 0) {
+                alert('请登录后回复');
+                return false;
+            } else {
+                alert('登陆在底下');
+                return true;
+            }
         })
     })
 
