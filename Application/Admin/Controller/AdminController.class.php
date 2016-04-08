@@ -58,30 +58,36 @@ class AdminController extends Controller
         $tableperm=M('user');
         $user_role_perms = $tableperm->join('LEFT JOIN dz_user_role on dz_user_role.user_id = dz_user.id')
             ->join('LEFT JOIN dz_role on dz_user_role.role_id = dz_role.id')
-//            ->join('LEFT JOIN dz_role_perm on dz_role_perm.role_id = dz_role.id')
-//            ->join('LEFT JOIN dz_perm on dz_role_perm.perm_id = dz_perm.id')
-            ->field('dz_role.name as role_name')
+            ->join('LEFT JOIN dz_role_perm on dz_role_perm.role_id = dz_role.id')
+            ->join('LEFT JOIN dz_perm on dz_role_perm.perm_id = dz_perm.id')
+            ->field('dz_perm.name as perm_name')
             ->where(['dz_user.id'=>$id])
             ->select();
 
         $role_perm=[];
         foreach($user_role_perms as $user_role_perm){
-            $role_perm[]=$user_role_perm['role_name'];
+            $role_perm[]=$user_role_perm['perm_name'];
             $this->user_role_perms = $role_perm;
         }
-       // print_r($role_perm);
+      //  print_r($role_perm);
         session('perm_name',$role_perm);
 
         $user_perms = $tableperm->join('LEFT JOIN dz_user_perm on dz_user_perm.user_id = dz_user.id')
             ->join('LEFT JOIN dz_perm on dz_user_perm.perm_id = dz_perm.id')
-            ->field('dz_perm.id as perm_id,dz_perm.name as perm_name,dz_user.id as user_id')
+            ->field('dz_perm.name as perm_name')
             ->where(['dz_user.id'=>$id])
             ->select();
-        // print_r( $user_perms);
+        $perm=[];
+        foreach($user_perms as $user_perm){
+            $perm[]=$user_perm['perm_name'];
+            $this->user_perms=$perm;
+        }
+        // print_r( $perm);
 
+        $perms=array_unique(array_merge($perm,$role_perm));
 
-
-
+        $_SESSION['perm']=$perms;
+        print_r($_SESSION['perm']);
         $data = $table->create();
         $name['name'] = $data['name'];
         //$password['password']=$data['password'];
@@ -89,9 +95,9 @@ class AdminController extends Controller
         $pw = $table->getFieldByName($name['name'], 'password');
         session('name', $data['name']);
         if ($table->where($name)->select()) {
-            if(in_array('超级管理员',$role_perm)){
+            if(in_array('后台登录权限',$_SESSION['perm'])){
                 if (MD5($passwd) == $pw) {
-                     $this->success('登录成功', '/admin/admin/index');
+                    $this->success('登录成功', '/admin/admin/index');
 
                 } else {
                     $this->error('密码错误');
@@ -99,6 +105,7 @@ class AdminController extends Controller
             }else{
                 $this->error('您没有权限');
             }
+
 
         } else {
             $this->error('用户名不正确');
