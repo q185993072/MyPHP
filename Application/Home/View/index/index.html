@@ -93,8 +93,8 @@
                 <button type="button" class="login" id="denlu">会员登录</button>
                 <a href="/Home/register/register"><button type="button" class="register">马上注册</button></a>
             </div>
-            <div class="photo">
-                <if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/images/photo.png" /></if>
+            <div class="photo"><a href="/admin/index/gerenzhuye?name={$Think.session.username}">
+                <if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}" style="box-shadow: 1px 1px 3px  gray;width: 54px;height: 54px"><else/><img src="/Public/images/photo.png" /></if></a>
             </div>
         </div>
         <!--登录页面-->
@@ -104,6 +104,7 @@
                 <form method="post" action="/home/index/login_save">
                     <p><label>用户名: </label><input type="text" name="name" placeholder="请填写用户名"/></p>
                     <p><label>密码: </label><input type="password" name="password" placeholder="请正确填写密码"/></p>
+                    <p><a href="/admin/index/forgetPw"><label>忘记密码</label></a></p>
                     <input type="submit" value="登录" class="submit"/>
                 </form>
             </div>

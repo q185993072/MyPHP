@@ -120,6 +120,7 @@ class IndexController extends Controller
                 $value['content']=html_entity_decode($value['content']);
             }
             $this->pinlun=$list;
+
             $page->setConfig('prev','上一页');
             $page->setConfig('next','下一页');
             $this->page=$page;
@@ -307,15 +308,19 @@ class IndexController extends Controller
         public function pinlun_save()
         {
             $table = M('comment');
+            $content = trim(I('content'));
             $note_id = I('get.note_id');
-            if ($table->create()) {
-                $table->note_id = $note_id;
-                $table->comment_time = date('Y-m-d H:i:s');
-                if ($table->add()) {
-                    $this->redirect("/Admin/index/tiezi/id/$note_id");
+            if ($content) {
+                if ($table->create()) {
+                    $table->note_id = $note_id;
+                    $table->comment_time = date('Y-m-d H:i:s');
+                    if ($table->add()) {
+                        $this->redirect("/Admin/index/tiezi/id/$note_id");
+                    }
                 }
+            } else {
+                $this->error('请输入评论内容');
             }
-
         }
 
     public function resetPw()
@@ -395,6 +400,35 @@ class IndexController extends Controller
         }
     }
 
+
+    public function shanchu()
+    {
+        $time =  I('time');
+        $id = I('id');
+        $table = M('comment');
+        $condition = [
+            'comment_time' => $time,
+        ];
+        if ($table->where($condition)->delete()) {
+            $this->success("删除成功","/Admin/index/tiezi?id=" . $id);
+        } else {
+            $this->error("删除失败","/admin/index/tiezi?id=" . $id);
+        }
+    }
+
+    public function shantie()
+    {
+        $id = I('id');
+        $table = M('note');
+        $condition = [
+            'id' => $id,
+        ];
+        if ($table->where($condition)->delete()) {
+            $this->success("删除成功","/Admin/index/luntan");
+        } else {
+            $this->error("删除失败","/admin/index/tiezi?id=" . $id);
+        }
+    }
 }
 
 
