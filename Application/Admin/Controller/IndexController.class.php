@@ -28,6 +28,7 @@ class IndexController extends Controller
         $table = M('note');
         $result = $table->order(['created_at' => 'DESC'])->limit(5)->select();
         $this->title = $result;
+
         $this->display();
     }
 
