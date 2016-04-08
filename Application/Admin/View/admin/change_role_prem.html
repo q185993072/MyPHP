@@ -1,6 +1,7 @@
 <extend name="admin/base"/>
 <block name="main">
     <span>详细信息页</span>
+
     <div class="right_fu">
         <form method="post" action="/Admin/Admin/change_role_save">
             <label>用户名：</label>
@@ -9,38 +10,28 @@
                 <input value="{$arr1.username}">
             </foreach>
 
-            <label>当前角色：</label>
-            <select name="rolename">
-                <foreach name="userrole" item="arr2">
-                    <option value="{$arr2.id}">{$arr2.rolename}</option>
-                </foreach>
-            </select>
 
-            <label>当前权限：</label>
-            <select name="userperm">
-                <foreach name="userperm" item="arr4">
-                    <option value="{$arr4.id}">{$arr4.perm_name}</option>
-                </foreach>
-            </select>
+            <br/> <label>修改角色：</label><br/>
 
-
-
-            <br/> <label>新增角色：</label><br/>
-
-                <foreach name="newrole" item="arr3">
-                   <label style="font-size: small;font-weight: normal">
-                       <input type="checkbox" style="width: 10%;height: auto;" name="role_id[]" value="{$arr3.id}"/>{$arr3.name}
-                   </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                </foreach>
-
+            <foreach name="newrole" item="arr3">
+                <if condition="in_array($arr3['name'],$userroles)">
+                    <input type="checkbox" style="width: 24px;height: auto;" name="role_id[]" checked="checked"
+                           value="{$arr3.id}"/>{$arr3.name}
+                    <else/>
+                    <input type="checkbox" style="width: 24px;height: auto;" name="role_id[]" value="{$arr3.id}"/>{$arr3.name}
+                </if>
+            </foreach>
 
 
             <br/> <label>另增权限：</label><br/>
 
             <foreach name="newperm" item="arr5">
-                <label style="font-size: small;font-weight: normal">
-                    <input type="checkbox" style="width: 10%;height: auto;" name="perm_id[]" value="{$arr5.id}"/>{$arr5.name}
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <if condition="in_array($arr5['name'],$userperms)">
+                    <input type="checkbox" style="width: 24px;height: auto;" name="perm_id[]" checked="checked"
+                           value="{$arr5.id}"/>{$arr5.name}
+                    <else/>
+                    <input type="checkbox" style="width: 24px;height: auto;" name="perm_id[]" value="{$arr5.id}"/>{$arr5.name}
+                </if>
             </foreach>
 
 
