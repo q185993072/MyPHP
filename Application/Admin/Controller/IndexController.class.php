@@ -36,8 +36,15 @@ class IndexController extends Controller
         $table = M('note');
         $data = $table->join('dz_user on dz_user.id=dz_note.user_id', 'left')->field('dz_user.name,dz_note.*')->select();
         $total = count($data);
+        $id=I('get.id');
         $pager = new Page("$total", 5);
-        $list = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->field('dz_user.name,dz_note.*')->select();
+        $list = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->field('dz_user.name,dz_note.*')->where("dz_note.subsection_id=$id")->select();
+
+        //子模块名
+        $table=M('subsection');
+        $id=I('get.id');
+        $this->son=$table->where("id=$id")->find();
+
         $pager->setConfig('prev', '上一页');
         $pager->setConfig('next', '下一页');
 
@@ -116,6 +123,12 @@ class IndexController extends Controller
             $page->setConfig('prev','上一页');
             $page->setConfig('next','下一页');
             $this->page=$page;
+
+            //导航开始
+            $table=M('note');
+            $id=I('get.id');
+            $this->tiezi=$table->where("id=$id")->find();
+
             $this->display();
 
     }
