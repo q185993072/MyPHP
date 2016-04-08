@@ -35,7 +35,7 @@ class IndexController extends Controller
         $table = M('note');
         $data = $table->join('dz_user on dz_user.id=dz_note.user_id', 'left')->field('dz_user.name,dz_note.*')->select();
         $total = count($data);
-        $pager = new Page("$total", 10);
+        $pager = new Page("$total", 5);
         $list = $table->join('LEFT JOIN dz_user ON dz_note.user_id = dz_user.id')->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->field('dz_user.name,dz_note.*')->select();
         $pager->setConfig('prev', '上一页');
         $pager->setConfig('next', '下一页');
@@ -147,14 +147,22 @@ class IndexController extends Controller
         $conditions = [
             'id' => $id,
         ];
+
         $this->result = $table->where($conditions)->find();
+
+        $tables = M('question');
+        $results = $tables->select();
+        $this->results = $results;
+
         $this->display();
     }
 
     public function personMsgInsert()
     {
-
         $id = I('id');
+        $question = I('question');
+        $tb = M("user_question");
+        $tb->execute("update dz_user_question set question_id=$question where user_id=". $id);
         $table = D('User');
         $year = I('year');
         $month = I('month');
@@ -250,7 +258,7 @@ class IndexController extends Controller
         $id = $table->getFieldByName($name, 'id');
         $result = $table->query("select *,dz_note.title from dz_user left join dz_note on dz_note.user_id = dz_user.id where dz_user.id = $id GROUP by dz_note.created_at DESC ");
         $total = count($result);
-        $pager = new Page("$total", 10);
+        $pager = new Page("$total", 5);
         $list = $table->join('LEFT JOIN dz_note ON dz_note.user_id = dz_user.id')->where("dz_user.id = $id")->order(['dz_note.created_at' => 'DESC'])->limit($pager->firstRow, $pager->listRows)->select();
         $pager->setConfig('prev', '上一页');
         $pager->setConfig('next', '下一页');
@@ -295,7 +303,6 @@ class IndexController extends Controller
 
         }
 
-
     public function resetPw()
     {
         $this->display();
@@ -315,7 +322,6 @@ class IndexController extends Controller
                 if (mb_strlen($newpw, 'UTF-8') >= 6 && mb_strlen($newpw, 'UTF-8') <= 12) {
                     $table->execute("update dz_user set password=" . "MD5('$newpw')" . " where id =$id");
                     $this->success('成功', "/admin/index/gerenzhuye");
-
                 }
             } else {
                 $this->error("旧密码错误", "/admin/index/resetPw");
@@ -325,6 +331,55 @@ class IndexController extends Controller
 
         }
     }
+
+   public function forgetPw()
+    {
+        $table = M('question');
+        $results = $table->field("question")->select();
+        $this->results = $results;
+        $this->display();
+    }
+
+    public function forgetPwCheck()
+    {
+        $name = trim(I('name'));
+        $question = I('question');
+        $answer = trim(I('answer'));
+        $passWd = trim(I('password'));
+        $repassWd = trim(I('repassword'));
+        $table = M('User');
+        $condition = [
+            "name" => $name,
+        ];
+        $result = $table->where($condition)->find();
+        $id  = $result['id'];
+        if (count($result)) {
+           $questions =  $table->query("select *,dz_question.question from dz_user LEFT JOIN dz_user_question ON dz_user_question.user_id =dz_user.id Left join dz_question on dz_user_question.question_id = dz_question.id where dz_user.id=" . $id);
+            if ($question == $questions[0]['question']) {
+                $answers = $table->query("select answer from dz_user where id=" .$id);
+                if ($answers[0]['answer'] == $answer) {
+                    $tables = D('User');
+                    if ($tables->create()) {
+                        if ($passWd == $repassWd) {
+                            $tables->execute("update dz_user set password=" . "MD5('$passWd')" . " where id =$id");
+                            $this->success('成功', "/home/index/index");
+                        } else {
+                            $this->error('两次密码不一致',"/admin/index/forgetPw");
+                        }
+                    } else {
+                        $this->error($tables->getError(),"/admin/index/forgetPw");
+                    }
+                } else {
+                    $this->error('答案不正确',"/admin/index/forgetPw");
+                }
+            } else {
+                $this->error('密保问题不正确',"/admin/index/forgetPw");
+            }
+        } else {
+            $this->error('用户名不存在',"/admin/index/forgetPw");
+        }
+    }
+
 }
 
 

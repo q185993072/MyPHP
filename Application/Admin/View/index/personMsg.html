@@ -56,6 +56,16 @@
             <div class="input"><input type="text" name="mobile" value="{$result.mobile}"/></div>
             <div class="label"><label>头像: </label></div>
             <div class="input"><input type="file" name="image"/></div>
+
+            <div class="label"><label>密保: </label></div>
+            <div class="input"><select name="question" style="width: 150px;height: 25px">
+                <foreach name="results" item="result">
+                    <option value="{$result.id}">{$result.question}</option>
+                </foreach>
+            </select></div>
+
+            <div class="label"><label>答案: </label></div>
+            <div class="input"><input type="text" name="answer" value="{$result.answer}"/></div>
             <div id="sbmt">
                 <input type="submit" value="提交" class="btn"/>
             </div>
