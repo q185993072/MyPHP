@@ -12,11 +12,18 @@
 
 
             <br/><label>选择角色权限：</label>
+
             <foreach name="permname" item="arr3">
-                <label style="font-size: small;font-weight: normal">
-                    <input type="checkbox" style="width: 10%;height: auto;" name="perm_id[]" value="{$arr3.id}"/>{$arr3.name}
-                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <if condition="in_array($arr3['name'],$checkeds)">
+                   <input type="checkbox" style="width: 2px;height: auto;" name="perm_id[]" checked="checked" value="{$arr3.id}"/>{$arr3.name}
+                   <else/>
+                   <input type="checkbox" style="width: 2px;height: auto;" name="perm_id[]" value="{$arr3.id}"/>{$arr3.name}
+                    </if>
             </foreach>
+            <!--<label style="font-size: small;font-weight: normal">-->
+                <!--<input type="checkbox" style="width: 10%;height: auto;" name="perm_id[]"  value="{$arr3.id}"/>{$arr3.name}-->
+            <!--</label>&nbsp;&nbsp;&nbsp;&nbsp;-->
+
 
            <br/> <input type="submit" value="修改">
         </form>

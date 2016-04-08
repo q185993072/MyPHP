@@ -199,14 +199,15 @@ class AdminController extends Controller
        $role_perms = $table->join('LEFT JOIN dz_perm on dz_role_perm.perm_id=dz_perm.id ')
            ->join('LEFT JOIN dz_role on dz_role_perm.role_id=dz_role.id ')
            ->field('dz_perm.name as perm_name, dz_role.name as role_name, dz_role.id as role_id')
+           ->order('dz_role.id')
            ->select();
         $rolename = [];
-        foreach ($role_perms as $role_perm) {
+       foreach ($role_perms as $role_perm) {
             $rolename[$role_perm['role_id']]['role_id'] = $role_perm['role_id'];
             $rolename[$role_perm['role_id']]['role_name'] = $role_perm['role_name'];
             $rolename[$role_perm['role_id']]['perm_name'][] = $role_perm['perm_name'];
-        }
-        $this->rolename = $rolename;
+       }
+       $this->rolename = $rolename;
         $this->display();
     }
 
@@ -216,8 +217,22 @@ class AdminController extends Controller
 
 
         $tablerole = M('role');
+          $checkeds = $tablerole->join('LEFT JOIN dz_role_perm on dz_role_perm.role_id=dz_role.id ')
+                ->join('LEFT JOIN dz_perm on dz_role_perm.perm_id=dz_perm.id')
+                ->field('dz_perm.name as perm_name,dz_role.id as role_id')
+                ->where(['role_id'=>$role_id])
+                ->select();
+          $checked_name=[];
+           foreach($checkeds as $checked){
+               $checked_name[]=$checked['perm_name'];
+           }
+        $this->checkeds = $checked_name;
+        print_r($this->checkeds);
 
-            $this->rolename = $tablerole
+
+
+
+          $this->rolename = $tablerole
                 ->field('dz_role.id as role_id,dz_role.name as role_name')
                 ->where(['dz_role.id'=>$role_id])
                 ->select();
