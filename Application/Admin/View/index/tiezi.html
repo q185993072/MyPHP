@@ -102,9 +102,9 @@
                                                                  id="zhichi">支持<span>({$arr.jianum})</span></label></a>&nbsp;
                             <a href="#" class="jieshao_a"><label class="jieshao_a"
                                                                  id="obey">反对<span>({$arr.jiannum})</span></label></a>&nbsp;
-
-
-                            <a href="/admin/index/shantie?id={$Think.get.id}" class="jieshao_a"><label class="jieshao_a">删帖</label></a>&nbsp;
+                            <if condition="in_array('可删帖',$_SESSION['perm1'])">
+                                <a href="/admin/index/shantie?id={$Think.get.id}" class="jieshao_a"><label class="jieshao_a">删帖</label></a>&nbsp;
+                            </if>
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,9 @@
                         </table>
                     </div>
                     <div class="shanchu" style="margin: 75px 0 0 800px">
-                        <a href="/admin/index/shanchu?time={$arr.comment_time}&id={$Think.get.id}">删除</a>
+
+                            <a href="/admin/index/shanchu?time={$arr.comment_time}&id={$Think.get.id}">删除</a>
+
                     </div>
                 </div>
             </div>

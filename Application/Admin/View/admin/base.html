@@ -1,3 +1,4 @@
+
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -27,21 +28,27 @@
         <span><i></i>父版块信息</span>
         <div class="left_fu_list">
             <span><a href="/admin/admin/index">父版块列表</a></span>
-            <span><a href="/admin/admin/add_fu">增加父版块</a></span>
+            <if condition="in_array('增加父版块',$_SESSION['perm'])">
+                   <span><a href="/admin/admin/add_fu">增加父版块</a></span>
+            </if>
         </div>
 
 
         <span><i></i>子版块块信息</span>
         <div class="left_zi_list">
             <span><a href="/admin/admin/sonList">子版块列表</a></span>
-            <span><a href="/admin/admin/add_son">增加子版块</a></span>
+            <if condition="in_array('增加子版块',$_SESSION['perm'])">
+                 <span><a href="/admin/admin/add_son">增加子版块</a></span>
+            </if>
         </div>
 
         <span><i></i>用户信息</span>
         <div class="left_person_list">
             <span><a href="/admin/user/user">用户列表</a></span>
             <span>修改用户</span>
-            <span><a href="/admin/admin/view_role_perm">角色权限定制</a></span>
+            <if condition="in_array('权限修改',$_SESSION['perm'])">
+                 <span><a href="/admin/admin/view_role_perm">角色权限定制</a></span>
+            </if>
 
 
         </div>

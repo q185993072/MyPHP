@@ -87,7 +87,7 @@ class AdminController extends Controller
         $perms=array_unique(array_merge($perm,$role_perm));
 
         $_SESSION['perm']=$perms;
-        print_r($_SESSION['perm']);
+       // print_r($_SESSION['perm']);
         $data = $table->create();
         $name['name'] = $data['name'];
         //$password['password']=$data['password'];

@@ -9,7 +9,10 @@
                 <th>创建时间</th>
                 <th>修改时间</th>
                 <th>创建人</th>
-                <th>操作</th>
+                <if condition="in_array('修改父板块',$_SESSION['perm'])||in_array('删除父板块',$_SESSION['perm'])">
+                    <th>操作</th>
+                </if>
+
             </tr>
             <foreach name="title" item="arr">
                 <tr>
@@ -18,7 +21,12 @@
                     <td>{$arr.created_at}</td>
                     <td>{$arr.updated_at}</td>
                     <td>{$arr.u_name}</td>
-                    <td><a href="/admin/admin/change_fu/id/{$arr.id}">修改</a> <a name="delete" id="{$arr.id}">删除</a></td>
+                    <if condition="in_array('修改父板块',$_SESSION['perm'])">
+                        <td style="width: 40px"><a href="/admin/admin/change_fu/id/{$arr.id}">修改</a></td>
+                    </if>
+                    <if condition="in_array('删除父板块',$_SESSION['perm'])">
+                         <td style="width: 40px" > <a name="delete" id="{$arr.id}">删除</a></td>
+                    </if>
                 </tr>
             </foreach>
         </table>
