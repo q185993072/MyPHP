@@ -213,15 +213,20 @@ class IndexController extends Controller
             'id' => $id,
         ];
 
+
         $this->result = $table->where($conditions)->find();
 
         $tables = M('question');
         $results = $tables->select();
         $this->results = $results;
 
+        $result = $table->where($conditions)->find();
+        $this->result = $result;
+
+
         $this->display();
     }
-
+    
     public function personMsgInsert()
     {
         $id = I('id');
