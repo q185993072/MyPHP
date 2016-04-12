@@ -1,9 +1,10 @@
 <link href="/Public/ziluntan.css" rel="stylesheet" type="text/css">
-<div style="margin:0 0 10px 150px;height:30px;position: relative;">
-    <img src="/Public/img/home.png" height="28"/><a href="/Admin/index/luntan" style="margin:0 0 0 3px;position: absolute;top:3px;">首页</a> <span style="position: absolute;left:70px;top:3px;">/ {$son.title}</span>
-</div>
+
 
 <div id="bd"  style="height: 1450px">
+    <div style="height:30px;position: relative;">
+        <img src="/Public/img/home.png" height="28"/><a href="/Admin/index/luntan" class="jieshao_a" style="margin:0 0 0 3px;position: absolute;top:3px;">首页</a> <span class="jieshao_a" style="position: absolute;left:70px;top:3px;">/ {$son.title}</span>
+    </div>
     <div id="bankaidaohang" style="float: left;width: 135px;height: auto;">
         <div style="width: 134px;height: 43px;background-color: #F5F9FB;">
             <div style="width: 70px;height: 30px;margin-left: 10px">
@@ -13,18 +14,20 @@
 
 
        <div>
-           <div class="zbkdh">
-               <div style="width: 70px;height: 30px;margin-top: 5px;margin-left: 15px">
-                   <a href="#" class="jieshao_a">板块1</a>
+           <foreach name="mod" item="model">
+               <div class="zbkdh" id="{$model}q" >
+                   <div style="width: 70px;height: 30px;margin-top: 5px;margin-left: 15px">
+                       <label class="jieshao_a">{$model}</label>
+                   </div>
                </div>
-           </div>
-           <div class="bkdh xianshi" style="height: auto;width: 135px;float: left;">
-               <div style="margin-left: 10px;margin-top: 5px">
-                   <a href="#" class="jieshao_a">子版块1</a><br/>
-                   <a href="#" class="jieshao_a">子版块2</a><br/>
-                   <a href="#" class="jieshao_a">子版块3</a><br/>
+               <div id="{$model}" class="bkdh xianshi" style="height: auto;width: 135px;float: left;">
+                   <div style="margin-left: 10px;margin-top: 5px">
+                       <a href="#" class="jieshao_a">子版块1</a><br/>
+                       <a href="#" class="jieshao_a">子版块2</a><br/>
+                       <a href="#" class="jieshao_a">子版块3</a><br/>
+                   </div>
                </div>
-           </div>
+           </foreach>
        </div>
 
     </div>
@@ -297,8 +300,8 @@
             ]
         });
 
-        $('.zbkdh').click(function(){
-            $('.bkdh').toggleClass('xianshi')
+        $('#CBAq').click(function(){
+            $('#CBA').toggleClass('xianshi')
         });
 
 

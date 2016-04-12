@@ -97,7 +97,7 @@ class AdminController extends Controller
         if ($table->where($name)->select()) {
             if(in_array('后台登录权限',$_SESSION['perm'])){
                 if (MD5($passwd) == $pw) {
-                    $this->success('登录成功', '/admin/admin/index');
+                  $this->success('登录成功', '/admin/admin/index');
 
                 } else {
                     $this->error('密码错误');
@@ -291,7 +291,7 @@ class AdminController extends Controller
             $checked_name[] = $checked['perm_name'];
         }
         $this->checkeds = $checked_name;
-        print_r($this->checkeds);
+       // print_r($this->checkeds);
 
 
         $this->rolename = $tablerole

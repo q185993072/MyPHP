@@ -34,6 +34,15 @@ class IndexController extends Controller
 
     public function ziluntan()
     {
+        $table_model=M('model');
+        $select_models=[];
+        $models=$table_model->field('dz_model.title')->select();
+        foreach($models as $model){
+
+            $select_models[]=$model['title'];
+        }
+        $this->mod=$select_models;
+
         $table = M('note');
         $data = $table->join('dz_user on dz_user.id=dz_note.user_id', 'left')->field('dz_user.name,dz_note.*')->select();
         $total = count($data);

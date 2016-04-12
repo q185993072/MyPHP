@@ -1,15 +1,16 @@
 <link href="/Public/ziluntan.css" rel="stylesheet" type="text/css">
 
-<div style="margin:0 0 10px 150px;height:30px;position: relative;">
-    <img src="/Public/img/home.png" height="28"/><a href="/Admin/index/luntan" style="margin:0 0 0 3px;position: absolute;top:3px;">首页</a> <span style="position: absolute;left:70px;top:3px;">/ {$tiezi.title}</span>
-</div>
+
 
 <div id="bd" style="height:auto">
+    <div style="height:30px;position: relative;">
+        <img src="/Public/img/home.png" height="28"/><a href="/Admin/index/luntan" class="jieshao_a" style="margin:0 0 0 3px;position: absolute;top:3px;">首页</a> <span  class="jieshao_a" style="position: absolute;left:70px;top:3px;">/ {$tiezi.title}</span>
+    </div>
     <div>
         <div style="height:auto;width: 999px" class="tiezi_border">
             <foreach name="user" item="arr">
                 <div style="height: auto;width: 1000px">
-                    <div style="height: 55px;width: 156px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -2px;margin-top: -1px"
+                    <div style="height: 55px;width: 155px ;float: left;border-bottom: 4px #e6e6e6 solid ;margin-left: -1px;margin-top: -1px"
                          class="tiezi_border">
                         <div style="margin-top: 10px;margin-left: 13px">
                             <label class="jieshao_a">查看:</label>
@@ -32,7 +33,7 @@
 
 
                     <div style="height:auto;width: 1000px;">
-                        <div style="float: left;height: 600px;width: 154px;margin-top: -1px;margin-left: -1px"
+                        <div style="float: left;height: auto;width: 155px;margin-top: -1px"
                              class="shutiao">
                             <div style="height: 40px;width: 155px;border-bottom:1px dashed #CDCDCD;">
                                 <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 130px;height: 23px">
@@ -40,7 +41,7 @@
                                 </div>
                             </div>
 
-                            <div style="width: 154px;height: 180px">
+                            <div style="width: 155px;height: 180px;border-right: 1px solid #c8c8c8">
                                 <div style="margin-left: 12px;margin-top: 12px ;width: 145px">
                                     <a href="#">
                                         <if condition="$Think.session.image NEQ null"><img src="{$Think.session.image}"
@@ -113,7 +114,7 @@
         <!--评论开始-->
         <foreach name="pinlun" item="arr">
             <div style="height:auto;width: 1000px;border:1px solid #ccc;float:left;background-color:white;">
-                <div style="float: left;width: 154px;margin-top: -1px;margin-left: -1px">
+                <div style="float: left;width: 154px;margin-top: -1px;margin-left: -1px;">
 
                     <div style="margin-top: 8px;margin-left: 10px ;float: left;width: 120px;height:100%;">
                         <a href="#" class="louzhu">{$arr.name}</a>
