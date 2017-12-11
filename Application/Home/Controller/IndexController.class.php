@@ -7,6 +7,7 @@ class IndexController extends Controller
 {
     public function index()
     {
+        echo 123;
         $this->js='home_base';
         $this->cs='home_index';
         $this->display();
